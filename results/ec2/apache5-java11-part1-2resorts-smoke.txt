@@ -1,0 +1,58 @@
+HTTP transport: Apache HttpClient 5.6.4; events=5000, mainThreads=32
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Connected to resort 2
+Connected to resort 1
+Resort 1 connected in 249.267 ms
+Resort 2 connected in 222.482 ms
+Resort 1, update 1, server time: 2026-10-16T02:45:46.528925Z, received at: 2026-10-16T02:45:46.499493Z
+Resort 2, update 1, server time: 2026-10-16T02:45:46.529011Z, received at: 2026-10-16T02:45:46.538985Z
+Resort 1, update 2, server time: 2026-10-16T02:45:47.028922Z, received at: 2026-10-16T02:45:46.999713Z
+Resort 2, update 2, server time: 2026-10-16T02:45:47.028993Z, received at: 2026-10-16T02:45:47.000198Z
+Resort 1, update 3, server time: 2026-10-16T02:45:47.528929Z, received at: 2026-10-16T02:45:47.500039Z
+Resort 2, update 3, server time: 2026-10-16T02:45:47.529013Z, received at: 2026-10-16T02:45:47.500467Z
+Generation time: 0.006 seconds
+
+--- Warmup ---
+Successful: 320
+Failed: 0
+Runtime: 0.634 seconds
+
+--- Main ---
+Successful: 4680
+Failed: 0
+Runtime: 5.033 seconds
+
+--- Total ingest ---
+Successful: 5000
+Failed: 0
+Remaining in queue: 0
+Runtime: 5.667 seconds
+Throughput: 882.35 swipes/sec
+
+--- HTTP transport: Apache HttpClient 5.6.4 ---
+Application request attempts: 5000
+Application request retries: 0
+TCP connect attempts: 64
+TCP connections established: 64
+TCP connect attempts without success: 0
+TCP connections established during application retries: 0
+HTTP reconnection definition: new TCP opens during application retries; not all replacement/idle-expiry connections.
+Pool before close: leased=0, available=32, pending=0, max=32
+Sampled pool peaks (50 ms + attempt completion): leased=32, available=32, pending=0
+
+--- WebSocket subscriptions ---
+Resort 1: updates=12, connections=1, reconnections=0
+Resort 2: updates=12, connections=1, reconnections=0
+Total leaderboard updates: 24
+Push CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part1/results/pushes-1792118752077.csv
+
+--- WebSocket push latency ---
+Samples: 24
+Mean: -27.054 ms
+Median: -28.858 ms
+p95: -26.021 ms
+p99: 9.974 ms
+
+Total program runtime: 6.360 seconds

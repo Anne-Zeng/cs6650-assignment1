@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cs6650.assignment1</groupId>
+  <artifactId>ski-servlet</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <maven.compiler.release>11</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.websocket</groupId><!--Tomcat 是 9.0.122，所以按照讲义使用 javax.websocket-->
+      <artifactId>javax.websocket-api</artifactId><!--提供编写 WebSocket 代码需要的接口和注解-->
+      <version>1.1</version>
+      <scope>provided</scope><!--表示编译时需要它，服务器运行时由 Tomcat 提供。-->
+    </dependency>
+
+    <dependency>
+<!--让独立运行的 Java 客户端真正建立 WebSocket 连接-->
+      <groupId>org.glassfish.tyrus.bundles</groupId>
+      <artifactId>tyrus-standalone-client</artifactId>
+      <version>1.20</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>ski-servlet</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <warSourceDirectory>web</warSourceDirectory>
+          <webXml>web/WEB-INF/web.xml</webXml>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

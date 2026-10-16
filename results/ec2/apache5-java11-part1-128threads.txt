@@ -1,0 +1,106 @@
+HTTP transport: Apache HttpClient 5.6.4; events=500000, mainThreads=128
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Connected to resort 1
+Connected to resort 6
+Connected to resort 8
+Connected to resort 10
+Connected to resort 9
+Connected to resort 3
+Connected to resort 5
+Resort 6 connected in 182.403 ms
+Resort 1 connected in 239.393 ms
+Resort 10 connected in 178.487 ms
+Connected to resort 4
+Connected to resort 7
+Connected to resort 2
+Resort 9 connected in 178.933 ms
+Resort 8 connected in 179.928 ms
+Resort 5 connected in 196.531 ms
+Resort 3 connected in 198.302 ms
+Resort 2 connected in 215.997 ms
+Resort 7 connected in 197.243 ms
+Resort 4 connected in 213.568 ms
+Resort 1, update 1, server time: 2026-10-16T00:39:41.028904Z, received at: 2026-10-16T00:39:41.037069Z
+Resort 8, update 1, server time: 2026-10-16T00:39:41.030059Z, received at: 2026-10-16T00:39:41.095639Z
+Resort 2, update 1, server time: 2026-10-16T00:39:41.029004Z, received at: 2026-10-16T00:39:41.096433Z
+Resort 10, update 1, server time: 2026-10-16T00:39:41.030326Z, received at: 2026-10-16T00:39:41.097313Z
+Resort 4, update 1, server time: 2026-10-16T00:39:41.029440Z, received at: 2026-10-16T00:39:41.098053Z
+Resort 5, update 1, server time: 2026-10-16T00:39:41.029481Z, received at: 2026-10-16T00:39:41.098582Z
+Resort 3, update 1, server time: 2026-10-16T00:39:41.029384Z, received at: 2026-10-16T00:39:41.099101Z
+Resort 9, update 1, server time: 2026-10-16T00:39:41.030193Z, received at: 2026-10-16T00:39:41.099565Z
+Resort 7, update 1, server time: 2026-10-16T00:39:41.029893Z, received at: 2026-10-16T00:39:41.100167Z
+Resort 6, update 1, server time: 2026-10-16T00:39:41.029754Z, received at: 2026-10-16T00:39:41.100585Z
+Resort 7, update 2, server time: 2026-10-16T00:39:41.529252Z, received at: 2026-10-16T00:39:41.450756Z
+Resort 8, update 2, server time: 2026-10-16T00:39:41.529282Z, received at: 2026-10-16T00:39:41.451790Z
+Resort 2, update 2, server time: 2026-10-16T00:39:41.529023Z, received at: 2026-10-16T00:39:41.452353Z
+Resort 10, update 2, server time: 2026-10-16T00:39:41.529349Z, received at: 2026-10-16T00:39:41.452778Z
+Resort 4, update 2, server time: 2026-10-16T00:39:41.529109Z, received at: 2026-10-16T00:39:41.453191Z
+Resort 3, update 2, server time: 2026-10-16T00:39:41.529069Z, received at: 2026-10-16T00:39:41.453597Z
+Resort 1, update 2, server time: 2026-10-16T00:39:41.528918Z, received at: 2026-10-16T00:39:41.453962Z
+Resort 5, update 2, server time: 2026-10-16T00:39:41.529155Z, received at: 2026-10-16T00:39:41.454807Z
+Resort 9, update 2, server time: 2026-10-16T00:39:41.529317Z, received at: 2026-10-16T00:39:41.455209Z
+Resort 6, update 2, server time: 2026-10-16T00:39:41.529213Z, received at: 2026-10-16T00:39:41.455592Z
+Resort 1, update 3, server time: 2026-10-16T00:39:42.028925Z, received at: 2026-10-16T00:39:41.951827Z
+Resort 2, update 3, server time: 2026-10-16T00:39:42.029038Z, received at: 2026-10-16T00:39:41.952397Z
+Resort 3, update 3, server time: 2026-10-16T00:39:42.029079Z, received at: 2026-10-16T00:39:41.953260Z
+Resort 8, update 3, server time: 2026-10-16T00:39:42.029339Z, received at: 2026-10-16T00:39:41.953637Z
+Resort 10, update 3, server time: 2026-10-16T00:39:42.029407Z, received at: 2026-10-16T00:39:41.953918Z
+Resort 4, update 3, server time: 2026-10-16T00:39:42.029133Z, received at: 2026-10-16T00:39:41.954152Z
+Resort 5, update 3, server time: 2026-10-16T00:39:42.029170Z, received at: 2026-10-16T00:39:41.954378Z
+Resort 9, update 3, server time: 2026-10-16T00:39:42.029375Z, received at: 2026-10-16T00:39:41.954601Z
+Resort 7, update 3, server time: 2026-10-16T00:39:42.029300Z, received at: 2026-10-16T00:39:41.954830Z
+Resort 6, update 3, server time: 2026-10-16T00:39:42.029256Z, received at: 2026-10-16T00:39:41.955077Z
+Generation time: 0.080 seconds
+
+--- Warmup ---
+Successful: 32000
+Failed: 0
+Runtime: 34.639 seconds
+
+--- Main ---
+Successful: 468000
+Failed: 0
+Runtime: 128.402 seconds
+
+--- Total ingest ---
+Successful: 500000
+Failed: 0
+Remaining in queue: 0
+Runtime: 163.041 seconds
+Throughput: 3066.71 swipes/sec
+
+--- HTTP transport: Apache HttpClient 5.6.4 ---
+Application request attempts: 500000
+Application request retries: 0
+TCP connect attempts: 5059
+TCP connections established: 5059
+TCP connect attempts without success: 0
+TCP connections established during application retries: 0
+HTTP reconnection definition: new TCP opens during application retries; not all replacement/idle-expiry connections.
+Pool before close: leased=0, available=128, pending=0, max=128
+Sampled pool peaks (50 ms + attempt completion): leased=128, available=128, pending=0
+
+--- WebSocket subscriptions ---
+Resort 1: updates=326, connections=1, reconnections=0
+Resort 2: updates=326, connections=1, reconnections=0
+Resort 3: updates=326, connections=1, reconnections=0
+Resort 4: updates=326, connections=1, reconnections=0
+Resort 5: updates=326, connections=1, reconnections=0
+Resort 6: updates=326, connections=1, reconnections=0
+Resort 7: updates=326, connections=1, reconnections=0
+Resort 8: updates=326, connections=1, reconnections=0
+Resort 9: updates=326, connections=1, reconnections=0
+Resort 10: updates=326, connections=1, reconnections=0
+Total leaderboard updates: 3260
+Push CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part1/results/pushes-1792111343814.csv
+
+--- WebSocket push latency ---
+Samples: 3260
+Mean: -72.903 ms
+Median: -76.475 ms
+p95: -57.196 ms
+p99: 6.322 ms
+
+Total program runtime: 165.222 seconds

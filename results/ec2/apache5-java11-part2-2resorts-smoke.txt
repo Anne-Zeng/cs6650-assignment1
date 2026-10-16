@@ -1,0 +1,73 @@
+HTTP transport: Apache HttpClient 5.6.4; events=5000, mainThreads=32
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Connected to resort 2
+Connected to resort 1
+Resort 1 connected in 272.009 ms
+Resort 2 connected in 207.161 ms
+Resort 2, update 1, server time: 2026-10-16T02:43:14.529064Z, received at: 2026-10-16T02:43:14.499857Z
+Resort 1, update 1, server time: 2026-10-16T02:43:14.528969Z, received at: 2026-10-16T02:43:14.552308Z
+Resort 1, update 2, server time: 2026-10-16T02:43:15.028933Z, received at: 2026-10-16T02:43:14.998418Z
+Resort 2, update 2, server time: 2026-10-16T02:43:15.029022Z, received at: 2026-10-16T02:43:14.999407Z
+Resort 2, update 3, server time: 2026-10-16T02:43:15.528978Z, received at: 2026-10-16T02:43:15.499127Z
+Resort 1, update 3, server time: 2026-10-16T02:43:15.528917Z, received at: 2026-10-16T02:43:15.499558Z
+Generation time: 0.008 seconds
+
+--- Warmup ---
+Successful: 320
+Failed: 0
+Runtime: 0.614 seconds
+
+--- Main ---
+Successful: 4680
+Failed: 0
+Runtime: 5.072 seconds
+
+--- Total ingest ---
+Successful: 5000
+Failed: 0
+Remaining in queue: 0
+Runtime: 5.686 seconds
+Throughput: 879.36 swipes/sec
+
+--- Throughput per resort ---
+Resort 1: successful=2558, throughput=449.88 swipes/sec
+Resort 2: successful=2442, throughput=429.48 swipes/sec
+
+--- HTTP transport: Apache HttpClient 5.6.4 ---
+Application request attempts: 5000
+Application request retries: 0
+TCP connect attempts: 64
+TCP connections established: 64
+TCP connect attempts without success: 0
+TCP connections established during application retries: 0
+HTTP reconnection definition: new TCP opens during application retries; not all replacement/idle-expiry connections.
+Pool before close: leased=0, available=32, pending=0, max=32
+Sampled pool peaks (50 ms + attempt completion): leased=32, available=32, pending=0
+
+--- WebSocket subscriptions ---
+Resort 1: updates=12, connections=1, reconnections=0, avgConnectMs=272.009
+Resort 2: updates=12, connections=1, reconnections=0, avgConnectMs=207.161
+Total leaderboard updates: 24
+HTTP attempts recorded: 5000
+CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part2/results/swipes-1792118600180.csv
+Push CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part2/results/pushes-1792118600180.csv
+
+--- HTTP attempt latency ---
+Samples: 5000
+Mean: 35.978 ms
+Median: 28.787 ms
+p95: 112.553 ms
+p99: 126.988 ms
+Min: 12.353 ms
+Max: 333.015 ms
+
+--- WebSocket push latency ---
+Samples: 24
+Mean: -27.887 ms
+Median: -29.987 ms
+p95: -28.211 ms
+p99: 23.339 ms
+
+Total program runtime: 6.661 seconds

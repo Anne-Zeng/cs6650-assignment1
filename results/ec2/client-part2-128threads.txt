@@ -1,0 +1,113 @@
+Connected to resort 3
+Connected to resort 1
+Connected to resort 5
+Connected to resort 4
+Connected to resort 8
+Resort 1 connected in 223.510 ms
+Connected to resort 6
+Resort 6 connected in 205.869 ms
+Connected to resort 7
+Resort 3 connected in 187.331 ms
+Resort 8 connected in 163.722 ms
+Resort 4 connected in 184.662 ms
+Connected to resort 2
+Resort 2 connected in 227.297 ms
+Resort 5 connected in 172.550 ms
+Connected to resort 10
+Connected to resort 9
+Resort 7 connected in 204.676 ms
+Resort 10 connected in 199.297 ms
+Resort 9 connected in 200.598 ms
+Resort 2, update 1, server time: 2026-10-15T19:15:25.464311Z, received at: 2026-10-15T19:15:25.368834Z
+Resort 6, update 1, server time: 2026-10-15T19:15:25.464383Z, received at: 2026-10-15T19:15:25.372019Z
+Resort 9, update 1, server time: 2026-10-15T19:15:25.464431Z, received at: 2026-10-15T19:15:25.371336Z
+Resort 5, update 1, server time: 2026-10-15T19:15:25.464368Z, received at: 2026-10-15T19:15:25.372192Z
+Resort 10, update 1, server time: 2026-10-15T19:15:25.464444Z, received at: 2026-10-15T19:15:25.373781Z
+Resort 4, update 1, server time: 2026-10-15T19:15:25.464350Z, received at: 2026-10-15T19:15:25.371415Z
+Resort 3, update 1, server time: 2026-10-15T19:15:25.464335Z, received at: 2026-10-15T19:15:25.372892Z
+Resort 1, update 1, server time: 2026-10-15T19:15:25.464231Z, received at: 2026-10-15T19:15:25.372713Z
+Resort 7, update 1, server time: 2026-10-15T19:15:25.464398Z, received at: 2026-10-15T19:15:25.372622Z
+Resort 8, update 1, server time: 2026-10-15T19:15:25.464414Z, received at: 2026-10-15T19:15:25.369772Z
+Resort 3, update 2, server time: 2026-10-15T19:15:25.964247Z, received at: 2026-10-15T19:15:25.865602Z
+Resort 1, update 2, server time: 2026-10-15T19:15:25.964169Z, received at: 2026-10-15T19:15:25.867906Z
+Resort 6, update 2, server time: 2026-10-15T19:15:25.964518Z, received at: 2026-10-15T19:15:25.868508Z
+Resort 4, update 2, server time: 2026-10-15T19:15:25.964266Z, received at: 2026-10-15T19:15:25.868128Z
+Resort 5, update 2, server time: 2026-10-15T19:15:25.964484Z, received at: 2026-10-15T19:15:25.868415Z
+Resort 2, update 2, server time: 2026-10-15T19:15:25.964221Z, received at: 2026-10-15T19:15:25.868802Z
+Resort 8, update 2, server time: 2026-10-15T19:15:25.964572Z, received at: 2026-10-15T19:15:25.868840Z
+Resort 9, update 2, server time: 2026-10-15T19:15:25.964595Z, received at: 2026-10-15T19:15:25.869290Z
+Resort 10, update 2, server time: 2026-10-15T19:15:25.964609Z, received at: 2026-10-15T19:15:25.869468Z
+Resort 7, update 2, server time: 2026-10-15T19:15:25.964550Z, received at: 2026-10-15T19:15:25.868362Z
+Resort 5, update 3, server time: 2026-10-15T19:15:26.464283Z, received at: 2026-10-15T19:15:26.362535Z
+Resort 2, update 3, server time: 2026-10-15T19:15:26.464226Z, received at: 2026-10-15T19:15:26.362678Z
+Resort 1, update 3, server time: 2026-10-15T19:15:26.464171Z, received at: 2026-10-15T19:15:26.362602Z
+Resort 8, update 3, server time: 2026-10-15T19:15:26.464332Z, received at: 2026-10-15T19:15:26.362705Z
+Resort 10, update 3, server time: 2026-10-15T19:15:26.464373Z, received at: 2026-10-15T19:15:26.362728Z
+Resort 4, update 3, server time: 2026-10-15T19:15:26.464266Z, received at: 2026-10-15T19:15:26.363606Z
+Resort 7, update 3, server time: 2026-10-15T19:15:26.464316Z, received at: 2026-10-15T19:15:26.363684Z
+Resort 9, update 3, server time: 2026-10-15T19:15:26.464348Z, received at: 2026-10-15T19:15:26.363707Z
+Resort 3, update 3, server time: 2026-10-15T19:15:26.464252Z, received at: 2026-10-15T19:15:26.364924Z
+Resort 6, update 3, server time: 2026-10-15T19:15:26.464299Z, received at: 2026-10-15T19:15:26.367392Z
+Generation time: 0.050 seconds
+
+--- Warmup ---
+Successful: 32000
+Failed: 0
+Runtime: 38.373 seconds
+
+--- Main ---
+Successful: 468000
+Failed: 0
+Runtime: 153.899 seconds
+
+--- Total ingest ---
+Successful: 500000
+Failed: 0
+Remaining in queue: 0
+Runtime: 192.272 seconds
+Throughput: 2600.48 swipes/sec
+
+--- Throughput per resort ---
+Resort 1: successful=50120, throughput=260.67 swipes/sec
+Resort 2: successful=50365, throughput=261.95 swipes/sec
+Resort 3: successful=50147, throughput=260.81 swipes/sec
+Resort 4: successful=49525, throughput=257.58 swipes/sec
+Resort 5: successful=49814, throughput=259.08 swipes/sec
+Resort 6: successful=49905, throughput=259.55 swipes/sec
+Resort 7: successful=50363, throughput=261.94 swipes/sec
+Resort 8: successful=49980, throughput=259.94 swipes/sec
+Resort 9: successful=49887, throughput=259.46 swipes/sec
+Resort 10: successful=49894, throughput=259.50 swipes/sec
+
+--- WebSocket subscriptions ---
+Resort 1: updates=385, connections=1, reconnections=0, avgConnectMs=223.510
+Resort 2: updates=385, connections=1, reconnections=0, avgConnectMs=227.297
+Resort 3: updates=385, connections=1, reconnections=0, avgConnectMs=187.331
+Resort 4: updates=385, connections=1, reconnections=0, avgConnectMs=184.662
+Resort 5: updates=385, connections=1, reconnections=0, avgConnectMs=172.550
+Resort 6: updates=385, connections=1, reconnections=0, avgConnectMs=205.869
+Resort 7: updates=385, connections=1, reconnections=0, avgConnectMs=204.676
+Resort 8: updates=385, connections=1, reconnections=0, avgConnectMs=163.722
+Resort 9: updates=385, connections=1, reconnections=0, avgConnectMs=200.598
+Resort 10: updates=385, connections=1, reconnections=0, avgConnectMs=199.297
+Total leaderboard updates: 3850
+HTTP attempts recorded: 500000
+CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part2/results/swipes-1792091917631.csv
+
+--- HTTP attempt latency ---
+Samples: 500000
+Mean: 41.806 ms
+Median: 33.354 ms
+p95: 116.549 ms
+p99: 133.541 ms
+Min: 12.836 ms
+Max: 445.908 ms
+
+--- WebSocket push latency ---
+Samples: 3850
+Mean: -91.781 ms
+Median: -101.845 ms
+p95: -31.611 ms
+p99: -16.581 ms
+
+Total program runtime: 194.087 seconds

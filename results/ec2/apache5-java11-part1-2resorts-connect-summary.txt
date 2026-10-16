@@ -1,0 +1,58 @@
+HTTP transport: Apache HttpClient 5.6.4; events=5000, mainThreads=32
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Connected to resort 2
+Connected to resort 1
+Resort 2 connected in 223.071 ms
+Resort 1 connected in 258.909 ms
+Resort 2, update 1, server time: 2026-10-16T02:52:18.029025Z, received at: 2026-10-16T02:52:18.011572Z
+Resort 1, update 1, server time: 2026-10-16T02:52:18.028938Z, received at: 2026-10-16T02:52:18.060917Z
+Resort 2, update 2, server time: 2026-10-16T02:52:18.528973Z, received at: 2026-10-16T02:52:18.436099Z
+Resort 1, update 2, server time: 2026-10-16T02:52:18.528915Z, received at: 2026-10-16T02:52:18.437245Z
+Resort 2, update 3, server time: 2026-10-16T02:52:19.028972Z, received at: 2026-10-16T02:52:18.940485Z
+Resort 1, update 3, server time: 2026-10-16T02:52:19.028907Z, received at: 2026-10-16T02:52:18.941098Z
+Generation time: 0.006 seconds
+
+--- Warmup ---
+Successful: 320
+Failed: 0
+Runtime: 0.740 seconds
+
+--- Main ---
+Successful: 4680
+Failed: 0
+Runtime: 6.109 seconds
+
+--- Total ingest ---
+Successful: 5000
+Failed: 0
+Remaining in queue: 0
+Runtime: 6.849 seconds
+Throughput: 730.08 swipes/sec
+
+--- HTTP transport: Apache HttpClient 5.6.4 ---
+Application request attempts: 5000
+Application request retries: 0
+TCP connect attempts: 64
+TCP connections established: 64
+TCP connect attempts without success: 0
+TCP connections established during application retries: 0
+HTTP reconnection definition: new TCP opens during application retries; not all replacement/idle-expiry connections.
+Pool before close: leased=0, available=32, pending=0, max=32
+Sampled pool peaks (50 ms + attempt completion): leased=32, available=32, pending=0
+
+--- WebSocket subscriptions ---
+Resort 1: updates=14, connections=1, reconnections=0, avgConnectMs=258.909
+Resort 2: updates=14, connections=1, reconnections=0, avgConnectMs=223.071
+Total leaderboard updates: 28
+Push CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part1/results/pushes-1792119144848.csv
+
+--- WebSocket push latency ---
+Samples: 28
+Mean: -72.874 ms
+Median: -91.308 ms
+p95: -13.243 ms
+p99: 31.979 ms
+
+Total program runtime: 7.551 seconds

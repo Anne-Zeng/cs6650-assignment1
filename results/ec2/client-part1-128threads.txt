@@ -1,0 +1,81 @@
+Connected to resort 2
+Connected to resort 4
+Resort 2 connected in 135.235 ms
+Connected to resort 5
+Resort 5 connected in 149.663 ms
+Connected to resort 9
+Resort 9 connected in 147.011 ms
+Connected to resort 10
+Resort 10 connected in 146.763 ms
+Resort 4 connected in 134.217 ms
+Connected to resort 6
+Connected to resort 3
+Connected to resort 7
+Resort 3 connected in 153.085 ms
+Connected to resort 8
+Connected to resort 1
+Resort 6 connected in 151.063 ms
+Resort 7 connected in 150.716 ms
+Resort 8 connected in 150.019 ms
+Resort 1 connected in 175.010 ms
+Resort 9, update 1, server time: 2026-10-15T19:43:46.964924Z, received at: 2026-10-15T19:43:46.878930Z
+Resort 2, update 1, server time: 2026-10-15T19:43:46.964245Z, received at: 2026-10-15T19:43:46.878215Z
+Resort 1, update 1, server time: 2026-10-15T19:43:46.964184Z, received at: 2026-10-15T19:43:46.879469Z
+Resort 8, update 1, server time: 2026-10-15T19:43:46.964727Z, received at: 2026-10-15T19:43:46.878570Z
+Resort 10, update 1, server time: 2026-10-15T19:43:46.965064Z, received at: 2026-10-15T19:43:46.879031Z
+Resort 6, update 1, server time: 2026-10-15T19:43:46.964678Z, received at: 2026-10-15T19:43:46.879603Z
+Resort 7, update 1, server time: 2026-10-15T19:43:46.964704Z, received at: 2026-10-15T19:43:46.879819Z
+Resort 3, update 1, server time: 2026-10-15T19:43:46.964268Z, received at: 2026-10-15T19:43:46.877895Z
+Resort 5, update 1, server time: 2026-10-15T19:43:46.964537Z, received at: 2026-10-15T19:43:46.877569Z
+Resort 4, update 1, server time: 2026-10-15T19:43:46.964285Z, received at: 2026-10-15T19:43:46.879213Z
+Resort 10, update 2, server time: 2026-10-15T19:43:47.464445Z, received at: 2026-10-15T19:43:47.380213Z
+Resort 2, update 2, server time: 2026-10-15T19:43:47.464285Z, received at: 2026-10-15T19:43:47.381211Z
+Resort 1, update 2, server time: 2026-10-15T19:43:47.464213Z, received at: 2026-10-15T19:43:47.380752Z
+Resort 8, update 2, server time: 2026-10-15T19:43:47.464407Z, received at: 2026-10-15T19:43:47.380293Z
+Resort 4, update 2, server time: 2026-10-15T19:43:47.464332Z, received at: 2026-10-15T19:43:47.380951Z
+Resort 7, update 2, server time: 2026-10-15T19:43:47.464390Z, received at: 2026-10-15T19:43:47.380565Z
+Resort 9, update 2, server time: 2026-10-15T19:43:47.464424Z, received at: 2026-10-15T19:43:47.380537Z
+Resort 3, update 2, server time: 2026-10-15T19:43:47.464317Z, received at: 2026-10-15T19:43:47.381218Z
+Resort 6, update 2, server time: 2026-10-15T19:43:47.464373Z, received at: 2026-10-15T19:43:47.380775Z
+Resort 5, update 2, server time: 2026-10-15T19:43:47.464350Z, received at: 2026-10-15T19:43:47.380916Z
+Resort 4, update 3, server time: 2026-10-15T19:43:47.964295Z, received at: 2026-10-15T19:43:47.881015Z
+Resort 10, update 3, server time: 2026-10-15T19:43:47.964456Z, received at: 2026-10-15T19:43:47.880955Z
+Resort 2, update 3, server time: 2026-10-15T19:43:47.964240Z, received at: 2026-10-15T19:43:47.881292Z
+Resort 7, update 3, server time: 2026-10-15T19:43:47.964379Z, received at: 2026-10-15T19:43:47.881371Z
+Resort 5, update 3, server time: 2026-10-15T19:43:47.964331Z, received at: 2026-10-15T19:43:47.881309Z
+Resort 9, update 3, server time: 2026-10-15T19:43:47.964425Z, received at: 2026-10-15T19:43:47.881378Z
+Resort 6, update 3, server time: 2026-10-15T19:43:47.964354Z, received at: 2026-10-15T19:43:47.881103Z
+Resort 1, update 3, server time: 2026-10-15T19:43:47.964183Z, received at: 2026-10-15T19:43:47.881558Z
+Resort 3, update 3, server time: 2026-10-15T19:43:47.964272Z, received at: 2026-10-15T19:43:47.880880Z
+Resort 8, update 3, server time: 2026-10-15T19:43:47.964404Z, received at: 2026-10-15T19:43:47.881477Z
+Generation time: 0.046 seconds
+
+--- Warmup ---
+Successful: 32000
+Failed: 0
+Runtime: 37.082 seconds
+
+--- Main ---
+Successful: 468000
+Failed: 0
+Runtime: 139.663 seconds
+
+--- Total ingest ---
+Successful: 500000
+Failed: 0
+Remaining in queue: 0
+Runtime: 176.745 seconds
+Throughput: 2828.94 swipes/sec
+
+--- WebSocket subscriptions ---
+Resort 1: updates=353, connections=1, reconnections=0
+Resort 2: updates=353, connections=1, reconnections=0
+Resort 3: updates=353, connections=1, reconnections=0
+Resort 4: updates=353, connections=1, reconnections=0
+Resort 5: updates=353, connections=1, reconnections=0
+Resort 6: updates=353, connections=1, reconnections=0
+Resort 7: updates=353, connections=1, reconnections=0
+Resort 8: updates=353, connections=1, reconnections=0
+Resort 9: updates=353, connections=1, reconnections=0
+Resort 10: updates=353, connections=1, reconnections=0
+Total leaderboard updates: 3530

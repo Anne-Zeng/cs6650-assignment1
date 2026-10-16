@@ -1,0 +1,25 @@
+# Private keys and local credentials
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+.aws/
+
+# Maven build output
+**/target/
+
+# IntelliJ local configuration
+**/.idea/
+*.iml
+
+# Python virtual environments and cache
+**/.venv/
+**/__pycache__/
+*.pyc
+
+# macOS metadata
+.DS_Store
+
+# Earlier lab work; Assignment 1 uses /server
+/lab2/
