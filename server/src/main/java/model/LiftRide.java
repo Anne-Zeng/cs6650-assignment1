@@ -1,6 +1,7 @@
 package model;
 
 //一次缆车乘坐记录，对应 POST 请求中的 JSON：{"time": 217, "liftID": 21}
+//SkierServlet 使用 Gson，把 JSON 转成LiftRide 对象: time = 217, liftID = 21
 public class LiftRide {
   private int time;//讲义中要求为 1～360 的时间值。
   private int liftID;//缆车编号，要求大于 0。

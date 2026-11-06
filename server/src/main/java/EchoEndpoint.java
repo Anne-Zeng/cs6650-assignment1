@@ -5,6 +5,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+//提供 /echo WebSocket 接口，收到消息后返回时间戳和原消息
 //在错误处理里增加了 session == null 检查
 @ServerEndpoint("/echo")//注册 WebSocket 地址
 public class EchoEndpoint {

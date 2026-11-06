@@ -5,12 +5,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.nio.file.Path;
-
+// coordinates event generation, subscriptions, warmup, main-phase workers, resource cleanup, and final metrics
+//reporting.
+//创建客户端工具
+//    ↓
+//    为每个 resort 创建连接对象并调用 start()
+//    ↓
+//    等待所有订阅至少成功连接一次
+//    ↓
+//    运行 warmup 和 main，期间持续接收排行榜（32 个发送线程 × 每个处理 1,000 条 = 32,000 条）
+//    warmup 全部结束后，启动 128 个发送线程，继续处理：500,000 − 32,000 = 468,000 条
+//    ↓
+//    关闭连接、打印 WebSocket 统计/导出详细 HTTP CSV
 public class LoadClient {
 
   public static void main(String[] args) throws Exception {
     long programStart = System.nanoTime();
     String baseUrl = args.length > 0 ? args[0] : "http://34.220.189.189:8080/ski-servlet";
+    //第一步：生成 500,000 个事件
     int eventCount = args.length > 1 ? Integer.parseInt(args[1]) : 500_000;
     int mainThreads = args.length > 2 ? Integer.parseInt(args[2]) : 128;
     int warmupThreads = 32;
@@ -30,17 +42,21 @@ public class LoadClient {
     System.out.printf("HTTP transport: Apache HttpClient 5.6.4; events=%d, mainThreads=%d%n",
         eventCount, mainThreads);
 
-    BlockingQueue<SwipeEvent> queue =
-        new ArrayBlockingQueue<>(eventCount);
+    //创建一个共享的线程安全队列，因为128 个线程同时从同一个队列取事件，需要避免两个线程取到同一个事件
+    BlockingQueue<SwipeEvent> queue =//SwipeEvent 表示队列存放的是刷卡事件
+        new ArrayBlockingQueue<>(eventCount);//eventCount 是队列容量 ArrayBlockingQueue 内部处理线程同步，不用自己加锁
 
     long generationStart = System.nanoTime();
 
+    //然后把同一个 queue 交给生成器：创建线程和生成任务
     Thread generator = new Thread(
         new SwipeGenerator(queue, eventCount, resortCount, 2026, 1),
         "swipe-generator"
     );
 
+    //启动线程，由新线程执行 SwipeGenerator.run()生成事件并放入队列
     generator.start();
+    //当前 main 线程等待生成线程结束
     generator.join();
 
     if (queue.size() != eventCount) {
@@ -49,6 +65,7 @@ public class LoadClient {
 
     double generationSeconds = secondsSince(generationStart);
 
+    //第二步：建立排行榜订阅：创建 WebSocket 使用的客户端，用于建立排行榜连接。
     HttpClient webSocketClient = HttpClient.newBuilder()
         .version(HttpClient.Version.HTTP_1_1)
         .connectTimeout(Duration.ofSeconds(5))
@@ -61,17 +78,18 @@ public class LoadClient {
 
     List<LeaderboardConnection> subscribers = new ArrayList<>();
 
+    //创建 HTTP 发送工具，负责刷卡 POST 请求的 HTTP 连接池，try (...) 保证离开这个代码块时自动关闭 HttpTransport
     try (HttpTransport client = new HttpTransport(Math.max(warmupThreads, mainThreads))) {
-      // 创建订阅: 每个 resort 建立订阅。
+      // 创建订阅: 每个 resort 建立并启动订阅。
       for (int resortID = 1; resortID <= resortCount; resortID++) {
-        LeaderboardConnection connection =
+        LeaderboardConnection connection =//创建管理该 resort 连接的对象
             new LeaderboardConnection(
                 webSocketClient,
                 wsBaseUrl,
                 resortID,
                 pushMetrics
             );
-
+        //保存对象，方便之后检查、统计和关闭
         subscribers.add(connection);
         connection.start();//开始连接该 resort 的排行榜。
       }
@@ -81,9 +99,11 @@ public class LoadClient {
       long deadline =
           System.nanoTime() + TimeUnit.SECONDS.toNanos(15);
 
+      //等待所有订阅至少成功连接一次
       while (subscribers.stream()
           .anyMatch(connection -> connection.getConnections() == 0)) {
 
+        //等待超过截止时间就报错，避免程序无限等待。循环里的 Thread.sleep(50) 则让主线程每隔约 50 ms 再检查一次
         if (System.nanoTime() >= deadline) {
           throw new IllegalStateException(
               "Some WebSocket subscriptions did not connect within 15 seconds"
@@ -93,7 +113,8 @@ public class LoadClient {
         Thread.sleep(50);
       }
 
-      // 预热开始，也是整个发送阶段的开始。
+      // 预热开始，也是整个发送阶段的开始。32 个发送线程，每个线程重复 1,000 次，queue.poll() → 发送事件 → 等待结果/重试
+      //等所有 warmup 线程完成，共处理 32,000 条，queue 剩余 468,000 条
       long ingestStart = System.nanoTime();
 
       runPhase(
@@ -149,12 +170,13 @@ public class LoadClient {
       metrics.printResortThroughput(ingestSeconds, resortCount);
       client.printSummary();
     } finally {//发送结束后关闭订阅，避免后台继续重连。
-      // 无论正常结束还是发生异常，都关闭订阅并停止重连。
+      // WebSocket 断线由 LeaderboardConnection 负责：无论正常结束还是发生异常，都关闭订阅并停止重连。
       for (LeaderboardConnection connection : subscribers) {
         connection.close();
       }
     }
 
+    //测试结束后的统计
     System.out.println("\n--- WebSocket subscriptions ---");
 
     int totalUpdates = 0;
@@ -198,7 +220,8 @@ public class LoadClient {
     );
   }
 
-  //新增了两层检查：
+  // 让多个发送任务共享这个队列
+  // 新增了两层检查：
   //- 任务异常检查：发送任务意外抛出异常时，明确报告错误。
   //- 数量检查：本阶段的成功数加最终失败数，必须等于应处理的事件数；队列也必须减少相同数量。
   private static void runPhase(
@@ -224,7 +247,7 @@ public class LoadClient {
         (long) queuedBefore,
         (long) threads * maxEventsPerTask
     );
-
+    //在提交任务时，每个 SwipeSender 都收到同一个队列。SwipeSender.run()：取出并移除一个事件
     try {
       for (int i = 0; i < threads; i++) {
         tasks.add(executor.submit(new SwipeSender(

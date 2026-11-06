@@ -6,7 +6,7 @@ import javax.websocket.WebSocketContainer;
 import java.net.URI;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-
+//单独运行的小客户端，发送 100 条消息并等待回声
 //增加了 30 秒等待超时和 finally 关闭连接，避免收不到回声时一直等待
 @ClientEndpoint
 public class EchoClient {

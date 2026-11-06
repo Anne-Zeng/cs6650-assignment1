@@ -1,7 +1,7 @@
 package util;
 
 import java.util.concurrent.atomic.AtomicLong;
-
+//使用 AtomicLong 记录 SkierServlet 的 GET 和 POST 调用次数
 public class RequestStats {
   private static final AtomicLong getRequests = new AtomicLong(0);
   private static final AtomicLong postRequests = new AtomicLong(0);

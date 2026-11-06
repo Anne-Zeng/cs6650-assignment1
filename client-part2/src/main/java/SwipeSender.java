@@ -1,7 +1,8 @@
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.time.Instant;
-
+//SwipeSender removes events from the queue and sends them through the shared HttpTransport,
+// applying application-level retries.
 //发送任务 SwipeSender：从队列取事件，通过共享的 HttpClient 发给 Tomcat。
 //首次发送之外，再尝试最多 5 次。
 //计数也很重要：同一条事件即使尝试了多次，最终也只计为 一次成功或一次失败。
@@ -33,6 +34,7 @@ public class SwipeSender implements Runnable {
     this.metrics = metrics;
   }
 
+  //queue.poll()：把“取出”和“移除”作为一次线程安全操作完成
   @Override
   public void run() {
     for (int sent = 0; sent < maxEvents; sent++) {
@@ -42,6 +44,7 @@ public class SwipeSender implements Runnable {
         return;
       }
 
+      //取出后，当前线程负责这条事件的发送和重试
       try {
         if (sendWithRetries(event)) {
           successful.incrementAndGet();
@@ -59,7 +62,7 @@ public class SwipeSender implements Runnable {
   //每次尝试记录一行，包括重试。退避等待时间不算入单次请求延迟。 没有收到响应时，responseTimestamp 表示该尝试结束的时间
   private boolean sendWithRetries(SwipeEvent event)
       throws InterruptedException {
-
+//HTTP 失败由 SwipeSender 负责，首次尝试失败等待 100 ms，重试，最多重试6 次
     for (int attempt = 0; attempt <= 5; attempt++) {
       if (Thread.currentThread().isInterrupted()) {
         throw new InterruptedException("Sender interrupted");
@@ -70,10 +73,11 @@ public class SwipeSender implements Runnable {
       // 0 表示没有收到 HTTP 响应，不是真实 HTTP 状态码。
       int statusCode = 0;
 
-      try {
+      try {//把事件转换成 HTTP 请求并发送
+        //event.path() 生成 URL 中的路径， event.body() 生成 JSON 请求体
         int responseCode = client.post(
             baseUrl + event.path(), event.body(), attempt > 0);
-
+        //把返回的 HTTP 状态码存进 responseCode
         statusCode = responseCode;
 
       } catch (java.io.IOException e) {
@@ -90,7 +94,7 @@ public class SwipeSender implements Runnable {
             event.getResortID()
         );
       }
-
+      // EC2 返回 201->SwipeSender 增加成功计数，并记录测量数据->SwipeMetrics
       if (statusCode == 201) {
         return true;
       }

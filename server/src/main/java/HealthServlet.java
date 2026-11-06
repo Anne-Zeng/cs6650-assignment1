@@ -3,7 +3,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-//A simple GET returning canned server status. This becomes the load balancer's health check in Assignment 2.
+//  HealthServlet reports status
+// A simple GET returning canned server status. This becomes the load balancer's health check in Assignment 2.
 @WebServlet("/health")//maps requests for /health to this servlet.
 public class HealthServlet extends HttpServlet {
 

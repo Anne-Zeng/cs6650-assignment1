@@ -3,7 +3,7 @@
 //先采用容易验证的方式：由一个独立线程提前生成全部事件，再启动发送线程。之后测性能时，再评估内存和启动耗时。
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
-
+//SwipeGenerator creates immutable SwipeEvent objects and places them in an ArrayBlockingQueue.
 public class SwipeGenerator implements Runnable {
 
   private final BlockingQueue<SwipeEvent> queue;
@@ -24,6 +24,7 @@ public class SwipeGenerator implements Runnable {
     this.dayID = dayID;
   }
 
+  //生成事件并放入队列
   @Override
   public void run() {
     ThreadLocalRandom random = ThreadLocalRandom.current();

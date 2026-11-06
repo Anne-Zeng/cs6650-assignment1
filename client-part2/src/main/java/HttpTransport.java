@@ -25,7 +25,8 @@ import org.apache.hc.core5.http.protocol.HttpContext;
 import org.apache.hc.core5.pool.PoolConcurrencyPolicy;
 import org.apache.hc.core5.pool.PoolStats;
 import org.apache.hc.core5.util.Timeout;
-
+//HttpTransport owns the Apache HTTP connection pool and records connection and request-attempt statistics.
+//HttpTransport 负责一次 HTTP 尝试；SwipeSender 决定是否重试line101
 /** One shared HTTP/1.1 pool. Java HttpClient remains responsible for WebSockets. */
 public final class HttpTransport implements AutoCloseable {
   private static final String RETRY = "skitrak.applicationRetry";

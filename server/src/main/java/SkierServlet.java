@@ -12,15 +12,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import util.RequestStats;
-
+//SkierServlet validates swipes
 public class SkierServlet extends HttpServlet {
   private Gson gson = new Gson();
   private static final Logger logger =
       Logger.getLogger(SkierServlet.class.getName());
-  //| `doGet()` | 处理 GET 请求，读取 URL 参数并返回 JSON |
-  //| `doPost()` | 处理 POST 请求，解析并验证 JSON 请求体 |
-  //| `isUrlValid()` | 检查路径结构及参数是否能转换为整数 |
-  //| `isLiftRideValid()` | 检查 `time` 和 `liftID` 的范围 |
+  //| `doGet()` | 处理 GET 请求，读取 URL 参数并返回 JSON
+  //| `doPost()` | 处理 POST 请求，解析并验证 JSON 请求体,转换成 LiftRide
+  //| `isUrlValid()` | 检查路径结构及参数是否能转换为整数
+  //| `isLiftRideValid()` | 检查 `time` 和 `liftID` 的范围
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res)
       throws ServletException, IOException {
@@ -103,7 +103,7 @@ public class SkierServlet extends HttpServlet {
       while ((line = reader.readLine()) != null) {
         jsonBody.append(line);
       }
-
+      //读取 JSON → 转换成 LiftRide
       LiftRide liftRide = gson.fromJson(jsonBody.toString(), LiftRide.class);
 
       //数据校验失败分支

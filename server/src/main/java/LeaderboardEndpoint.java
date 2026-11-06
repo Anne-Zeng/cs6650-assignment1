@@ -6,7 +6,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.*;
-
+//管理排行榜订阅和推送内容,对应 WebSocket 地址：/leaderboard/{resortID}
 @ServerEndpoint("/leaderboard/{resortID}")//defines the WebSocket URL.
 public class LeaderboardEndpoint {
 
@@ -15,6 +15,7 @@ public class LeaderboardEndpoint {
   private static final Map<String, Set<Session>> SUBSCRIBERS =
       new ConcurrentHashMap<>();
 
+  //客户端连接成功,将连接加入对应 resort 的集合
   @OnOpen//adds a connection to its resort’s subscriber set.
   public void onOpen(Session session,
       @PathParam("resortID") String resortID) {
@@ -31,13 +32,13 @@ public class LeaderboardEndpoint {
 //    ).add(session);
   }
 
-  @OnClose//removes it.
+  @OnClose//连接关闭,从集合中移除连接removes connection.
   public void onClose(Session session,
       @PathParam("resortID") String resortID) {
     removeSession(session, resortID);
   }
 
-  @OnError
+  @OnError//出现错误,记录错误，并清理订阅记录
   public void onError(Session session, Throwable error,
       @PathParam("resortID") String resortID) {
     error.printStackTrace();
@@ -53,6 +54,7 @@ public class LeaderboardEndpoint {
     });
   }
 
+  //定时器调用,生成假排行榜，向各 resort 的订阅者发送
   //creates a fake leaderboard and sends it to connected subscribers.
   public static void pushAll() {//
     SUBSCRIBERS.forEach((resortID, sessions) -> {

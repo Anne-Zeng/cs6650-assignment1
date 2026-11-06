@@ -1,4 +1,4 @@
-//创建滑雪事件的数据类，之后生成器swipeGenerator负责创建它，swipeSender发送线程负责发送它。
+//创建滑雪事件的数据类对象，之后生成器swipeGenerator负责创建它，swipeSender发送线程负责发送它。
 public class SwipeEvent {
 //final 表示字段赋值后不能再修改。这样，一个事件在线程之间传递时，内容不会被其他线程改变
   private final int resortID;

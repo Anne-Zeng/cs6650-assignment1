@@ -5,9 +5,8 @@ import java.net.http.WebSocket;
 import java.time.Instant;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.atomic.AtomicInteger;//接收回调更新计数，主线程也可以安全读取。
-
+//LeaderboardSubscriber receives complete messages and records their timestamps through PushMetrics.
 public class LeaderboardSubscriber implements WebSocket.Listener {
-
   private final int resortID;
   private final AtomicInteger updates = new AtomicInteger();
   private final StringBuilder messageBuffer = new StringBuilder();

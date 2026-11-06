@@ -5,9 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.concurrent.ConcurrentLinkedQueue;
-
+//SwipeMetrics records HTTP attempts, exports CSV, and
+// calculates latency statistics and throughput per resort.
 public class SwipeMetrics {
-
   //允许多个发送线程安全地添加记录。这种实现会占用与请求尝试数量成比例的内存。
   private final ConcurrentLinkedQueue<Sample> samples =
       new ConcurrentLinkedQueue<>();

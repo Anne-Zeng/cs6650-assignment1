@@ -3,8 +3,8 @@ import java.net.http.HttpClient;
 import java.net.http.WebSocket;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
-
-//这个类负责三件事：
+//LeaderboardConnection manages one resort subscription and schedules reconnection.
+//这个类负责三件事：连接建立了吗？断了怎么办？是否需要重连？
 //- 连接失败或中途断开后，等待一段时间再连接。
 //- 防止同一个订阅同时安排多个重连任务。
 //- 测试结束调用 close() 后，停止重连并释放连接。
@@ -68,7 +68,7 @@ public class LeaderboardConnection implements AutoCloseable {
     long generation = ++connectionGeneration;
     disconnectedDuringConnect = false;
 
-    //重连时继续传同一个 pushMetrics，因此之前记录的延迟不会丢失。
+    //LeaderboardSubscriber 负责处理收到的消息：重连时继续传同一个 pushMetrics，因此之前记录的延迟不会丢失。
     LeaderboardSubscriber subscriber =
         new LeaderboardSubscriber(
             resortID, () -> disconnected(generation), pushMetrics

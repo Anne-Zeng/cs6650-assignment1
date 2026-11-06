@@ -1,4 +1,5 @@
 /** Same HTTP transport as LoadClient: measure a fresh request, then pooled RTT. */
+//顺序发送 HTTP 请求，测量 RTT，为 Little’s Law 提供基准
 public class SequentialClient {
   public static void main(String[] args) throws Exception {
     String baseUrl = args.length > 0 ? args[0] : "http://54.201.46.55:8080/ski-servlet";
