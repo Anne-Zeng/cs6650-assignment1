@@ -1,0 +1,16 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-pool-repeat/20261109T013054Z/phase-2ingest-workers10-pool32/instrumented-500000-c512-20261109T013223Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-20261109T013239286072Z.png",
+    "screenshots/rabbitmq-20261109T013324765119Z.png",
+    "screenshots/rabbitmq-20261109T013410236907Z.png",
+    "screenshots/rabbitmq-20261109T013455650595Z.png",
+    "screenshots/rabbitmq-20261109T013541096517Z.png",
+    "screenshots/rabbitmq-20261109T013612981091Z-final.png"
+  ],
+  "notes": [
+    "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+    "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+    "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+  ]
+}

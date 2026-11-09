@@ -1,0 +1,44 @@
+{
+  "ingest1": {
+    "samples": 12,
+    "errors": 0
+  },
+  "ingest2": {
+    "samples": 12,
+    "errors": 0
+  },
+  "ingest3": {
+    "samples": 12,
+    "errors": 0
+  },
+  "ingest4": {
+    "samples": 12,
+    "errors": 0
+  },
+  "consumer": {
+    "samples": 110,
+    "errors": 44,
+    "sshExitCode": 255
+  },
+  "rabbitmq": {
+    "samples": 167,
+    "errors": 0,
+    "sshExitCode": 255
+  }
+}
+Exception in thread Thread-4 (collect):
+Exception in threading.excepthook:
+Exception ignored in thread started by <bound method Thread._bootstrap of <Thread(Thread-4 (collect), started 6170832896)>>:
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+Exception in thread Thread-2 (collect):
+Exception in threading.excepthook:
+Exception ignored in thread started by <bound method Thread._bootstrap of <Thread(Thread-2 (collect), started 6137180160)>>:
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+Exception in thread Thread-3 (collect):
+Exception in threading.excepthook:
+Exception ignored in thread started by <bound method Thread._bootstrap of <Thread(Thread-3 (collect), started 6154006528)>>:
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+Exception in thread Thread-1 (collect):
+Exception in threading.excepthook:
+Exception ignored in thread started by <bound method Thread._bootstrap of <Thread(Thread-1 (collect), started 6120353792)>>:
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>

@@ -1,0 +1,18 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-ec2/instrumented-500000-c256-20261108T214913Z",
+  "suppliedPrefetchScreenshots": [
+    "screenshots/prefetch-64-rabbitmq-during.png",
+    "screenshots/prefetch-64-rabbitmq-drained.png",
+    "screenshots/prefetch-64-alb-overview.png",
+    "screenshots/prefetch-64-request-count.png",
+    "screenshots/prefetch-64-target-response-time.png"
+  ],
+  "recordedPrefetch": 64,
+  "clientThreads": 256,
+  "clientUTCWindow": "21:49:16-21:51:53",
+  "screenshotScopeNotes": [
+    "RabbitMQ chart labels use Pacific UTC-08:00; ALB chart controls use UTC.",
+    "Ten-minute RabbitMQ history can include preceding prefetch tests; do not assign the earlier peak to the current test.",
+    "ALB RequestCount Sum and TargetResponseTime Average use 60-second buckets."
+  ]
+}

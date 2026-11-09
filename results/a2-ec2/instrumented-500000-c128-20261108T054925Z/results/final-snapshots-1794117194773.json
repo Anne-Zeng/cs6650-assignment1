@@ -1,0 +1,1092 @@
+{
+  "1": {
+    "resortID": "1",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.688391Z",
+    "version": 766,
+    "processed": 197938,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "92794",
+        "vertical": 8621
+      },
+      {
+        "rank": 2,
+        "skierID": "42603",
+        "vertical": 7661
+      },
+      {
+        "rank": 3,
+        "skierID": "33799",
+        "vertical": 7630
+      },
+      {
+        "rank": 4,
+        "skierID": "86084",
+        "vertical": 7584
+      },
+      {
+        "rank": 5,
+        "skierID": "40195",
+        "vertical": 7576
+      },
+      {
+        "rank": 6,
+        "skierID": "36864",
+        "vertical": 7488
+      },
+      {
+        "rank": 7,
+        "skierID": "62372",
+        "vertical": 7280
+      },
+      {
+        "rank": 8,
+        "skierID": "38234",
+        "vertical": 7078
+      },
+      {
+        "rank": 9,
+        "skierID": "66891",
+        "vertical": 6882
+      },
+      {
+        "rank": 10,
+        "skierID": "94376",
+        "vertical": 6834
+      },
+      {
+        "rank": 11,
+        "skierID": "87938",
+        "vertical": 6622
+      },
+      {
+        "rank": 12,
+        "skierID": "46782",
+        "vertical": 6589
+      },
+      {
+        "rank": 13,
+        "skierID": "33602",
+        "vertical": 6584
+      },
+      {
+        "rank": 14,
+        "skierID": "86010",
+        "vertical": 6455
+      },
+      {
+        "rank": 15,
+        "skierID": "45350",
+        "vertical": 6391
+      },
+      {
+        "rank": 16,
+        "skierID": "6287",
+        "vertical": 6328
+      },
+      {
+        "rank": 17,
+        "skierID": "95595",
+        "vertical": 6244
+      },
+      {
+        "rank": 18,
+        "skierID": "77744",
+        "vertical": 6240
+      },
+      {
+        "rank": 19,
+        "skierID": "54833",
+        "vertical": 6199
+      },
+      {
+        "rank": 20,
+        "skierID": "39946",
+        "vertical": 6161
+      }
+    ]
+  },
+  "2": {
+    "resortID": "2",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.584770Z",
+    "version": 873,
+    "processed": 199726,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "35686",
+        "vertical": 7912
+      },
+      {
+        "rank": 2,
+        "skierID": "7353",
+        "vertical": 7576
+      },
+      {
+        "rank": 3,
+        "skierID": "23674",
+        "vertical": 7446
+      },
+      {
+        "rank": 4,
+        "skierID": "51791",
+        "vertical": 6736
+      },
+      {
+        "rank": 5,
+        "skierID": "5192",
+        "vertical": 6634
+      },
+      {
+        "rank": 6,
+        "skierID": "54157",
+        "vertical": 6580
+      },
+      {
+        "rank": 7,
+        "skierID": "9096",
+        "vertical": 6544
+      },
+      {
+        "rank": 8,
+        "skierID": "86707",
+        "vertical": 6498
+      },
+      {
+        "rank": 9,
+        "skierID": "59314",
+        "vertical": 6464
+      },
+      {
+        "rank": 10,
+        "skierID": "38185",
+        "vertical": 6462
+      },
+      {
+        "rank": 11,
+        "skierID": "3715",
+        "vertical": 6408
+      },
+      {
+        "rank": 12,
+        "skierID": "8068",
+        "vertical": 6349
+      },
+      {
+        "rank": 13,
+        "skierID": "29352",
+        "vertical": 6341
+      },
+      {
+        "rank": 14,
+        "skierID": "876",
+        "vertical": 6319
+      },
+      {
+        "rank": 15,
+        "skierID": "92075",
+        "vertical": 6305
+      },
+      {
+        "rank": 16,
+        "skierID": "42657",
+        "vertical": 6298
+      },
+      {
+        "rank": 17,
+        "skierID": "22877",
+        "vertical": 6268
+      },
+      {
+        "rank": 18,
+        "skierID": "59794",
+        "vertical": 6255
+      },
+      {
+        "rank": 19,
+        "skierID": "99508",
+        "vertical": 6172
+      },
+      {
+        "rank": 20,
+        "skierID": "6901",
+        "vertical": 6168
+      }
+    ]
+  },
+  "3": {
+    "resortID": "3",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.240939Z",
+    "version": 824,
+    "processed": 199287,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "69701",
+        "vertical": 7777
+      },
+      {
+        "rank": 2,
+        "skierID": "3791",
+        "vertical": 7720
+      },
+      {
+        "rank": 3,
+        "skierID": "34988",
+        "vertical": 7296
+      },
+      {
+        "rank": 4,
+        "skierID": "3946",
+        "vertical": 7198
+      },
+      {
+        "rank": 5,
+        "skierID": "51816",
+        "vertical": 7058
+      },
+      {
+        "rank": 6,
+        "skierID": "82371",
+        "vertical": 6983
+      },
+      {
+        "rank": 7,
+        "skierID": "68129",
+        "vertical": 6897
+      },
+      {
+        "rank": 8,
+        "skierID": "25387",
+        "vertical": 6889
+      },
+      {
+        "rank": 9,
+        "skierID": "21426",
+        "vertical": 6863
+      },
+      {
+        "rank": 10,
+        "skierID": "82238",
+        "vertical": 6721
+      },
+      {
+        "rank": 11,
+        "skierID": "32000",
+        "vertical": 6720
+      },
+      {
+        "rank": 12,
+        "skierID": "43410",
+        "vertical": 6616
+      },
+      {
+        "rank": 13,
+        "skierID": "63438",
+        "vertical": 6432
+      },
+      {
+        "rank": 14,
+        "skierID": "29567",
+        "vertical": 6420
+      },
+      {
+        "rank": 15,
+        "skierID": "1110",
+        "vertical": 6397
+      },
+      {
+        "rank": 16,
+        "skierID": "37851",
+        "vertical": 6388
+      },
+      {
+        "rank": 17,
+        "skierID": "86629",
+        "vertical": 6225
+      },
+      {
+        "rank": 18,
+        "skierID": "48206",
+        "vertical": 6173
+      },
+      {
+        "rank": 19,
+        "skierID": "32553",
+        "vertical": 6160
+      },
+      {
+        "rank": 20,
+        "skierID": "54912",
+        "vertical": 6157
+      }
+    ]
+  },
+  "4": {
+    "resortID": "4",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.239907Z",
+    "version": 840,
+    "processed": 200708,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "52977",
+        "vertical": 8016
+      },
+      {
+        "rank": 2,
+        "skierID": "81199",
+        "vertical": 7488
+      },
+      {
+        "rank": 3,
+        "skierID": "59139",
+        "vertical": 6836
+      },
+      {
+        "rank": 4,
+        "skierID": "7128",
+        "vertical": 6820
+      },
+      {
+        "rank": 5,
+        "skierID": "53607",
+        "vertical": 6793
+      },
+      {
+        "rank": 6,
+        "skierID": "41687",
+        "vertical": 6788
+      },
+      {
+        "rank": 7,
+        "skierID": "7030",
+        "vertical": 6697
+      },
+      {
+        "rank": 8,
+        "skierID": "42572",
+        "vertical": 6536
+      },
+      {
+        "rank": 9,
+        "skierID": "67920",
+        "vertical": 6476
+      },
+      {
+        "rank": 10,
+        "skierID": "87771",
+        "vertical": 6400
+      },
+      {
+        "rank": 11,
+        "skierID": "59758",
+        "vertical": 6344
+      },
+      {
+        "rank": 12,
+        "skierID": "87101",
+        "vertical": 6303
+      },
+      {
+        "rank": 13,
+        "skierID": "15202",
+        "vertical": 6240
+      },
+      {
+        "rank": 14,
+        "skierID": "28024",
+        "vertical": 6240
+      },
+      {
+        "rank": 15,
+        "skierID": "4167",
+        "vertical": 6231
+      },
+      {
+        "rank": 16,
+        "skierID": "65143",
+        "vertical": 6196
+      },
+      {
+        "rank": 17,
+        "skierID": "59883",
+        "vertical": 6170
+      },
+      {
+        "rank": 18,
+        "skierID": "92263",
+        "vertical": 6160
+      },
+      {
+        "rank": 19,
+        "skierID": "23935",
+        "vertical": 6128
+      },
+      {
+        "rank": 20,
+        "skierID": "52674",
+        "vertical": 6102
+      }
+    ]
+  },
+  "5": {
+    "resortID": "5",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.374587Z",
+    "version": 862,
+    "processed": 199749,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "47206",
+        "vertical": 9103
+      },
+      {
+        "rank": 2,
+        "skierID": "56544",
+        "vertical": 7647
+      },
+      {
+        "rank": 3,
+        "skierID": "16405",
+        "vertical": 7353
+      },
+      {
+        "rank": 4,
+        "skierID": "61953",
+        "vertical": 7041
+      },
+      {
+        "rank": 5,
+        "skierID": "52149",
+        "vertical": 6919
+      },
+      {
+        "rank": 6,
+        "skierID": "90402",
+        "vertical": 6872
+      },
+      {
+        "rank": 7,
+        "skierID": "64574",
+        "vertical": 6802
+      },
+      {
+        "rank": 8,
+        "skierID": "7374",
+        "vertical": 6754
+      },
+      {
+        "rank": 9,
+        "skierID": "32556",
+        "vertical": 6616
+      },
+      {
+        "rank": 10,
+        "skierID": "46260",
+        "vertical": 6574
+      },
+      {
+        "rank": 11,
+        "skierID": "9509",
+        "vertical": 6533
+      },
+      {
+        "rank": 12,
+        "skierID": "34978",
+        "vertical": 6464
+      },
+      {
+        "rank": 13,
+        "skierID": "56575",
+        "vertical": 6440
+      },
+      {
+        "rank": 14,
+        "skierID": "62313",
+        "vertical": 6439
+      },
+      {
+        "rank": 15,
+        "skierID": "58342",
+        "vertical": 6381
+      },
+      {
+        "rank": 16,
+        "skierID": "24147",
+        "vertical": 6214
+      },
+      {
+        "rank": 17,
+        "skierID": "55134",
+        "vertical": 6197
+      },
+      {
+        "rank": 18,
+        "skierID": "67534",
+        "vertical": 6186
+      },
+      {
+        "rank": 19,
+        "skierID": "19666",
+        "vertical": 6170
+      },
+      {
+        "rank": 20,
+        "skierID": "18446",
+        "vertical": 6168
+      }
+    ]
+  },
+  "6": {
+    "resortID": "6",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.534035Z",
+    "version": 853,
+    "processed": 200086,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "68478",
+        "vertical": 9764
+      },
+      {
+        "rank": 2,
+        "skierID": "42392",
+        "vertical": 8760
+      },
+      {
+        "rank": 3,
+        "skierID": "96278",
+        "vertical": 7312
+      },
+      {
+        "rank": 4,
+        "skierID": "31241",
+        "vertical": 7088
+      },
+      {
+        "rank": 5,
+        "skierID": "18312",
+        "vertical": 7026
+      },
+      {
+        "rank": 6,
+        "skierID": "54927",
+        "vertical": 6893
+      },
+      {
+        "rank": 7,
+        "skierID": "31564",
+        "vertical": 6758
+      },
+      {
+        "rank": 8,
+        "skierID": "31474",
+        "vertical": 6725
+      },
+      {
+        "rank": 9,
+        "skierID": "39718",
+        "vertical": 6712
+      },
+      {
+        "rank": 10,
+        "skierID": "18835",
+        "vertical": 6641
+      },
+      {
+        "rank": 11,
+        "skierID": "28064",
+        "vertical": 6576
+      },
+      {
+        "rank": 12,
+        "skierID": "15556",
+        "vertical": 6558
+      },
+      {
+        "rank": 13,
+        "skierID": "10696",
+        "vertical": 6353
+      },
+      {
+        "rank": 14,
+        "skierID": "20908",
+        "vertical": 6301
+      },
+      {
+        "rank": 15,
+        "skierID": "47597",
+        "vertical": 6285
+      },
+      {
+        "rank": 16,
+        "skierID": "9432",
+        "vertical": 6240
+      },
+      {
+        "rank": 17,
+        "skierID": "47328",
+        "vertical": 6184
+      },
+      {
+        "rank": 18,
+        "skierID": "74478",
+        "vertical": 6184
+      },
+      {
+        "rank": 19,
+        "skierID": "24146",
+        "vertical": 6176
+      },
+      {
+        "rank": 20,
+        "skierID": "96601",
+        "vertical": 6176
+      }
+    ]
+  },
+  "7": {
+    "resortID": "7",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.731036Z",
+    "version": 753,
+    "processed": 201268,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "32725",
+        "vertical": 8640
+      },
+      {
+        "rank": 2,
+        "skierID": "14334",
+        "vertical": 8354
+      },
+      {
+        "rank": 3,
+        "skierID": "60898",
+        "vertical": 8011
+      },
+      {
+        "rank": 4,
+        "skierID": "27174",
+        "vertical": 7464
+      },
+      {
+        "rank": 5,
+        "skierID": "92261",
+        "vertical": 7253
+      },
+      {
+        "rank": 6,
+        "skierID": "31212",
+        "vertical": 7160
+      },
+      {
+        "rank": 7,
+        "skierID": "12781",
+        "vertical": 6899
+      },
+      {
+        "rank": 8,
+        "skierID": "29121",
+        "vertical": 6703
+      },
+      {
+        "rank": 9,
+        "skierID": "26694",
+        "vertical": 6626
+      },
+      {
+        "rank": 10,
+        "skierID": "76202",
+        "vertical": 6604
+      },
+      {
+        "rank": 11,
+        "skierID": "36177",
+        "vertical": 6476
+      },
+      {
+        "rank": 12,
+        "skierID": "35935",
+        "vertical": 6440
+      },
+      {
+        "rank": 13,
+        "skierID": "44070",
+        "vertical": 6429
+      },
+      {
+        "rank": 14,
+        "skierID": "43470",
+        "vertical": 6401
+      },
+      {
+        "rank": 15,
+        "skierID": "51779",
+        "vertical": 6368
+      },
+      {
+        "rank": 16,
+        "skierID": "22338",
+        "vertical": 6330
+      },
+      {
+        "rank": 17,
+        "skierID": "80593",
+        "vertical": 6303
+      },
+      {
+        "rank": 18,
+        "skierID": "14948",
+        "vertical": 6215
+      },
+      {
+        "rank": 19,
+        "skierID": "31161",
+        "vertical": 6184
+      },
+      {
+        "rank": 20,
+        "skierID": "48266",
+        "vertical": 6144
+      }
+    ]
+  },
+  "8": {
+    "resortID": "8",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:12.458911Z",
+    "version": 796,
+    "processed": 198268,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "91641",
+        "vertical": 6996
+      },
+      {
+        "rank": 2,
+        "skierID": "46697",
+        "vertical": 6939
+      },
+      {
+        "rank": 3,
+        "skierID": "21858",
+        "vertical": 6749
+      },
+      {
+        "rank": 4,
+        "skierID": "23360",
+        "vertical": 6696
+      },
+      {
+        "rank": 5,
+        "skierID": "15175",
+        "vertical": 6666
+      },
+      {
+        "rank": 6,
+        "skierID": "48627",
+        "vertical": 6640
+      },
+      {
+        "rank": 7,
+        "skierID": "42560",
+        "vertical": 6592
+      },
+      {
+        "rank": 8,
+        "skierID": "42933",
+        "vertical": 6536
+      },
+      {
+        "rank": 9,
+        "skierID": "92417",
+        "vertical": 6503
+      },
+      {
+        "rank": 10,
+        "skierID": "95469",
+        "vertical": 6440
+      },
+      {
+        "rank": 11,
+        "skierID": "35421",
+        "vertical": 6417
+      },
+      {
+        "rank": 12,
+        "skierID": "80030",
+        "vertical": 6365
+      },
+      {
+        "rank": 13,
+        "skierID": "42514",
+        "vertical": 6351
+      },
+      {
+        "rank": 14,
+        "skierID": "18011",
+        "vertical": 6295
+      },
+      {
+        "rank": 15,
+        "skierID": "68403",
+        "vertical": 6277
+      },
+      {
+        "rank": 16,
+        "skierID": "30660",
+        "vertical": 6222
+      },
+      {
+        "rank": 17,
+        "skierID": "65905",
+        "vertical": 6168
+      },
+      {
+        "rank": 18,
+        "skierID": "14071",
+        "vertical": 6160
+      },
+      {
+        "rank": 19,
+        "skierID": "26481",
+        "vertical": 6157
+      },
+      {
+        "rank": 20,
+        "skierID": "83756",
+        "vertical": 6116
+      }
+    ]
+  },
+  "9": {
+    "resortID": "9",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.907250Z",
+    "version": 827,
+    "processed": 201295,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "18605",
+        "vertical": 8376
+      },
+      {
+        "rank": 2,
+        "skierID": "1139",
+        "vertical": 7546
+      },
+      {
+        "rank": 3,
+        "skierID": "79152",
+        "vertical": 7304
+      },
+      {
+        "rank": 4,
+        "skierID": "90210",
+        "vertical": 7055
+      },
+      {
+        "rank": 5,
+        "skierID": "20344",
+        "vertical": 7050
+      },
+      {
+        "rank": 6,
+        "skierID": "4827",
+        "vertical": 7044
+      },
+      {
+        "rank": 7,
+        "skierID": "36663",
+        "vertical": 6874
+      },
+      {
+        "rank": 8,
+        "skierID": "66201",
+        "vertical": 6857
+      },
+      {
+        "rank": 9,
+        "skierID": "41286",
+        "vertical": 6772
+      },
+      {
+        "rank": 10,
+        "skierID": "77537",
+        "vertical": 6742
+      },
+      {
+        "rank": 11,
+        "skierID": "67985",
+        "vertical": 6728
+      },
+      {
+        "rank": 12,
+        "skierID": "71357",
+        "vertical": 6677
+      },
+      {
+        "rank": 13,
+        "skierID": "23998",
+        "vertical": 6606
+      },
+      {
+        "rank": 14,
+        "skierID": "80036",
+        "vertical": 6589
+      },
+      {
+        "rank": 15,
+        "skierID": "59355",
+        "vertical": 6512
+      },
+      {
+        "rank": 16,
+        "skierID": "11698",
+        "vertical": 6509
+      },
+      {
+        "rank": 17,
+        "skierID": "18680",
+        "vertical": 6506
+      },
+      {
+        "rank": 18,
+        "skierID": "50877",
+        "vertical": 6436
+      },
+      {
+        "rank": 19,
+        "skierID": "77426",
+        "vertical": 6429
+      },
+      {
+        "rank": 20,
+        "skierID": "16385",
+        "vertical": 6383
+      }
+    ]
+  },
+  "10": {
+    "resortID": "10",
+    "dayID": "1",
+    "serverTimestamp": "2026-11-08T05:53:13.904419Z",
+    "version": 803,
+    "processed": 201677,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "53654",
+        "vertical": 8749
+      },
+      {
+        "rank": 2,
+        "skierID": "9937",
+        "vertical": 6864
+      },
+      {
+        "rank": 3,
+        "skierID": "69836",
+        "vertical": 6856
+      },
+      {
+        "rank": 4,
+        "skierID": "48192",
+        "vertical": 6754
+      },
+      {
+        "rank": 5,
+        "skierID": "83452",
+        "vertical": 6725
+      },
+      {
+        "rank": 6,
+        "skierID": "50177",
+        "vertical": 6569
+      },
+      {
+        "rank": 7,
+        "skierID": "70365",
+        "vertical": 6471
+      },
+      {
+        "rank": 8,
+        "skierID": "35428",
+        "vertical": 6433
+      },
+      {
+        "rank": 9,
+        "skierID": "11128",
+        "vertical": 6240
+      },
+      {
+        "rank": 10,
+        "skierID": "1387",
+        "vertical": 6227
+      },
+      {
+        "rank": 11,
+        "skierID": "36878",
+        "vertical": 6168
+      },
+      {
+        "rank": 12,
+        "skierID": "98719",
+        "vertical": 6160
+      },
+      {
+        "rank": 13,
+        "skierID": "98619",
+        "vertical": 6112
+      },
+      {
+        "rank": 14,
+        "skierID": "32015",
+        "vertical": 6045
+      },
+      {
+        "rank": 15,
+        "skierID": "15441",
+        "vertical": 5938
+      },
+      {
+        "rank": 16,
+        "skierID": "96279",
+        "vertical": 5935
+      },
+      {
+        "rank": 17,
+        "skierID": "16725",
+        "vertical": 5928
+      },
+      {
+        "rank": 18,
+        "skierID": "62763",
+        "vertical": 5928
+      },
+      {
+        "rank": 19,
+        "skierID": "5586",
+        "vertical": 5918
+      },
+      {
+        "rank": 20,
+        "skierID": "57303",
+        "vertical": 5908
+      }
+    ]
+  }
+}

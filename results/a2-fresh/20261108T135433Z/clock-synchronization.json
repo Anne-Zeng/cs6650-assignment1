@@ -1,0 +1,26 @@
+{
+  "ingest1": {
+    "tracking": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Sun Nov 08 14:24:04 2026\nSystem time     : 0.000000675 seconds fast of NTP time\nLast offset     : -0.000000847 seconds\nRMS offset      : 0.000005587 seconds\nFrequency       : 1.251 ppm slow\nResidual freq   : +0.001 ppm\nSkew            : 0.132 ppm\nRoot delay      : 0.000498476 seconds\nRoot dispersion : 0.000381627 seconds\nUpdate interval : 16.2 seconds\nLeap status     : Normal\n",
+    "capturedUTC": "2026-11-08T14:24:20.475418+00:00"
+  },
+  "ingest2": {
+    "tracking": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Sun Nov 08 14:24:17 2026\nSystem time     : 0.000000035 seconds slow of NTP time\nLast offset     : +0.000000349 seconds\nRMS offset      : 0.000000724 seconds\nFrequency       : 2.465 ppm slow\nResidual freq   : +0.000 ppm\nSkew            : 0.020 ppm\nRoot delay      : 0.000361472 seconds\nRoot dispersion : 0.000179421 seconds\nUpdate interval : 32.3 seconds\nLeap status     : Normal\n",
+    "capturedUTC": "2026-11-08T14:24:20.478651+00:00"
+  },
+  "ingest3": {
+    "tracking": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Sun Nov 08 14:24:03 2026\nSystem time     : 0.000000461 seconds fast of NTP time\nLast offset     : +0.000001463 seconds\nRMS offset      : 0.000002856 seconds\nFrequency       : 2.064 ppm slow\nResidual freq   : +0.001 ppm\nSkew            : 0.040 ppm\nRoot delay      : 0.000439641 seconds\nRoot dispersion : 0.000238242 seconds\nUpdate interval : 16.1 seconds\nLeap status     : Normal\n",
+    "capturedUTC": "2026-11-08T14:24:20.668309+00:00"
+  },
+  "ingest4": {
+    "tracking": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Sun Nov 08 14:24:15 2026\nSystem time     : 0.000001665 seconds fast of NTP time\nLast offset     : +0.000001102 seconds\nRMS offset      : 0.000002805 seconds\nFrequency       : 7.325 ppm slow\nResidual freq   : +0.001 ppm\nSkew            : 0.047 ppm\nRoot delay      : 0.000466027 seconds\nRoot dispersion : 0.000293446 seconds\nUpdate interval : 16.2 seconds\nLeap status     : Normal\n",
+    "capturedUTC": "2026-11-08T14:24:20.744162+00:00"
+  },
+  "consumer": {
+    "tracking": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Sun Nov 08 14:24:08 2026\nSystem time     : 0.000000999 seconds fast of NTP time\nLast offset     : -0.000000668 seconds\nRMS offset      : 0.000001881 seconds\nFrequency       : 4.926 ppm slow\nResidual freq   : -0.000 ppm\nSkew            : 0.034 ppm\nRoot delay      : 0.000292165 seconds\nRoot dispersion : 0.000346518 seconds\nUpdate interval : 16.2 seconds\nLeap status     : Normal\n",
+    "capturedUTC": "2026-11-08T14:24:20.469544+00:00"
+  },
+  "rabbitmq": {
+    "tracking": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Sun Nov 08 14:24:05 2026\nSystem time     : 0.000001433 seconds slow of NTP time\nLast offset     : -0.000000841 seconds\nRMS offset      : 0.000003198 seconds\nFrequency       : 4.433 ppm slow\nResidual freq   : -0.001 ppm\nSkew            : 0.071 ppm\nRoot delay      : 0.000572461 seconds\nRoot dispersion : 0.000373439 seconds\nUpdate interval : 16.1 seconds\nLeap status     : Normal\n",
+    "capturedUTC": "2026-11-08T14:24:20.450824+00:00"
+  }
+}

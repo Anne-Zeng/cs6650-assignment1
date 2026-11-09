@@ -1,0 +1,39 @@
+Listing exchanges for vhost / ...
+name	type	durable
+amq.fanout	fanout	true
+leaderboard.topic	topic	true
+amq.topic	topic	true
+amq.direct	direct	true
+skitrak.exchange	topic	true
+amq.rabbitmq.trace	topic	true
+amq.headers	headers	true
+skitrak.dlx	direct	true
+amq.match	headers	true
+	direct	true
+Timeout: 60.0 seconds ...
+Listing queues for vhost / ...
+name	durable	arguments	messages_ready	messages_unacknowledged	consumers
+resort.10	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.10"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.5.dead	true	[{"x-queue-type","classic"}]	0	0	0
+resort.8	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.8"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.6.dead	true	[{"x-queue-type","classic"}]	0	0	0
+amq.gen-6v9WdjAEJcFo6KRORK8b1g	false	[{"x-max-length",10000},{"x-message-ttl",60000},{"x-queue-type","classic"}]	0	0	1
+resort.8.dead	true	[{"x-queue-type","classic"}]	0	0	0
+resort.7	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.7"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.4	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.4"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.2	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.2"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.5	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.5"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+amq.gen-Lh8Ttr5w6NdejvXcZxAwLA	false	[{"x-max-length",10000},{"x-message-ttl",60000},{"x-queue-type","classic"}]	0	0	1
+resort.10.dead	true	[{"x-queue-type","classic"}]	0	0	0
+resort.6	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.6"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.7.dead	true	[{"x-queue-type","classic"}]	0	0	0
+resort.1.dead	true	[{"x-queue-type","classic"}]	0	0	0
+resort.2.dead	true	[{"x-queue-type","classic"}]	0	0	0
+resort.4.dead	true	[{"x-queue-type","classic"}]	0	0	0
+amq.gen-0JmpSLA_1Udgptz-5ESb1w	false	[{"x-max-length",10000},{"x-message-ttl",60000},{"x-queue-type","classic"}]	0	0	1
+resort.3	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.3"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.3.dead	true	[{"x-queue-type","classic"}]	0	0	0
+amq.gen-ZQ12A0Q5g8quAqVNusgbyQ	false	[{"x-max-length",10000},{"x-message-ttl",60000},{"x-queue-type","classic"}]	0	0	1
+resort.9	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.9"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1
+resort.9.dead	true	[{"x-queue-type","classic"}]	0	0	0
+resort.1	true	[{"x-dead-letter-exchange","skitrak.dlx"},{"x-dead-letter-routing-key","resort.1"},{"x-max-length",100000},{"x-message-ttl",86400000},{"x-overflow","reject-publish"},{"x-queue-type","classic"},{"x-single-active-consumer",true}]	0	0	1

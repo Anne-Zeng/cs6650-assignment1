@@ -1,0 +1,32 @@
+{
+  "capturedUTC": "2026-11-08T14:41:31.651990+00:00",
+  "counts": {
+    "tests": 61,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "buildSuccess": true,
+  "reports": [
+    "results/a2-fresh/20261108T135433Z/local-regression/common/TEST-skitrak.common.ContractsTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/server-v2/TEST-skitrak.server.SessionOutboxTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/server-v2/TEST-skitrak.server.SwipeValidatorTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/server-v2/TEST-skitrak.server.LeaderboardHubTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/server-v2/TEST-skitrak.server.LeaderboardSubscriptionsTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/server-v2/TEST-skitrak.server.SwipePublisherTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/server-v2/TEST-skitrak.server.ChannelPoolTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/consumer/TEST-skitrak.consumer.LagHistogramTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/consumer/TEST-skitrak.consumer.ConsumerStoreTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/consumer/TEST-skitrak.consumer.ResortBatcherTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/consumer/TEST-skitrak.consumer.ConsumerBatchRuntimeTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/consumer/TEST-skitrak.consumer.SerialLaneTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/consumer/TEST-skitrak.consumer.ConsumerLifecycleTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/client-v2/TEST-SwipeMetricsTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/client-v2/TEST-DrainVerifierTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/client-v2/TEST-AttemptBufferTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/client-v2/TEST-PushMetricsTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/client-v2/TEST-Assignment2ClientTest.xml",
+    "results/a2-fresh/20261108T135433Z/local-regression/client-v2/TEST-HttpTransportTest.xml"
+  ],
+  "environmentNote": "Initial restricted attempt could not bind localhost sockets. It is preserved separately; the complete rerun with local networking allowed passed without test-code changes."
+}

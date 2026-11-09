@@ -1,0 +1,48 @@
+{
+  "events": 500000,
+  "threads": 128,
+  "consumerThreads": 15,
+  "ingestCount": 4,
+  "base_url": "http://skitrak-alb-1400622109.us-west-2.elb.amazonaws.com",
+  "consumer_url": "http://127.0.0.1:18081",
+  "startUTC": "20261108T202651Z",
+  "output": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z",
+  "freshSession": "20261108T201347Z",
+  "monitoredHosts": {
+    "ingest1": "35.89.212.124",
+    "ingest2": "35.94.30.250",
+    "ingest3": "35.86.85.1",
+    "ingest4": "34.214.6.110",
+    "consumer": "35.92.59.100",
+    "rabbitmq": "44.242.204.110"
+  },
+  "verifiedALBTargetIds": [
+    "ingest-1",
+    "ingest-2",
+    "ingest-3",
+    "ingest-4"
+  ],
+  "seed": 6650,
+  "topN": 20,
+  "resorts": 10,
+  "category": "consumer-sweep",
+  "databaseState": "Persistent accumulated state retained; not reset between runs",
+  "clientStartUTC": "2026-11-08T20:27:06.061959+00:00",
+  "clientCommand": [
+    "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
+    "-jar",
+    "/Users/anne/Desktop/CS6650distributedsystem/client-v2/target/client-v2.jar",
+    "http://skitrak-alb-1400622109.us-west-2.elb.amazonaws.com",
+    "500000",
+    "128",
+    "1000",
+    "10",
+    "buffered",
+    "6650",
+    "http://127.0.0.1:18081",
+    "600"
+  ],
+  "clientExitCode": 0,
+  "clientEndUTC": "2026-11-08T20:30:29.855984+00:00",
+  "evidenceCollectorsPassed": true
+}

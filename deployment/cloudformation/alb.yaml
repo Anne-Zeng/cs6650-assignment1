@@ -1,0 +1,127 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: SkiTrak A2 ALB for 1, 2 or 4 existing ingest EC2 instances; does not provision application EC2 hosts.
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+  PublicSubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: At least two public subnets in distinct Availability Zones.
+  IngestSecurityGroupId:
+    Type: AWS::EC2::SecurityGroup::Id
+    Description: Security group attached to all ingest targets.
+  AllowedClientCidr:
+    Type: String
+    Default: 0.0.0.0/0
+  IngestCount:
+    Type: Number
+    AllowedValues: [1, 2, 4]
+    Default: 1
+  Ingest1:
+    Type: AWS::EC2::Instance::Id
+  Ingest2:
+    Type: String
+    Default: ''
+  Ingest3:
+    Type: String
+    Default: ''
+  Ingest4:
+    Type: String
+    Default: ''
+  AccessLogsBucket:
+    Type: String
+    Default: ''
+    Description: Optional same-region S3 bucket with ELB log-delivery bucket policy already configured.
+Conditions:
+  AtLeastTwo: !Or [!Equals [!Ref IngestCount, 2], !Equals [!Ref IngestCount, 4]]
+  Four: !Equals [!Ref IngestCount, 4]
+  HasLogBucket: !Not [!Equals [!Ref AccessLogsBucket, '']]
+Resources:
+  AlbSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: HTTP access to SkiTrak ALB
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: !Ref AllowedClientCidr
+  AllowAlbToIngest:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref IngestSecurityGroupId
+      IpProtocol: tcp
+      FromPort: 8080
+      ToPort: 8080
+      SourceSecurityGroupId: !GetAtt AlbSecurityGroup.GroupId
+  LoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Scheme: internet-facing
+      Type: application
+      Subnets: !Ref PublicSubnetIds
+      SecurityGroups: [!GetAtt AlbSecurityGroup.GroupId]
+      LoadBalancerAttributes:
+        - Key: idle_timeout.timeout_seconds
+          Value: '120'
+        - Key: access_logs.s3.enabled
+          Value: !If [HasLogBucket, 'true', 'false']
+        - !If
+          - HasLogBucket
+          - Key: access_logs.s3.bucket
+            Value: !Ref AccessLogsBucket
+          - !Ref AWS::NoValue
+  IngestTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      VpcId: !Ref VpcId
+      Port: 8080
+      Protocol: HTTP
+      TargetType: instance
+      HealthCheckEnabled: true
+      HealthCheckPath: /health
+      HealthCheckProtocol: HTTP
+      HealthCheckIntervalSeconds: 30
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 3
+      Matcher:
+        HttpCode: '200'
+      TargetGroupAttributes:
+        - Key: stickiness.enabled
+          Value: 'true'
+        - Key: stickiness.type
+          Value: lb_cookie
+        - Key: stickiness.lb_cookie.duration_seconds
+          Value: '300'
+        - Key: load_balancing.algorithm.type
+          Value: round_robin
+        - Key: load_balancing.cross_zone.enabled
+          Value: 'true'
+        - Key: deregistration_delay.timeout_seconds
+          Value: '30'
+      Targets:
+        - Id: !Ref Ingest1
+        - !If [AtLeastTwo, {Id: !Ref Ingest2}, !Ref AWS::NoValue]
+        - !If [Four, {Id: !Ref Ingest3}, !Ref AWS::NoValue]
+        - !If [Four, {Id: !Ref Ingest4}, !Ref AWS::NoValue]
+  HttpListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref LoadBalancer
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref IngestTargetGroup
+Outputs:
+  BaseUrl:
+    Value: !Sub 'http://${LoadBalancer.DNSName}'
+  LoadBalancerArn:
+    Value: !Ref LoadBalancer
+  TargetGroupArn:
+    Value: !Ref IngestTargetGroup
+  LoadBalancerFullName:
+    Value: !GetAtt LoadBalancer.LoadBalancerFullName
+  TargetGroupFullName:
+    Value: !GetAtt IngestTargetGroup.TargetGroupFullName

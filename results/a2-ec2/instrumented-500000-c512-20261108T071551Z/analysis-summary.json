@@ -1,0 +1,54 @@
+{
+  "consumer": {
+    "samples": 58,
+    "appErrors": {
+      "timeout": 13
+    },
+    "before": 3500202,
+    "after": 4000202,
+    "processedDelta": 500000,
+    "duplicateDelta": 0,
+    "failedDelta": 0,
+    "finalInFlight": 0,
+    "finalPendingOutbox": 0,
+    "finalQueueReady": 0,
+    "lagThisRun": 1151.3982434899979,
+    "queueReadyMax": 11105,
+    "cpu": {
+      "mean": 35.48892320573709,
+      "max": 57.03517587939699
+    },
+    "iowait": {
+      "mean": 33.93172621040491,
+      "max": 63.005050505050505
+    }
+  },
+  "rabbitmq": {
+    "samples": 74,
+    "appErrors": {},
+    "cpu": {
+      "mean": 77.24358973294893,
+      "max": 97.25
+    },
+    "iowait": {
+      "mean": 0.03539697709815582,
+      "max": 2.5839793281653747
+    }
+  },
+  "ingest1": {
+    "samples": 74,
+    "appErrors": {},
+    "cpu": {
+      "mean": 55.207778690115134,
+      "max": 76.1786600496278
+    },
+    "iowait": {
+      "mean": 0.038000393587952784,
+      "max": 1.0204081632653061
+    }
+  },
+  "HTTPstatusCounts": {
+    "201": 500000,
+    "503": 214
+  }
+}

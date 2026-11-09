@@ -1,0 +1,157 @@
+{
+  "consumer": {
+    "appErrors": {},
+    "processedDelta": 500000,
+    "duplicates": 0,
+    "failedDelta": 0,
+    "lagMs": 21.342734651999994,
+    "readyMax": 0,
+    "finalReady": 0,
+    "finalInFlight": 0,
+    "finalOutbox": 0,
+    "cpu": {
+      "mean": 41.36,
+      "max": 81.18
+    },
+    "iowait": {
+      "mean": 18.46,
+      "max": 25.0
+    },
+    "diskUtil": {
+      "mean": 44.56,
+      "max": 68.94
+    },
+    "writeIOPS": {
+      "mean": 4609.55,
+      "max": 6857.24
+    },
+    "writeAwaitMs": {
+      "mean": 1.02,
+      "max": 2.87
+    },
+    "diskQueue": {
+      "mean": 4.57,
+      "max": 8.11
+    }
+  },
+  "rabbitmq": {
+    "appErrors": {},
+    "cpu": {
+      "mean": 60.82,
+      "max": 75.43
+    },
+    "iowait": {
+      "mean": 0.01,
+      "max": 0.51
+    },
+    "diskUtil": {
+      "mean": 0.17,
+      "max": 2.0
+    },
+    "writeIOPS": {
+      "mean": 3.23,
+      "max": 79.92
+    },
+    "writeAwaitMs": {
+      "mean": 1.06,
+      "max": 2.0
+    },
+    "diskQueue": {
+      "mean": 0.0,
+      "max": 0.07
+    }
+  },
+  "ingest1": {
+    "appErrors": {},
+    "cpu": {
+      "mean": 27.0,
+      "max": 59.83
+    },
+    "iowait": {
+      "mean": 0.03,
+      "max": 1.01
+    },
+    "diskUtil": {
+      "mean": 0.07,
+      "max": 2.5
+    },
+    "writeIOPS": {
+      "mean": 3.1,
+      "max": 109.39
+    },
+    "writeAwaitMs": {
+      "mean": 1.58,
+      "max": 4.07
+    },
+    "diskQueue": {
+      "mean": 0.0,
+      "max": 0.1
+    },
+    "appLast": {
+      "serverId": "ingest-1",
+      "status": "UP",
+      "demoLifts": false,
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerChannelsAvailable": 32,
+      "producerConnectionsEstablished": 1,
+      "requests": 500003,
+      "invalid": 0,
+      "publishesConfirmed": 500003,
+      "publishesFailed": 0,
+      "unroutable": 0,
+      "localSessions": 0,
+      "backplaneBindings": 0,
+      "snapshotFailures": 0,
+      "backplaneUpdates": 799
+    }
+  },
+  "ingest2": {
+    "appErrors": {},
+    "cpu": {
+      "mean": 23.37,
+      "max": 52.8
+    },
+    "iowait": {
+      "mean": 0.03,
+      "max": 0.51
+    },
+    "diskUtil": {
+      "mean": 0.06,
+      "max": 1.0
+    },
+    "writeIOPS": {
+      "mean": 2.11,
+      "max": 55.44
+    },
+    "writeAwaitMs": {
+      "mean": 1.46,
+      "max": 2.73
+    },
+    "diskQueue": {
+      "mean": 0.0,
+      "max": 0.06
+    },
+    "appLast": {
+      "serverId": "ingest-2",
+      "status": "UP",
+      "demoLifts": false,
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerChannelsAvailable": 32,
+      "producerConnectionsEstablished": 1,
+      "requests": 499997,
+      "invalid": 0,
+      "publishesConfirmed": 499997,
+      "publishesFailed": 0,
+      "unroutable": 0,
+      "localSessions": 0,
+      "backplaneBindings": 0,
+      "snapshotFailures": 0,
+      "backplaneUpdates": 1009
+    }
+  },
+  "statusCounts": {
+    "201": 500000
+  }
+}

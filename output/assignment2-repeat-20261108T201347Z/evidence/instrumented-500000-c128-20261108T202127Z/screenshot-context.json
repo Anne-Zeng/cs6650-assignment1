@@ -1,0 +1,32 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-repeat/20261108T201347Z/phase-4ingest-workers10/instrumented-500000-c128-20261108T202127Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-20261108T202139501973Z.png",
+    "screenshots/rabbitmq-20261108T202224854880Z.png",
+    "screenshots/rabbitmq-20261108T202310166477Z.png",
+    "screenshots/rabbitmq-20261108T202355511721Z.png",
+    "screenshots/rabbitmq-20261108T202440957412Z.png",
+    "screenshots/rabbitmq-20261108T202532455061Z-final.png"
+  ],
+  "notes": [
+    "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+    "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+    "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+  ],
+  "albScreenshots": [
+    "screenshots/alb-overview-supplied.png",
+    "screenshots/alb-metrics-supplied.png"
+  ],
+  "albCaptureSettings": {
+    "scope": "LoadBalancer aggregate",
+    "scopeVerified": true,
+    "wholeALBAggregate": true,
+    "requestCountStat": "Sum",
+    "targetResponseTimeStat": "Average",
+    "periodSeconds": 60,
+    "selectedUTCWindow": "20:21:39-20:25:16",
+    "date": "2026-11-08",
+    "timeZone": "UTC",
+    "captureRangeNote": "Supplied screenshots truncate subsecond run boundaries to whole seconds."
+  }
+}

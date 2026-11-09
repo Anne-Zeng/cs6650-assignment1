@@ -1,0 +1,15 @@
+{
+  "runDirectory": "results/a2-ec2/instrumented-500000-c128-20261108T125240Z",
+  "consumerThreads": 20,
+  "dynamicScaling": false,
+  "processedDelta": 500000,
+  "duplicateDelta": 0,
+  "readyPeak": 0,
+  "consumerLagMeanMs": 25.614320458000005,
+  "finalReady": 0,
+  "finalInFlight": 0,
+  "monitorErrors": 0,
+  "endToEndThroughput": 2785.5,
+  "retries": 0.0,
+  "scope": "RabbitMQ Overview screenshots aggregate all queues; readyPeak above is from consumer raw-resort queue monitoring. Screenshot clock around04:53-04:56 Pacific corresponds to12:53-12:56 UTC."
+}

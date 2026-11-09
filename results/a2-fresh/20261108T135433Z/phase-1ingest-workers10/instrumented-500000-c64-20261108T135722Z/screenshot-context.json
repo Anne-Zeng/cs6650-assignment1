@@ -1,0 +1,32 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/phase-1ingest-workers10/instrumented-500000-c64-20261108T135722Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-20261108T135739900660Z.png",
+    "screenshots/rabbitmq-20261108T135825406110Z.png",
+    "screenshots/rabbitmq-20261108T135910635997Z.png",
+    "screenshots/rabbitmq-20261108T135956010112Z.png",
+    "screenshots/rabbitmq-20261108T140041357168Z.png",
+    "screenshots/rabbitmq-20261108T140126802819Z.png",
+    "screenshots/rabbitmq-20261108T140212310039Z.png",
+    "screenshots/rabbitmq-20261108T140257736422Z.png",
+    "screenshots/rabbitmq-20261108T140307393941Z-final.png"
+  ],
+  "notes": [
+    "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+    "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+    "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+  ],
+  "albScreenshots": [
+    "screenshots/alb-request-count.png",
+    "screenshots/alb-target-response-time.png"
+  ],
+  "albCaptureSettings": {
+    "startUTC": "2026-11-08T13:57:39",
+    "endUTC": "2026-11-08T14:03:01",
+    "periodSeconds": 60,
+    "RequestCount": "Sum",
+    "TargetResponseTime": "Average",
+    "verifiedFromScreenshot": true,
+    "dimensionDetails": "Partially truncated in supplied images; association follows the user-selected ALB test context"
+  }
+}

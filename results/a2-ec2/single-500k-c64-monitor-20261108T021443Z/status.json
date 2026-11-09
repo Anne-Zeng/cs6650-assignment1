@@ -1,0 +1,14 @@
+{
+  "ingest1": {
+    "samples": 723,
+    "errors": 0
+  },
+  "consumer": {
+    "samples": 723,
+    "errors": 0
+  },
+  "rabbitmq": {
+    "samples": 723,
+    "errors": 0
+  }
+}

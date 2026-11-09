@@ -1,0 +1,130 @@
+{
+  "timestampUTC": "2026-11-08T12:42:37.307495+00:00",
+  "results": {
+    "ingest1": {
+      "exitCode": 0,
+      "data": {
+        "serverId": "ingest-1",
+        "status": "UP",
+        "demoLifts": false,
+        "producerReady": true,
+        "backplaneReady": true,
+        "producerChannelsAvailable": 64,
+        "producerConnectionsEstablished": 1,
+        "requests": 500030,
+        "invalid": 0,
+        "publishesConfirmed": 500030,
+        "publishesFailed": 0,
+        "unroutable": 0,
+        "publishFailureReasons": {
+          "ACQUIRE_TIMEOUT": 0,
+          "CONFIRM_TIMEOUT": 0,
+          "BROKER_NACK": 0,
+          "UNROUTABLE": 0,
+          "INTERRUPTED": 0,
+          "PUBLISH_ERROR": 0
+        },
+        "localSessions": 0,
+        "backplaneBindings": 0,
+        "snapshotFailures": 4,
+        "backplaneUpdates": 1045
+      },
+      "error": null
+    },
+    "ingest2": {
+      "exitCode": 0,
+      "data": {
+        "serverId": "ingest-2",
+        "status": "UP",
+        "demoLifts": false,
+        "producerReady": true,
+        "backplaneReady": true,
+        "producerChannelsAvailable": 64,
+        "producerConnectionsEstablished": 1,
+        "requests": 500029,
+        "invalid": 0,
+        "publishesConfirmed": 500029,
+        "publishesFailed": 0,
+        "unroutable": 0,
+        "publishFailureReasons": {
+          "ACQUIRE_TIMEOUT": 0,
+          "CONFIRM_TIMEOUT": 0,
+          "BROKER_NACK": 0,
+          "UNROUTABLE": 0,
+          "INTERRUPTED": 0,
+          "PUBLISH_ERROR": 0
+        },
+        "localSessions": 0,
+        "backplaneBindings": 0,
+        "snapshotFailures": 3,
+        "backplaneUpdates": 877
+      },
+      "error": null
+    },
+    "ingest3": {
+      "exitCode": 0,
+      "data": {
+        "serverId": "ingest-3",
+        "status": "UP",
+        "demoLifts": false,
+        "producerReady": true,
+        "backplaneReady": true,
+        "producerChannelsAvailable": 64,
+        "producerConnectionsEstablished": 1,
+        "requests": 0,
+        "invalid": 0,
+        "publishesConfirmed": 0,
+        "publishesFailed": 0,
+        "unroutable": 0,
+        "publishFailureReasons": {
+          "ACQUIRE_TIMEOUT": 0,
+          "CONFIRM_TIMEOUT": 0,
+          "BROKER_NACK": 0,
+          "UNROUTABLE": 0,
+          "INTERRUPTED": 0,
+          "PUBLISH_ERROR": 0
+        },
+        "localSessions": 0,
+        "backplaneBindings": 0,
+        "snapshotFailures": 0,
+        "backplaneUpdates": 0
+      },
+      "error": null
+    },
+    "ingest4": {
+      "exitCode": 0,
+      "data": {
+        "serverId": "ingest-4",
+        "status": "UP",
+        "demoLifts": false,
+        "producerReady": true,
+        "backplaneReady": true,
+        "producerChannelsAvailable": 64,
+        "producerConnectionsEstablished": 1,
+        "requests": 500034,
+        "invalid": 0,
+        "publishesConfirmed": 500034,
+        "publishesFailed": 0,
+        "unroutable": 0,
+        "publishFailureReasons": {
+          "ACQUIRE_TIMEOUT": 0,
+          "CONFIRM_TIMEOUT": 0,
+          "BROKER_NACK": 0,
+          "UNROUTABLE": 0,
+          "INTERRUPTED": 0,
+          "PUBLISH_ERROR": 0
+        },
+        "localSessions": 0,
+        "backplaneBindings": 0,
+        "snapshotFailures": 4,
+        "backplaneUpdates": 713
+      },
+      "error": null
+    },
+    "rabbitmq": {
+      "exitCode": 0,
+      "data": "Listing exchanges for vhost / ...\nname\ttype\tdurable\namq.fanout\tfanout\ttrue\nleaderboard.topic\ttopic\ttrue\namq.topic\ttopic\ttrue\namq.direct\tdirect\ttrue\nskitrak.exchange\ttopic\ttrue\namq.rabbitmq.trace\ttopic\ttrue\namq.headers\theaders\ttrue\nskitrak.dlx\tdirect\ttrue\namq.match\theaders\ttrue\n\tdirect\ttrue\nTimeout: 60.0 seconds ...\nListing queues for vhost / ...\nname\tdurable\targuments\tmessages_ready\tmessages_unacknowledged\tconsumers\nresort.10\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.10\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.5.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\nresort.8\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.8\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.6.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\namq.gen-6v9WdjAEJcFo6KRORK8b1g\tfalse\t[{\"x-max-length\",10000},{\"x-message-ttl\",60000},{\"x-queue-type\",\"classic\"}]\t0\t0\t1\nresort.8.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\nresort.7\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.7\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.4\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.4\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.2\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.2\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.5\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.5\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\namq.gen-Lh8Ttr5w6NdejvXcZxAwLA\tfalse\t[{\"x-max-length\",10000},{\"x-message-ttl\",60000},{\"x-queue-type\",\"classic\"}]\t0\t0\t1\nresort.10.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\nresort.6\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.6\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.7.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\nresort.1.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\nresort.2.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\nresort.4.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\namq.gen-0JmpSLA_1Udgptz-5ESb1w\tfalse\t[{\"x-max-length\",10000},{\"x-message-ttl\",60000},{\"x-queue-type\",\"classic\"}]\t0\t0\t1\nresort.3\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.3\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.3.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\namq.gen-ZQ12A0Q5g8quAqVNusgbyQ\tfalse\t[{\"x-max-length\",10000},{\"x-message-ttl\",60000},{\"x-queue-type\",\"classic\"}]\t0\t0\t1\nresort.9\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.9\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\nresort.9.dead\ttrue\t[{\"x-queue-type\",\"classic\"}]\t0\t0\t0\nresort.1\ttrue\t[{\"x-dead-letter-exchange\",\"skitrak.dlx\"},{\"x-dead-letter-routing-key\",\"resort.1\"},{\"x-max-length\",100000},{\"x-message-ttl\",86400000},{\"x-overflow\",\"reject-publish\"},{\"x-queue-type\",\"classic\"},{\"x-single-active-consumer\",true}]\t0\t0\t1\n",
+      "error": null
+    }
+  }
+}

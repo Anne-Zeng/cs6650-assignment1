@@ -1,0 +1,59 @@
+{
+  "capturedUTC": "2026-11-08T14:25:30.151283+00:00",
+  "instances": {
+    "ingest1": {
+      "instance-id": "i-0d12f2707bcc779d5",
+      "instance-type": "t3.micro",
+      "local-ipv4": "172.31.45.254",
+      "public-ipv4": "18.236.201.223",
+      "ami-id": "ami-006a1859c3705b74d",
+      "vcpus": 2,
+      "memoryTotalKiB": 935164
+    },
+    "ingest2": {
+      "instance-id": "i-06948d3fca4be453a",
+      "instance-type": "t3.micro",
+      "local-ipv4": "172.31.24.108",
+      "public-ipv4": "34.222.33.161",
+      "ami-id": "ami-09f02015912e773f7",
+      "vcpus": 2,
+      "memoryTotalKiB": 934996
+    },
+    "ingest3": {
+      "instance-id": "i-03c2a5b0bae438fd1",
+      "instance-type": "t3.micro",
+      "local-ipv4": "172.31.45.75",
+      "public-ipv4": "35.93.203.4",
+      "ami-id": "ami-006a1859c3705b74d",
+      "vcpus": 2,
+      "memoryTotalKiB": 935160
+    },
+    "ingest4": {
+      "instance-id": "i-04c845f4c06b8904a",
+      "instance-type": "t3.micro",
+      "local-ipv4": "172.31.44.196",
+      "public-ipv4": "35.94.196.68",
+      "ami-id": "ami-006a1859c3705b74d",
+      "vcpus": 2,
+      "memoryTotalKiB": 935164
+    },
+    "consumer": {
+      "instance-id": "i-05bdda1237a5952ff",
+      "instance-type": "t3.medium",
+      "local-ipv4": "172.31.36.151",
+      "public-ipv4": "35.87.177.135",
+      "ami-id": "ami-09f02015912e773f7",
+      "vcpus": 2,
+      "memoryTotalKiB": 3927880
+    },
+    "rabbitmq": {
+      "instance-id": "i-0f5b9d8804a385a19",
+      "instance-type": "t3.medium",
+      "local-ipv4": "172.31.32.233",
+      "public-ipv4": "54.218.91.253",
+      "ami-id": "ami-09f02015912e773f7",
+      "vcpus": 2,
+      "memoryTotalKiB": 3927880
+    }
+  }
+}

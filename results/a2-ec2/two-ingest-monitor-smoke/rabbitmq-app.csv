@@ -1,0 +1,4 @@
+timestamp,ready,unacked,publishRate,deliverRate,ackRate,consumerLagAvgMs,consumerLagP95Ms,consumerLagP99Ms,error
+1794125784.4762628,0,0,0,0,0,,,,
+1794125786.4782224,0,0,0,0,0,,,,
+1794125788.48027,0,0,0,0,0,,,,

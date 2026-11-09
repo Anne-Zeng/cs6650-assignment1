@@ -1,0 +1,149 @@
+{
+  "session": "20261108T135433Z",
+  "root": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z",
+  "scope": "Required matrix and functional/recovery verification; excludes historical tuning experiments",
+  "previousDrafts": "Preserved; excluded from new report",
+  "status": "Scaling and1M complete; fixed-consumer sweep running",
+  "configuration": {
+    "consumerThreads": 10,
+    "dynamicScaling": false,
+    "prefetch": 128,
+    "storeBatchSize": 64,
+    "storeBatchWaitMs": 10,
+    "ackBatchSize": 16,
+    "channelPoolSize": 64
+  },
+  "plannedRuns": [
+    {
+      "ingests": 1,
+      "events": 500000,
+      "clientThreads": 64,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 1,
+      "events": 500000,
+      "clientThreads": 128,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 1,
+      "events": 500000,
+      "clientThreads": 256,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 1,
+      "events": 500000,
+      "clientThreads": 512,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 2,
+      "events": 500000,
+      "clientThreads": 64,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 2,
+      "events": 500000,
+      "clientThreads": 128,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 2,
+      "events": 500000,
+      "clientThreads": 256,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 2,
+      "events": 500000,
+      "clientThreads": 512,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 64,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 128,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 256,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 512,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 4,
+      "events": 1000000,
+      "clientThreads": 512,
+      "consumerThreads": 10,
+      "category": "scaling"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 128,
+      "consumerThreads": 5,
+      "category": "consumer-sweep"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 128,
+      "consumerThreads": 10,
+      "category": "consumer-sweep"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 128,
+      "consumerThreads": 15,
+      "category": "consumer-sweep"
+    },
+    {
+      "ingests": 4,
+      "events": 500000,
+      "clientThreads": 128,
+      "consumerThreads": 20,
+      "category": "consumer-sweep"
+    }
+  ],
+  "routingPreparation": "User confirmed deregistration of ingest2/3/4; fresh-session HTTP probes observed only ingest-1",
+  "updatedUTC": "2026-11-08T13:58:35.373793+00:00",
+  "scopeConfirmedByUser": true,
+  "preservedDrafts": [
+    "output/assignment2-report.md",
+    "output/assignment2-evidence/performance-analysis.md"
+  ],
+  "completedBenchmarkRuns": 13,
+  "activeToolSessions": {
+    "fourIngestScaling": 68587,
+    "finishController": 99096
+  }
+}

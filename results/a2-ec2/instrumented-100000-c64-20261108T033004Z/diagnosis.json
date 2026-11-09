@@ -1,0 +1,58 @@
+{
+  "consumer": {
+    "samples": 45,
+    "appErrors": 0,
+    "max": {
+      "cpuPercent": 99.5,
+      "iowaitPercent": 63.48039215686274,
+      "writeIOPS": 3994.9087061054524,
+      "averageDiskQueue": 13.953312846154653,
+      "writeAwaitMs": 4.456285896617741
+    },
+    "mean": {
+      "cpuPercent": 43.36063802542921,
+      "iowaitPercent": 36.75490659194673,
+      "writeIOPS": 2666.830295319062,
+      "averageDiskQueue": 8.219919210270305,
+      "writeAwaitMs": 2.7725717781583548
+    },
+    "finalProcessed": 700202
+  },
+  "rabbitmq": {
+    "samples": 44,
+    "appErrors": 0,
+    "max": {
+      "cpuPercent": 87.67772511848341,
+      "iowaitPercent": 0.9876543209876543,
+      "writeIOPS": 119.48843376538545,
+      "averageDiskQueue": 0.11848853055395964,
+      "writeAwaitMs": 2.8
+    },
+    "mean": {
+      "cpuPercent": 48.52040020020333,
+      "iowaitPercent": 0.03985685574832862,
+      "writeIOPS": 5.636365236565795,
+      "averageDiskQueue": 0.007146428380797633,
+      "writeAwaitMs": 0.5953572213169415
+    },
+    "peakReady": 13632
+  },
+  "ingest1": {
+    "samples": 44,
+    "appErrors": 0,
+    "max": {
+      "cpuPercent": 98.00995024875621,
+      "iowaitPercent": 0.2570694087403599,
+      "writeIOPS": 145.8513946687896,
+      "averageDiskQueue": 0.13785953742666415,
+      "writeAwaitMs": 2.586206896551724
+    },
+    "mean": {
+      "cpuPercent": 31.509901711301957,
+      "iowaitPercent": 0.01757791727029401,
+      "writeIOPS": 4.3328498026101645,
+      "averageDiskQueue": 0.0054480623277549265,
+      "writeAwaitMs": 0.4348361513876558
+    }
+  }
+}

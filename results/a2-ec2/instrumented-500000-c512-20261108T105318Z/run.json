@@ -1,0 +1,21 @@
+{
+  "events": 500000,
+  "threads": 512,
+  "base_url": "http://skitrak-alb-1400622109.us-west-2.elb.amazonaws.com",
+  "consumer_url": "http://127.0.0.1:18081",
+  "java": "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
+  "startUTC": "20261108T105318Z",
+  "output": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-ec2/instrumented-500000-c512-20261108T105318Z",
+  "monitoredHosts": {
+    "ingest1": "44.247.123.174",
+    "ingest2": "34.213.52.138",
+    "ingest3": "34.219.242.250",
+    "ingest4": "52.11.50.119",
+    "consumer": "52.13.60.250",
+    "rabbitmq": "44.245.162.103"
+  },
+  "ingestCount": 4,
+  "clientStartUTC": "2026-11-08T10:53:21.563708+00:00",
+  "clientExitCode": 0,
+  "clientEndUTC": "2026-11-08T10:55:49.039329+00:00"
+}

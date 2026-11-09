@@ -1,0 +1,26 @@
+{
+  "consumerThreads": 5,
+  "configuredThreadValues": [
+    5
+  ],
+  "dynamicValues": [
+    false
+  ],
+  "exit": 0,
+  "processedDelta": 500000,
+  "duplicatesDelta": 0,
+  "readyPeak": 6230,
+  "lagMs": 581.668461266,
+  "monitorErrors": 1,
+  "finalReady": 0,
+  "finalInFlight": 0,
+  "finalOutbox": 0,
+  "maxAggregationParallelism": 5,
+  "mainThroughput": 3279.632351,
+  "endToEnd": 2839.37,
+  "drainSeconds": 0.793,
+  "retries": 0.0,
+  "httpStatuses": {
+    "201": 500000
+  }
+}

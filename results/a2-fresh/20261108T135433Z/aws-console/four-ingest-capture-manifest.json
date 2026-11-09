@@ -1,0 +1,107 @@
+[
+  {
+    "run": "instrumented-500000-c64-20261108T144338Z",
+    "kind": "overview",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/d18470c0cb649effde776075e1168623.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c64-20261108T144338Z/screenshots/alb-overview-supplied.png",
+    "sha256": "fc6519e22b8ca052d8712ed4175fef76338fbacd9b541bab2c9f088fec5b8f6a"
+  },
+  {
+    "run": "instrumented-500000-c64-20261108T144338Z",
+    "kind": "response-time",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/fb99fdf738b27683b325b74264a20a4e.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c64-20261108T144338Z/screenshots/alb-response-time-supplied.png",
+    "sha256": "cc5216bbada3fa1920a973f79df27af9d18e9166ab03a057ac6df839938f5f05"
+  },
+  {
+    "run": "instrumented-500000-c64-20261108T144338Z",
+    "kind": "request-count",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/84afc5c4f58640378e52876307607c87.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c64-20261108T144338Z/screenshots/alb-request-count-supplied.png",
+    "sha256": "c2d2a9f845c94593b26ee568de97172e187e89d1ed7b6d2a214ed9d424520813"
+  },
+  {
+    "run": "instrumented-500000-c128-20261108T145046Z",
+    "kind": "overview",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/037c397a1a2d2605be010481ef3ebd95.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c128-20261108T145046Z/screenshots/alb-overview-supplied.png",
+    "sha256": "80acd80a927a05d489425048543447709c03d1cae245de7c214397de069ad872"
+  },
+  {
+    "run": "instrumented-500000-c128-20261108T145046Z",
+    "kind": "request-count",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/dd339839372d03d67d3abff3904bdcf1.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c128-20261108T145046Z/screenshots/alb-request-count-supplied.png",
+    "sha256": "93feac821f607b63a66ad77fd1f0021ec00be4acfa3b58431757b72f85b33b79"
+  },
+  {
+    "run": "instrumented-500000-c128-20261108T145046Z",
+    "kind": "response-time",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/a43e9ce030fd0ba8a2576094a67358bd.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c128-20261108T145046Z/screenshots/alb-response-time-supplied.png",
+    "sha256": "d24aa335780b54993bbce9d34c3a8dda1b96dc842112a328838228c2f8214338"
+  },
+  {
+    "run": "instrumented-500000-c256-20261108T145553Z",
+    "kind": "overview",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/e363e5f8abd8f55d6a3a539b3018f080.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c256-20261108T145553Z/screenshots/alb-overview-supplied.png",
+    "sha256": "36b8cf9275eaafeaa1dc6f889cb0ed6a373b3f4d26e5405569ef45f2a268ecb4"
+  },
+  {
+    "run": "instrumented-500000-c256-20261108T145553Z",
+    "kind": "request-count",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/fb8a2b5b0ac5a9e8e28385001451ed7d.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c256-20261108T145553Z/screenshots/alb-request-count-supplied.png",
+    "sha256": "959b0a6ad64c6221868bad06c2527180e05da3a9e1350cd685ddab0d2939beae"
+  },
+  {
+    "run": "instrumented-500000-c256-20261108T145553Z",
+    "kind": "response-time",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/e07b99efaf1e6c6850fa164da6b3bdcc.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c256-20261108T145553Z/screenshots/alb-response-time-supplied.png",
+    "sha256": "71030d6a0be0c7c76b625d389e6edff023a20d05d5f7222f19e359255a3b04a9"
+  },
+  {
+    "run": "instrumented-500000-c512-20261108T150014Z",
+    "kind": "overview",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/9fe838a4ee2831b7358e53b9f80979a6.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c512-20261108T150014Z/screenshots/alb-overview-supplied.png",
+    "sha256": "b6ecf9a84a7be555947efd24768822aa46139155aab2c3d0d2d1aef958827764"
+  },
+  {
+    "run": "instrumented-500000-c512-20261108T150014Z",
+    "kind": "response-time",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/38232a5673c3664cb408054fcfc335d4.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c512-20261108T150014Z/screenshots/alb-response-time-supplied.png",
+    "sha256": "c310293823a5bd8cd2250aee87019f2ef734cdcbeeb2a75f40f5e1eadda3dbbd"
+  },
+  {
+    "run": "instrumented-500000-c512-20261108T150014Z",
+    "kind": "request-count",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/9c1631160ac951e6f8dac498e1efc016.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c512-20261108T150014Z/screenshots/alb-request-count-supplied.png",
+    "sha256": "8a9747cb801cbe49243a83ffc380e63298c4d3a9c14feea127676cbbacd80bd6"
+  },
+  {
+    "run": "instrumented-1000000-c512-20261108T150442Z",
+    "kind": "request-count",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/bdd72fd070d28002a5615a44ff08e4ee.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-1000000-c512-20261108T150442Z/screenshots/alb-request-count-supplied.png",
+    "sha256": "41c64ceb6557147a981b1c6aa30df823daf667e34575fa664584d1de7a90c186"
+  },
+  {
+    "run": "instrumented-1000000-c512-20261108T150442Z",
+    "kind": "response-time",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/4666bcc8fb39c11f4046e16bd4bdb45e.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-1000000-c512-20261108T150442Z/screenshots/alb-response-time-supplied.png",
+    "sha256": "dae6a576f60ee0c6a3e07cb829318c43c73533c225f91c88335797b3b953059b"
+  },
+  {
+    "run": "instrumented-1000000-c512-20261108T150442Z",
+    "kind": "overview",
+    "source": "/Users/anne/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0ajsuian648e22_7738/temp/RWTemp/2026-11/9e20f478899dc29eb19741386f9343c8/e14b4b3afec83a4877e9d8ca4aeb81b2.png",
+    "evidencePath": "results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-1000000-c512-20261108T150442Z/screenshots/alb-overview-supplied.png",
+    "sha256": "162d117fca439bea0cf25af2bf7c73a85988b0d96e24acd0dc62489ad887deb7"
+  }
+]

@@ -1,0 +1,11 @@
+# Only packaged application artifacts belong in Docker build contexts.
+**
+!deployment/
+!deployment/Dockerfile.server
+!deployment/Dockerfile.consumer
+!server-v2/
+!server-v2/target/
+!server-v2/target/ROOT.war
+!consumer/
+!consumer/target/
+!consumer/target/consumer.jar

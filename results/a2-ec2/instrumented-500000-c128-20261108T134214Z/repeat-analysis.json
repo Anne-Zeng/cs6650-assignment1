@@ -1,0 +1,31 @@
+{
+  "config": {
+    "configuredThreads": 5,
+    "coreThreads": 5,
+    "dynamicScaling": false,
+    "prefetch": 128,
+    "storeBatchSize": 64,
+    "ackBatchSize": 16
+  },
+  "threadValues": [
+    5
+  ],
+  "coreValues": [
+    5
+  ],
+  "processedDelta": 500000,
+  "duplicateDelta": 0,
+  "lagMs": 35.838322464,
+  "readyMax": 27,
+  "unackedMax": 268,
+  "totalMax": 295,
+  "final": {
+    "queueReady": 0,
+    "inFlight": 0,
+    "pendingOutbox": 0
+  },
+  "errors": {
+    "consumer": {},
+    "rabbitmq": {}
+  }
+}

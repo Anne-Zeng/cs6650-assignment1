@@ -1,0 +1,28 @@
+{
+  "timestamp": 1794139767.71753,
+  "distribution": {
+    "ingest-1": 51,
+    "ingest-3": 50,
+    "ingest-4": 49,
+    "ingest-2": 50
+  },
+  "stickyTargets": [
+    "ingest-4",
+    "ingest-4",
+    "ingest-4",
+    "ingest-4",
+    "ingest-4",
+    "ingest-4",
+    "ingest-4",
+    "ingest-4",
+    "ingest-4",
+    "ingest-4"
+  ],
+  "cookieNames": [
+    "AWSALB",
+    "AWSALBCORS"
+  ],
+  "stickyPassed": true,
+  "distributionTargetsPassed": true,
+  "failoverPassed": true
+}

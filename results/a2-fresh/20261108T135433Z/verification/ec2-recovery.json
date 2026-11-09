@@ -1,0 +1,137 @@
+{
+  "passed": true,
+  "deployment": "Existing EC2 consumer and RabbitMQ; direct SSH tunnels to ingest1/2",
+  "startUTC": "2026-11-08T15:31:21.390091+00:00",
+  "dayID": 339,
+  "resortID": 3,
+  "stages": [
+    {
+      "stage": "initial",
+      "uniqueEvents": 3,
+      "snapshot": {
+        "resortID": "3",
+        "dayID": "339",
+        "serverTimestamp": "2026-11-08T15:31:22.830816Z",
+        "version": 3,
+        "processed": 3,
+        "top": [
+          {
+            "rank": 1,
+            "skierID": "11",
+            "vertical": 536
+          },
+          {
+            "rank": 2,
+            "skierID": "22",
+            "vertical": 167
+          }
+        ]
+      }
+    },
+    {
+      "stage": "consumer restart, queued backlog and duplicate replay",
+      "uniqueEvents": 23,
+      "snapshot": {
+        "resortID": "3",
+        "dayID": "339",
+        "serverTimestamp": "2026-11-08T15:31:28.279770Z",
+        "version": 23,
+        "processed": 23,
+        "top": [
+          {
+            "rank": 1,
+            "skierID": "104",
+            "vertical": 1153
+          },
+          {
+            "rank": 2,
+            "skierID": "100",
+            "vertical": 1125
+          },
+          {
+            "rank": 3,
+            "skierID": "102",
+            "vertical": 990
+          },
+          {
+            "rank": 4,
+            "skierID": "103",
+            "vertical": 838
+          },
+          {
+            "rank": 5,
+            "skierID": "101",
+            "vertical": 605
+          },
+          {
+            "rank": 6,
+            "skierID": "11",
+            "vertical": 536
+          },
+          {
+            "rank": 7,
+            "skierID": "22",
+            "vertical": 167
+          }
+        ]
+      }
+    },
+    {
+      "stage": "broker restart and cross-ingest replay",
+      "uniqueEvents": 25,
+      "snapshot": {
+        "resortID": "3",
+        "dayID": "339",
+        "serverTimestamp": "2026-11-08T15:31:38.147079Z",
+        "version": 25,
+        "processed": 25,
+        "top": [
+          {
+            "rank": 1,
+            "skierID": "104",
+            "vertical": 1153
+          },
+          {
+            "rank": 2,
+            "skierID": "100",
+            "vertical": 1125
+          },
+          {
+            "rank": 3,
+            "skierID": "102",
+            "vertical": 990
+          },
+          {
+            "rank": 4,
+            "skierID": "103",
+            "vertical": 838
+          },
+          {
+            "rank": 5,
+            "skierID": "101",
+            "vertical": 605
+          },
+          {
+            "rank": 6,
+            "skierID": "11",
+            "vertical": 536
+          },
+          {
+            "rank": 7,
+            "skierID": "77",
+            "vertical": 536
+          },
+          {
+            "rank": 8,
+            "skierID": "22",
+            "vertical": 167
+          }
+        ]
+      }
+    }
+  ],
+  "brokerDownPublishStatus": 503,
+  "functionalChecksPassed": true,
+  "restoreErrors": [],
+  "endUTC": "2026-11-08T15:31:41.715495+00:00"
+}

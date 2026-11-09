@@ -1,0 +1,38 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c512-20261108T143329Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-20261108T143345177119Z.png",
+    "screenshots/rabbitmq-20261108T143430551073Z.png",
+    "screenshots/rabbitmq-20261108T143515830322Z.png",
+    "screenshots/rabbitmq-20261108T143601173864Z.png",
+    "screenshots/rabbitmq-20261108T143634584570Z-final.png"
+  ],
+  "notes": [
+    "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+    "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+    "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+  ],
+  "albScreenshots": [
+    "screenshots/alb-request-count-whole-loadbalancer.png",
+    "screenshots/alb-target-response-time-whole-loadbalancer.png"
+  ],
+  "albOverviewScreenshots": [
+    "screenshots/alb-overview.png"
+  ],
+  "albCaptureSettings": {
+    "scope": "Whole LoadBalancer; no AvailabilityZone or TargetGroup filter",
+    "wholeALBAggregate": true,
+    "scopeVerified": true,
+    "RequestCount": "Sum",
+    "TargetResponseTime": "Average",
+    "periodSeconds": 60,
+    "dateAndUtcRangeVisible": true,
+    "startUTC": "2026-11-08T14:33:45.429523+00:00",
+    "endUTC": "2026-11-08T14:36:28.147351+00:00",
+    "verification": "User applied the explicit whole-ALB Source JSON; supplied images show LoadBalancer dimension prefix, UTC time controls and per-row statistic/period. Original zone-scoped captures are retained separately."
+  },
+  "albScopedScreenshots": [
+    "screenshots/alb-request-count-az-us-west-2b.png",
+    "screenshots/alb-target-response-time-az-us-west-2b.png"
+  ]
+}

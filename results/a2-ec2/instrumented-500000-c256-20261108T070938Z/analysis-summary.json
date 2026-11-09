@@ -1,0 +1,48 @@
+{
+  "consumer": {
+    "before": 3000202,
+    "after": 3500202,
+    "processedDelta": 500000,
+    "duplicateDelta": 0,
+    "failedDelta": 0,
+    "finalInFlight": 0,
+    "finalPendingOutbox": 0,
+    "lagThisRun": 940.399450024002,
+    "queueReadyMax": 17166,
+    "queueReadyAbove1000Samples": 6,
+    "inFlightMax": 1280,
+    "inFlightAbove1000Samples": 4,
+    "cpuPercent": {
+      "mean": 36.68466396802773,
+      "max": 58.8235294117647
+    },
+    "iowait": {
+      "mean": 33.224377716414715,
+      "max": 67.36526946107784
+    }
+  },
+  "rabbitmq": {
+    "cpuPercent": {
+      "mean": 78.31661549468218,
+      "max": 98.55072463768116
+    },
+    "iowait": {
+      "mean": 0.0172542577548058,
+      "max": 0.7653061224489796
+    }
+  },
+  "ingest1": {
+    "cpuPercent": {
+      "mean": 56.85273393172064,
+      "max": 84.28927680798004
+    },
+    "iowait": {
+      "mean": 0.048477392562199635,
+      "max": 1.0075566750629723
+    }
+  },
+  "HTTPstatusCounts": {
+    "201": 500000,
+    "503": 226
+  }
+}

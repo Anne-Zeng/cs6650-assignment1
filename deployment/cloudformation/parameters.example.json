@@ -1,0 +1,9 @@
+[
+  {"ParameterKey":"VpcId","ParameterValue":"vpc-REPLACE"},
+  {"ParameterKey":"PublicSubnetIds","ParameterValue":"subnet-REPLACE1,subnet-REPLACE2"},
+  {"ParameterKey":"IngestSecurityGroupId","ParameterValue":"sg-REPLACE"},
+  {"ParameterKey":"IngestCount","ParameterValue":"2"},
+  {"ParameterKey":"Ingest1","ParameterValue":"i-REPLACE1"},
+  {"ParameterKey":"Ingest2","ParameterValue":"i-REPLACE2"},
+  {"ParameterKey":"AllowedClientCidr","ParameterValue":"YOUR_PUBLIC_IP/32"}
+]

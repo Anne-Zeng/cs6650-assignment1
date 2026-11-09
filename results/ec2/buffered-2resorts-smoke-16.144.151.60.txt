@@ -1,0 +1,81 @@
+Metrics mode: BUFFERED; seed=6650; Java=11.0.32.1
+HTTP transport: Apache HttpClient 5.6.4; events=5000, mainThreads=32
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Connected to resort 1
+Resort 1 connected in 178.321 ms
+Connected to resort 2
+Resort 2 connected in 166.991 ms
+Leaderboard JSON: {"resortID":"1","serverTimestamp":"2026-11-06T20:46:06.260833Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 1, update 1, server time: 2026-11-06T20:46:06.260833Z, received at: 2026-11-06T20:46:06.257689Z
+Leaderboard JSON: {"resortID":"2","serverTimestamp":"2026-11-06T20:46:06.281058Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 2, update 1, server time: 2026-11-06T20:46:06.281058Z, received at: 2026-11-06T20:46:06.279883Z
+Leaderboard JSON: {"resortID":"1","serverTimestamp":"2026-11-06T20:46:06.760712Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 1, update 2, server time: 2026-11-06T20:46:06.760712Z, received at: 2026-11-06T20:46:06.739188Z
+Leaderboard JSON: {"resortID":"2","serverTimestamp":"2026-11-06T20:46:06.761148Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 2, update 2, server time: 2026-11-06T20:46:06.761148Z, received at: 2026-11-06T20:46:06.740055Z
+Leaderboard JSON: {"resortID":"1","serverTimestamp":"2026-11-06T20:46:07.263117Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 1, update 3, server time: 2026-11-06T20:46:07.263117Z, received at: 2026-11-06T20:46:07.246745Z
+Leaderboard JSON: {"resortID":"2","serverTimestamp":"2026-11-06T20:46:07.263552Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 2, update 3, server time: 2026-11-06T20:46:07.263552Z, received at: 2026-11-06T20:46:07.247089Z
+Generation time: 0.004 seconds
+
+--- Warmup ---
+Successful: 320
+Failed: 0
+Runtime: 0.789 seconds
+
+--- Main ---
+Successful: 4680
+Failed: 0
+Runtime: 5.138 seconds
+Main throughput: 910.824869 swipes/sec
+
+--- Total ingest ---
+Successful: 5000
+Failed: 0
+Remaining in queue: 0
+Runtime: 5.927 seconds
+Throughput: 843.57 swipes/sec
+
+--- Throughput per resort ---
+Resort 1: successful=2404, throughput=405.59 swipes/sec
+Resort 2: successful=2596, throughput=437.98 swipes/sec
+
+--- HTTP transport: Apache HttpClient 5.6.4 ---
+Application request attempts: 5000
+Application request retries: 0
+TCP connect attempts: 64
+TCP connections established: 64
+TCP connect attempts without success: 0
+TCP connections established during application retries: 0
+HTTP reconnection definition: new TCP opens during application retries; not all replacement/idle-expiry connections.
+Pool before close: leased=0, available=32, pending=0, max=32
+Sampled pool peaks (50 ms + attempt completion): leased=32, available=32, pending=0
+
+--- WebSocket subscriptions ---
+Resort 1: updates=12, connections=1, reconnections=0, avgConnectMs=178.321
+Resort 2: updates=12, connections=1, reconnections=0, avgConnectMs=166.991
+Total leaderboard updates: 24
+HTTP attempts recorded: 5000
+CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part2/results/swipes-1793997971897.csv
+Push CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part2/results/pushes-1793997971897.csv
+
+--- HTTP attempt latency ---
+Samples: 5000
+Mean: 36.953 ms
+Median: 29.879 ms
+p95: 40.635 ms
+p99: 416.003 ms
+Min: 13.332 ms
+Max: 552.699 ms
+
+--- WebSocket push latency ---
+Samples: 24
+Mean: -17.734 ms
+Median: -20.481 ms
+p95: -3.144 ms
+p99: -1.175 ms
+
+Total program runtime: 6.537 seconds

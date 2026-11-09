@@ -1,0 +1,7 @@
+{
+  "pid": 6427,
+  "output": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-ec2/single-500k-c64-monitor-20261108T021443Z",
+  "startedUTC": "20261108T021443Z",
+  "durationSeconds": 1800,
+  "purpose": "Monitoring window for planned single-ingest500K/64-thread run; filter by actual client timestamps."
+}

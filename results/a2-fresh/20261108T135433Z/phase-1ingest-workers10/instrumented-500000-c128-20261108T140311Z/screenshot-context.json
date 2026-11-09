@@ -1,0 +1,30 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/phase-1ingest-workers10/instrumented-500000-c128-20261108T140311Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-20261108T140324010140Z.png",
+    "screenshots/rabbitmq-20261108T140409444633Z.png",
+    "screenshots/rabbitmq-20261108T140454846661Z.png",
+    "screenshots/rabbitmq-20261108T140540312026Z.png",
+    "screenshots/rabbitmq-20261108T140625886271Z.png",
+    "screenshots/rabbitmq-20261108T140639050709Z-final.png"
+  ],
+  "notes": [
+    "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+    "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+    "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+  ],
+  "albScreenshots": [
+    "screenshots/alb-target-response-time.png",
+    "screenshots/alb-request-count.png"
+  ],
+  "albCaptureSettings": {
+    "RequestCount": "Sum",
+    "TargetResponseTime": "Average",
+    "periodSeconds": 60,
+    "statisticAndPeriodVisible": true,
+    "dateAndUtcRangeVisible": true,
+    "association": "Exact displayed absolute range for128; x-axis matching only for256/512 because top controls were cropped",
+    "expectedStartUTC": "2026-11-08T14:03:24.169506+00:00",
+    "expectedEndUTC": "2026-11-08T14:06:32.887825+00:00"
+  }
+}

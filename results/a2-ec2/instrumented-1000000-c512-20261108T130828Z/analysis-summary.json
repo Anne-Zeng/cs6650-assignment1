@@ -1,0 +1,21 @@
+{
+  "runDirectory": "results/a2-ec2/instrumented-1000000-c512-20261108T130828Z",
+  "consumerThreads": 20,
+  "dynamicScaling": false,
+  "processedBefore": 13500304,
+  "processedAfter": 14500304,
+  "processedDelta": 1000000,
+  "duplicatesDelta": 0,
+  "meanConsumerLagMs": 52683.83685588,
+  "consumerMetricErrors": 36,
+  "rawReadyPeak": 417048,
+  "rawTotalPeak": 418328,
+  "deadReadyPeak": 0,
+  "finalReady": 0,
+  "finalInFlight": 0,
+  "finalOutbox": 0,
+  "httpStatuses": {
+    "201": 1000000,
+    "503": 2
+  }
+}

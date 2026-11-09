@@ -1,0 +1,14 @@
+{
+  "base_url": "http://16.144.151.60:8080/ski-servlet",
+  "java": "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
+  "events": 500000,
+  "threads": 128,
+  "warmup": 1000,
+  "resorts": 10,
+  "rounds": 3,
+  "seed": 6650,
+  "java_version": "openjdk version \"11.0.32.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment Corretto-11.0.32.12.1 (build 11.0.32.1+12-LTS)\nOpenJDK 64-Bit Server VM Corretto-11.0.32.12.1 (build 11.0.32.1+12-LTS, mixed mode)\n",
+  "utc_start": "20261106T205119Z",
+  "commit": "a6eb1c944569889e33e921bedc5bf7e270fbd5da",
+  "working_tree": "M ../DESIGN.md\n M ../README.md\nAM src/main/java/AttemptBuffer.java\n M src/main/java/LoadClient.java\n M src/main/java/SwipeGenerator.java\n M src/main/java/SwipeMetrics.java\n M src/main/java/SwipeSender.java\nAM src/test/java/AttemptBufferTest.java\n M ../server/src/main/java/LeaderboardEndpoint.java\n?? \"../CS6650 Assignment 1 \\342\\200\\224 SkiTrak.pdf\"\n?? METRICS_EXPERIMENT.md\n?? results/pushes-1793997971897.csv\n?? results/swipes-1793997971897.csv\n?? src/test/java/SwipeMetricsTest.java\n?? tools/\n?? ../results/diagrams/\n?? ../results/ec2/buffered-2resorts-smoke-16.144.151.60.txt\n?? ../results/ec2/health-public-20261106.txt\n?? ../results/experiments/"
+}

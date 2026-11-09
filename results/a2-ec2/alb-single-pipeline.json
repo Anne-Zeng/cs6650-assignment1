@@ -1,0 +1,234 @@
+{
+  "passed": true,
+  "demoLifts": false,
+  "dayID": 362,
+  "uniqueEvents": 100,
+  "duplicateRequests": 20,
+  "ingestUrls": [
+    "http://skitrak-alb-1400622109.us-west-2.elb.amazonaws.com"
+  ],
+  "serverRequestCounts": {
+    "ingest-1": 100
+  },
+  "finalSnapshots": {
+    "1": {
+      "resortID": "1",
+      "dayID": "362",
+      "serverTimestamp": "2026-11-08T02:03:06.101294Z",
+      "version": 48,
+      "processed": 50,
+      "top": [
+        {
+          "rank": 1,
+          "skierID": "3",
+          "vertical": 712
+        },
+        {
+          "rank": 2,
+          "skierID": "15",
+          "vertical": 660
+        },
+        {
+          "rank": 3,
+          "skierID": "23",
+          "vertical": 633
+        },
+        {
+          "rank": 4,
+          "skierID": "21",
+          "vertical": 611
+        },
+        {
+          "rank": 5,
+          "skierID": "5",
+          "vertical": 606
+        },
+        {
+          "rank": 6,
+          "skierID": "17",
+          "vertical": 587
+        },
+        {
+          "rank": 7,
+          "skierID": "13",
+          "vertical": 562
+        },
+        {
+          "rank": 8,
+          "skierID": "4",
+          "vertical": 553
+        },
+        {
+          "rank": 9,
+          "skierID": "9",
+          "vertical": 550
+        },
+        {
+          "rank": 10,
+          "skierID": "27",
+          "vertical": 511
+        },
+        {
+          "rank": 11,
+          "skierID": "31",
+          "vertical": 484
+        },
+        {
+          "rank": 12,
+          "skierID": "25",
+          "vertical": 472
+        },
+        {
+          "rank": 13,
+          "skierID": "6",
+          "vertical": 469
+        },
+        {
+          "rank": 14,
+          "skierID": "2",
+          "vertical": 434
+        },
+        {
+          "rank": 15,
+          "skierID": "1",
+          "vertical": 417
+        },
+        {
+          "rank": 16,
+          "skierID": "14",
+          "vertical": 383
+        },
+        {
+          "rank": 17,
+          "skierID": "8",
+          "vertical": 374
+        },
+        {
+          "rank": 18,
+          "skierID": "24",
+          "vertical": 364
+        },
+        {
+          "rank": 19,
+          "skierID": "12",
+          "vertical": 344
+        },
+        {
+          "rank": 20,
+          "skierID": "29",
+          "vertical": 342
+        }
+      ]
+    },
+    "2": {
+      "resortID": "2",
+      "dayID": "362",
+      "serverTimestamp": "2026-11-08T02:03:06.164092Z",
+      "version": 49,
+      "processed": 50,
+      "top": [
+        {
+          "rank": 1,
+          "skierID": "18",
+          "vertical": 605
+        },
+        {
+          "rank": 2,
+          "skierID": "24",
+          "vertical": 597
+        },
+        {
+          "rank": 3,
+          "skierID": "22",
+          "vertical": 588
+        },
+        {
+          "rank": 4,
+          "skierID": "6",
+          "vertical": 485
+        },
+        {
+          "rank": 5,
+          "skierID": "3",
+          "vertical": 482
+        },
+        {
+          "rank": 6,
+          "skierID": "16",
+          "vertical": 460
+        },
+        {
+          "rank": 7,
+          "skierID": "4",
+          "vertical": 454
+        },
+        {
+          "rank": 8,
+          "skierID": "5",
+          "vertical": 399
+        },
+        {
+          "rank": 9,
+          "skierID": "15",
+          "vertical": 397
+        },
+        {
+          "rank": 10,
+          "skierID": "10",
+          "vertical": 396
+        },
+        {
+          "rank": 11,
+          "skierID": "25",
+          "vertical": 357
+        },
+        {
+          "rank": 12,
+          "skierID": "12",
+          "vertical": 339
+        },
+        {
+          "rank": 13,
+          "skierID": "27",
+          "vertical": 336
+        },
+        {
+          "rank": 14,
+          "skierID": "7",
+          "vertical": 326
+        },
+        {
+          "rank": 15,
+          "skierID": "1",
+          "vertical": 317
+        },
+        {
+          "rank": 16,
+          "skierID": "31",
+          "vertical": 315
+        },
+        {
+          "rank": 17,
+          "skierID": "30",
+          "vertical": 313
+        },
+        {
+          "rank": 18,
+          "skierID": "20",
+          "vertical": 297
+        },
+        {
+          "rank": 19,
+          "skierID": "2",
+          "vertical": 274
+        },
+        {
+          "rank": 20,
+          "skierID": "13",
+          "vertical": 273
+        }
+      ]
+    }
+  },
+  "note": "Functional correctness evidence only, not EC2 performance evidence."
+}

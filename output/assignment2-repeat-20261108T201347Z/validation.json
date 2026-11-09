@@ -1,0 +1,19 @@
+{
+  "runs": 4,
+  "uniqueEventsSent": 2000000,
+  "uniqueEventsProcessedDelta": 2000000,
+  "finalFailures": 0,
+  "applicationRetries": 0,
+  "duplicates": 0,
+  "workersRestored": 10,
+  "drainedAtCompletion": true,
+  "evidenceErrors": [],
+  "postRestartCheck": {
+    "capturedUTC": "2026-11-09T00:00:48.844297+00:00",
+    "allSixServicesActive": true,
+    "consumerWorkers": 10,
+    "consumerDrained": true,
+    "consumerProcessed": 30692311,
+    "note": "Post-restart cumulative processed includes activity after the repeated suite; the repeated-suite delta is reconciled against its own saved before/after states."
+  }
+}

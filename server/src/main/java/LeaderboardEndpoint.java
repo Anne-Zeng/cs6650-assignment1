@@ -54,7 +54,7 @@ public class LeaderboardEndpoint {
     });
   }
 
-  //定时器调用,生成假排行榜，向各 resort 的订阅者发送
+  //定时器调用,生成假排行榜，通过 WebSocke向各 resort 的订阅者（客户端 LeaderboardSubscriber）发送
   //creates a fake leaderboard and sends it to connected subscribers.
   public static void pushAll() {//
     SUBSCRIBERS.forEach((resortID, sessions) -> {

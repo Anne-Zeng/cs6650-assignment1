@@ -1,0 +1,54 @@
+{
+  "ingest1": {
+    "serverId": "ingest-1",
+    "status": "UP",
+    "demoLifts": false,
+    "producerReady": true,
+    "backplaneReady": true,
+    "producerChannelsAvailable": 64,
+    "producerConnectionsEstablished": 1,
+    "requests": 3625165,
+    "invalid": 0,
+    "publishesConfirmed": 3625026,
+    "publishesFailed": 139,
+    "unroutable": 0,
+    "publishFailureReasons": {
+      "ACQUIRE_TIMEOUT": 139,
+      "CONFIRM_TIMEOUT": 0,
+      "BROKER_NACK": 0,
+      "UNROUTABLE": 0,
+      "INTERRUPTED": 0,
+      "PUBLISH_ERROR": 0
+    },
+    "localSessions": 0,
+    "backplaneBindings": 0,
+    "snapshotFailures": 7,
+    "backplaneUpdates": 6304
+  },
+  "ingest2": {
+    "serverId": "ingest-2",
+    "status": "UP",
+    "demoLifts": false,
+    "producerReady": true,
+    "backplaneReady": true,
+    "producerChannelsAvailable": 64,
+    "producerConnectionsEstablished": 1,
+    "requests": 1625032,
+    "invalid": 0,
+    "publishesConfirmed": 1625032,
+    "publishesFailed": 0,
+    "unroutable": 0,
+    "publishFailureReasons": {
+      "ACQUIRE_TIMEOUT": 0,
+      "CONFIRM_TIMEOUT": 0,
+      "BROKER_NACK": 0,
+      "UNROUTABLE": 0,
+      "INTERRUPTED": 0,
+      "PUBLISH_ERROR": 0
+    },
+    "localSessions": 0,
+    "backplaneBindings": 0,
+    "snapshotFailures": 3,
+    "backplaneUpdates": 3181
+  }
+}

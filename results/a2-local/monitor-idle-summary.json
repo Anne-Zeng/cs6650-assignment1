@@ -1,0 +1,9 @@
+{
+  "samples": 8,
+  "rabbitErrors": 0,
+  "peakReady": 0,
+  "averageReady": 0,
+  "averageAckRate": 0.0,
+  "queueDepthTargetMet": true,
+  "note": "Depth alone does not prove no loss or lag <100ms. Preserve raw metrics and business reconciliation."
+}

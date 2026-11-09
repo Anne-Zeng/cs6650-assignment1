@@ -1,0 +1,21 @@
+[Unit]
+Description=SkiTrak durable aggregation consumer
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=skitrak
+Group=skitrak
+WorkingDirectory=/opt/skitrak
+EnvironmentFile=/etc/skitrak/consumer.env
+ExecStart=/usr/bin/java -XX:MaxRAMPercentage=75.0 -jar /opt/skitrak/consumer.jar
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=45
+KillSignal=SIGTERM
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/skitrak
+[Install]
+WantedBy=multi-user.target

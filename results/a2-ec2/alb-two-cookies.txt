@@ -1,0 +1,6 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+skitrak-alb-1400622109.us-west-2.elb.amazonaws.com	FALSE	/	FALSE	1794730554	AWSALB	c4qnX9Q8Y12YzYii6wfZJOx/C0szA92RBVHzLeNR/zMR8Gj2j/Pl+J04NN3qKNKy4QSQY9IIoox3L/b/44A+RbtPY286hA+aapYiSGOk+t3yvoOQtVrq8pXdpBNp
+skitrak-alb-1400622109.us-west-2.elb.amazonaws.com	FALSE	/	FALSE	1794730554	AWSALBCORS	c4qnX9Q8Y12YzYii6wfZJOx/C0szA92RBVHzLeNR/zMR8Gj2j/Pl+J04NN3qKNKy4QSQY9IIoox3L/b/44A+RbtPY286hA+aapYiSGOk+t3yvoOQtVrq8pXdpBNp

@@ -1,0 +1,28 @@
+{
+  "ingest1": {
+    "serverId": "ingest-1",
+    "status": "UP",
+    "demoLifts": false,
+    "producerReady": true,
+    "backplaneReady": true,
+    "producerChannelsAvailable": 64,
+    "producerConnectionsEstablished": 1,
+    "requests": 2625035,
+    "invalid": 0,
+    "publishesConfirmed": 2625027,
+    "publishesFailed": 8,
+    "unroutable": 0,
+    "publishFailureReasons": {
+      "ACQUIRE_TIMEOUT": 8,
+      "CONFIRM_TIMEOUT": 0,
+      "BROKER_NACK": 0,
+      "UNROUTABLE": 0,
+      "INTERRUPTED": 0,
+      "PUBLISH_ERROR": 0
+    },
+    "localSessions": 0,
+    "backplaneBindings": 0,
+    "snapshotFailures": 7,
+    "backplaneUpdates": 4683
+  }
+}

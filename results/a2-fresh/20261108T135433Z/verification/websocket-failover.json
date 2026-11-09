@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "timestampUTC": "2026-11-08T15:31:41.837053+00:00",
+  "dayID": 338,
+  "resortID": 9,
+  "reconnectionMode": "Python test harness retries a new WebSocket through ALB",
+  "originalServer": "ingest-4",
+  "beforeFailure": {
+    "resortID": "9",
+    "dayID": "338",
+    "serverTimestamp": "2026-11-08T15:31:45.957912Z",
+    "version": 1,
+    "processed": 1,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "123",
+        "vertical": 267
+      }
+    ]
+  },
+  "disconnectObserved": true,
+  "replacementServer": "ingest-1",
+  "reconnectSecondsFromStopStart": 7.199,
+  "afterFailure": {
+    "resortID": "9",
+    "dayID": "338",
+    "serverTimestamp": "2026-11-08T15:31:53.233277Z",
+    "version": 2,
+    "processed": 2,
+    "top": [
+      {
+        "rank": 1,
+        "skierID": "123",
+        "vertical": 534
+      }
+    ]
+  },
+  "functionalChecksPassed": true,
+  "restoredIngestHealthy": true,
+  "restoredALBTargets": [
+    "ingest-1",
+    "ingest-2",
+    "ingest-3",
+    "ingest-4"
+  ]
+}

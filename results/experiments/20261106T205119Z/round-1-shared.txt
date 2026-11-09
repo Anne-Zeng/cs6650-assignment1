@@ -1,0 +1,161 @@
+Metrics mode: SHARED; seed=6650; Java=11.0.32.1
+HTTP transport: Apache HttpClient 5.6.4; events=500000, mainThreads=128
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Connected to resort 7
+Connected to resort 8
+Connected to resort 2
+Connected to resort 9
+Connected to resort 4
+Connected to resort 1
+Resort 4 connected in 123.771 ms
+Connected to resort 6
+Resort 9 connected in 121.096 ms
+Connected to resort 10
+Resort 7 connected in 122.160 ms
+Resort 8 connected in 121.489 ms
+Resort 2 connected in 124.854 ms
+Resort 1 connected in 139.484 ms
+Connected to resort 3
+Connected to resort 5
+Resort 10 connected in 122.183 ms
+Resort 6 connected in 123.695 ms
+Resort 5 connected in 125.117 ms
+Resort 3 connected in 126.566 ms
+Leaderboard JSON: {"resortID":"1","serverTimestamp":"2026-11-06T20:51:20.760971Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 1, update 1, server time: 2026-11-06T20:51:20.760971Z, received at: 2026-11-06T20:51:20.727175Z
+Leaderboard JSON: {"resortID":"4","serverTimestamp":"2026-11-06T20:51:20.762602Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 4, update 1, server time: 2026-11-06T20:51:20.762602Z, received at: 2026-11-06T20:51:20.753590Z
+Leaderboard JSON: {"resortID":"9","serverTimestamp":"2026-11-06T20:51:20.763971Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 9, update 1, server time: 2026-11-06T20:51:20.763971Z, received at: 2026-11-06T20:51:20.754224Z
+Leaderboard JSON: {"resortID":"8","serverTimestamp":"2026-11-06T20:51:20.763694Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 8, update 1, server time: 2026-11-06T20:51:20.763694Z, received at: 2026-11-06T20:51:20.754501Z
+Leaderboard JSON: {"resortID":"6","serverTimestamp":"2026-11-06T20:51:20.763108Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 6, update 1, server time: 2026-11-06T20:51:20.763108Z, received at: 2026-11-06T20:51:20.754707Z
+Leaderboard JSON: {"resortID":"3","serverTimestamp":"2026-11-06T20:51:20.762288Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 3, update 1, server time: 2026-11-06T20:51:20.762288Z, received at: 2026-11-06T20:51:20.754909Z
+Leaderboard JSON: {"resortID":"5","serverTimestamp":"2026-11-06T20:51:20.762843Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 5, update 1, server time: 2026-11-06T20:51:20.762843Z, received at: 2026-11-06T20:51:20.755103Z
+Leaderboard JSON: {"resortID":"2","serverTimestamp":"2026-11-06T20:51:20.761603Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 2, update 1, server time: 2026-11-06T20:51:20.761603Z, received at: 2026-11-06T20:51:20.755483Z
+Leaderboard JSON: {"resortID":"10","serverTimestamp":"2026-11-06T20:51:20.764245Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 10, update 1, server time: 2026-11-06T20:51:20.764245Z, received at: 2026-11-06T20:51:20.755771Z
+Leaderboard JSON: {"resortID":"7","serverTimestamp":"2026-11-06T20:51:20.763261Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 7, update 1, server time: 2026-11-06T20:51:20.763261Z, received at: 2026-11-06T20:51:20.757873Z
+Leaderboard JSON: {"resortID":"1","serverTimestamp":"2026-11-06T20:51:21.260717Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 1, update 2, server time: 2026-11-06T20:51:21.260717Z, received at: 2026-11-06T20:51:21.225765Z
+Leaderboard JSON: {"resortID":"4","serverTimestamp":"2026-11-06T20:51:21.261419Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 4, update 2, server time: 2026-11-06T20:51:21.261419Z, received at: 2026-11-06T20:51:21.226826Z
+Leaderboard JSON: {"resortID":"6","serverTimestamp":"2026-11-06T20:51:21.261706Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 6, update 2, server time: 2026-11-06T20:51:21.261706Z, received at: 2026-11-06T20:51:21.227178Z
+Leaderboard JSON: {"resortID":"3","serverTimestamp":"2026-11-06T20:51:21.261277Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 3, update 2, server time: 2026-11-06T20:51:21.261277Z, received at: 2026-11-06T20:51:21.227426Z
+Leaderboard JSON: {"resortID":"2","serverTimestamp":"2026-11-06T20:51:21.261073Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 2, update 2, server time: 2026-11-06T20:51:21.261073Z, received at: 2026-11-06T20:51:21.227659Z
+Leaderboard JSON: {"resortID":"7","serverTimestamp":"2026-11-06T20:51:21.261865Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 7, update 2, server time: 2026-11-06T20:51:21.261865Z, received at: 2026-11-06T20:51:21.227932Z
+Leaderboard JSON: {"resortID":"5","serverTimestamp":"2026-11-06T20:51:21.261552Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 5, update 2, server time: 2026-11-06T20:51:21.261552Z, received at: 2026-11-06T20:51:21.228718Z
+Leaderboard JSON: {"resortID":"8","serverTimestamp":"2026-11-06T20:51:21.262453Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 8, update 2, server time: 2026-11-06T20:51:21.262453Z, received at: 2026-11-06T20:51:21.229011Z
+Leaderboard JSON: {"resortID":"9","serverTimestamp":"2026-11-06T20:51:21.262690Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 9, update 2, server time: 2026-11-06T20:51:21.262690Z, received at: 2026-11-06T20:51:21.229249Z
+Leaderboard JSON: {"resortID":"10","serverTimestamp":"2026-11-06T20:51:21.263921Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 10, update 2, server time: 2026-11-06T20:51:21.263921Z, received at: 2026-11-06T20:51:21.229636Z
+Leaderboard JSON: {"resortID":"3","serverTimestamp":"2026-11-06T20:51:21.761308Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 3, update 3, server time: 2026-11-06T20:51:21.761308Z, received at: 2026-11-06T20:51:21.726578Z
+Leaderboard JSON: {"resortID":"1","serverTimestamp":"2026-11-06T20:51:21.760757Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 1, update 3, server time: 2026-11-06T20:51:21.760757Z, received at: 2026-11-06T20:51:21.727215Z
+Leaderboard JSON: {"resortID":"4","serverTimestamp":"2026-11-06T20:51:21.761447Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 4, update 3, server time: 2026-11-06T20:51:21.761447Z, received at: 2026-11-06T20:51:21.727707Z
+Leaderboard JSON: {"resortID":"9","serverTimestamp":"2026-11-06T20:51:21.762256Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 9, update 3, server time: 2026-11-06T20:51:21.762256Z, received at: 2026-11-06T20:51:21.728068Z
+Leaderboard JSON: {"resortID":"8","serverTimestamp":"2026-11-06T20:51:21.762079Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 8, update 3, server time: 2026-11-06T20:51:21.762079Z, received at: 2026-11-06T20:51:21.728406Z
+Leaderboard JSON: {"resortID":"6","serverTimestamp":"2026-11-06T20:51:21.761741Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 6, update 3, server time: 2026-11-06T20:51:21.761741Z, received at: 2026-11-06T20:51:21.728758Z
+Leaderboard JSON: {"resortID":"5","serverTimestamp":"2026-11-06T20:51:21.761593Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 5, update 3, server time: 2026-11-06T20:51:21.761593Z, received at: 2026-11-06T20:51:21.729149Z
+Leaderboard JSON: {"resortID":"2","serverTimestamp":"2026-11-06T20:51:21.761120Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 2, update 3, server time: 2026-11-06T20:51:21.761120Z, received at: 2026-11-06T20:51:21.729471Z
+Leaderboard JSON: {"resortID":"10","serverTimestamp":"2026-11-06T20:51:21.762395Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 10, update 3, server time: 2026-11-06T20:51:21.762395Z, received at: 2026-11-06T20:51:21.729799Z
+Leaderboard JSON: {"resortID":"7","serverTimestamp":"2026-11-06T20:51:21.761879Z","top":[{"rank":1,"skierID":40213,"vertical":44120},{"rank":2,"skierID":11872,"vertical":43880}]}
+Resort 7, update 3, server time: 2026-11-06T20:51:21.761879Z, received at: 2026-11-06T20:51:21.730133Z
+Generation time: 0.030 seconds
+
+--- Warmup ---
+Successful: 32000
+Failed: 0
+Runtime: 30.704 seconds
+
+--- Main ---
+Successful: 468000
+Failed: 0
+Runtime: 115.487 seconds
+Main throughput: 4052.403149 swipes/sec
+
+--- Total ingest ---
+Successful: 500000
+Failed: 0
+Remaining in queue: 0
+Runtime: 146.191 seconds
+Throughput: 3420.17 swipes/sec
+
+--- Throughput per resort ---
+Resort 1: successful=49692, throughput=339.91 swipes/sec
+Resort 2: successful=49912, throughput=341.42 swipes/sec
+Resort 3: successful=49849, throughput=340.98 swipes/sec
+Resort 4: successful=50106, throughput=342.74 swipes/sec
+Resort 5: successful=49848, throughput=340.98 swipes/sec
+Resort 6: successful=50012, throughput=342.10 swipes/sec
+Resort 7: successful=50201, throughput=343.39 swipes/sec
+Resort 8: successful=49661, throughput=339.70 swipes/sec
+Resort 9: successful=50400, throughput=344.75 swipes/sec
+Resort 10: successful=50319, throughput=344.20 swipes/sec
+
+--- HTTP transport: Apache HttpClient 5.6.4 ---
+Application request attempts: 500000
+Application request retries: 0
+TCP connect attempts: 5058
+TCP connections established: 5058
+TCP connect attempts without success: 0
+TCP connections established during application retries: 0
+HTTP reconnection definition: new TCP opens during application retries; not all replacement/idle-expiry connections.
+Pool before close: leased=0, available=126, pending=0, max=128
+Sampled pool peaks (50 ms + attempt completion): leased=128, available=126, pending=0
+
+--- WebSocket subscriptions ---
+Resort 1: updates=293, connections=1, reconnections=0, avgConnectMs=139.484
+Resort 2: updates=293, connections=1, reconnections=0, avgConnectMs=124.854
+Resort 3: updates=293, connections=1, reconnections=0, avgConnectMs=126.566
+Resort 4: updates=293, connections=1, reconnections=0, avgConnectMs=123.771
+Resort 5: updates=293, connections=1, reconnections=0, avgConnectMs=125.117
+Resort 6: updates=293, connections=1, reconnections=0, avgConnectMs=123.695
+Resort 7: updates=293, connections=1, reconnections=0, avgConnectMs=122.160
+Resort 8: updates=293, connections=1, reconnections=0, avgConnectMs=121.489
+Resort 9: updates=293, connections=1, reconnections=0, avgConnectMs=121.096
+Resort 10: updates=293, connections=1, reconnections=0, avgConnectMs=122.183
+Total leaderboard updates: 2930
+HTTP attempts recorded: 500000
+CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part2/results/swipes-1793998426738.csv
+Push CSV saved to: /Users/anne/Desktop/CS6650distributedsystem/client-part2/results/pushes-1793998426738.csv
+
+--- HTTP attempt latency ---
+Samples: 500000
+Mean: 31.491 ms
+Median: 30.123 ms
+p95: 39.411 ms
+p99: 73.737 ms
+Min: 12.238 ms
+Max: 284.712 ms
+
+--- WebSocket push latency ---
+Samples: 2930
+Mean: -28.964 ms
+Median: -31.922 ms
+p95: -23.308 ms
+p99: 63.167 ms
+
+Total program runtime: 147.575 seconds

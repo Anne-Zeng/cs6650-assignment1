@@ -1,0 +1,10 @@
+UTC: 20261106T205119Z
+GET http://16.144.151.60:8080/ski-servlet/health
+HTTP 200
+Content-Type: application/json;charset=UTF-8
+Content-Length: 15
+Date: Fri, 06 Nov 2026 20:51:19 GMT
+Connection: close
+
+
+{"status":"UP"}

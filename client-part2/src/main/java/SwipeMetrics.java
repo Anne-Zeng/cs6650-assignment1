@@ -1,28 +1,128 @@
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.util.Arrays;
+import java.util.Locale;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.ArrayList;
+import java.util.List;
 //SwipeMetrics records HTTP attempts, exports CSV, and
 // calculates latency statistics and throughput per resort.
 public class SwipeMetrics {
+  // shared 保留原实现；buffered 为正式优化模式；off 仅用于诊断开销。
+  public enum Mode { SHARED, BUFFERED, OFF }
+  private final Mode mode;
+
+  public SwipeMetrics() { this(Mode.SHARED); }
+  public SwipeMetrics(Mode mode) { this.mode = java.util.Objects.requireNonNull(mode); }
+  public Mode getMode() { return mode; }
+  public static Mode parseMode(String text) {
+    try { return Mode.valueOf(text.toUpperCase(Locale.ROOT)); }
+    catch (IllegalArgumentException e) {
+      throw new IllegalArgumentException("metrics mode must be shared, buffered or off", e);
+    }
+  }
+
+  // 以下汇总 API 只能在所有任务 Future.get() 完成后调用。
+  public long attemptCount() {
+    return mode == Mode.BUFFERED ? bufferedAttemptCount() : samples.size();
+  }
+
+  @FunctionalInterface
+  private interface Visitor {
+    void accept(Instant sent, Instant received, long nanos, int status, int resort);
+  }
+
+  // 导出阶段才构造 Instant；发送热路径不创建每条 Sample/队列节点。
+  private void visit(Visitor visitor) {
+    if (mode == Mode.BUFFERED) {
+      for (AttemptBuffer buffer : taskBuffers) {
+        buffer.forEach((sent, received, nanos, status, resort) ->
+            visitor.accept(Instant.ofEpochMilli(sent), Instant.ofEpochMilli(received),
+                nanos, status, resort));
+      }
+    } else if (mode == Mode.SHARED) {
+      for (Sample sample : samples) visitor.accept(sample.sentAt, sample.receivedAt,
+          sample.latencyNanos, sample.statusCode, sample.resortID);
+    }
+  }
+
+  // 统计仅读取基本类型，避免为了排序和 resort 计数创建时间对象。
+  private void visitValues(AttemptBuffer.AttemptConsumer consumer) {
+    if (mode == Mode.BUFFERED) {
+      for (AttemptBuffer buffer : taskBuffers) buffer.forEach(consumer);
+    } else if (mode == Mode.SHARED) {
+      for (Sample sample : samples) consumer.accept(0, 0, sample.latencyNanos,
+          sample.statusCode, sample.resortID);
+    }
+  }
+
+  public double[] sortedLatenciesMs() {
+    double[] values = new double[Math.toIntExact(attemptCount())];
+    int[] index = {0};
+    visitValues((sent, received, nanos, status, resort) -> values[index[0]++] = nanos / 1_000_000.0);
+    Arrays.sort(values);
+    return values;
+  }
+
+  public long[] successesPerResort(int resortCount) {
+    long[] counts = new long[resortCount + 1];
+    visitValues((sent, received, nanos, status, resort) -> {
+      if (status == 201 && resort >= 1 && resort <= resortCount) counts[resort]++;
+    });
+    return counts;
+  }
+
   //允许多个发送线程安全地添加记录。这种实现会占用与请求尝试数量成比例的内存。
   private final ConcurrentLinkedQueue<Sample> samples =
       new ConcurrentLinkedQueue<>();
+
+  // 主线程保存各个发送任务的缓冲区引用。
+// 每个缓冲区由一个发送任务独占写入。
+  private final List<AttemptBuffer> taskBuffers = new ArrayList<>();
+
+  /**
+   * 由 LoadClient 的主线程在提交发送任务前调用。
+   * 不允许发送线程调用这个方法。
+   */
+  public AttemptBuffer createTaskBuffer() {
+    AttemptBuffer buffer = new AttemptBuffer();
+    taskBuffers.add(buffer);
+    return buffer;
+  }
+
+  /**
+   * 只有所有发送任务结束后才能调用。
+   * 返回所有任务实际记录的 HTTP 尝试数，包括重试。
+   */
+  public long bufferedAttemptCount() {
+    long total = 0;
+    for (AttemptBuffer buffer : taskBuffers) {
+      total += buffer.size();
+    }
+    return total;
+  }
 
   public void record(Instant sentAt,
       Instant receivedAt,
       long latencyNanos,
       int statusCode,
       int resortID) {
+    if (mode != Mode.SHARED) throw new IllegalStateException("Shared recorder used in " + mode);
     samples.add(new Sample(
         sentAt, receivedAt, latencyNanos, statusCode, resortID
     ));
   }
 
   public void writeCsv(Path path) throws IOException {
+    if (mode == Mode.OFF) {
+      System.out.println("HTTP CSV disabled: diagnostic off mode");
+      return;
+    }
     Files.createDirectories(path.toAbsolutePath().getParent());
 
     try (BufferedWriter writer =
@@ -33,19 +133,18 @@ public class SwipeMetrics {
       );
       writer.newLine();
 
-      for (Sample sample : samples) {
-        writer.write(
-            sample.sentAt + ",SWIPE,"
-                + (sample.latencyNanos / 1_000_000.0) + ","
-                + sample.statusCode + ","
-                + sample.resortID + ","
-                + sample.receivedAt
-        );
-        writer.newLine();
-      }
+      try {
+        visit((sent, received, nanos, status, resort) -> {
+          try {
+            writer.write(sent + ",SWIPE," + (nanos / 1_000_000.0) + ","
+                + status + "," + resort + "," + received);
+            writer.newLine();
+          } catch (IOException e) { throw new UncheckedIOException(e); }
+        });
+      } catch (UncheckedIOException e) { throw e.getCause(); }
     }
 
-    System.out.println("HTTP attempts recorded: " + samples.size());
+    System.out.println("HTTP attempts recorded: " + attemptCount());
     System.out.println("CSV saved to: " + path.toAbsolutePath());
   }
 
@@ -56,10 +155,11 @@ public class SwipeMetrics {
 //  p99：至少 99% 的样本耗时不超过这个值。
 //  Min / Max：最短、最长耗时。
   public void printLatencySummary() {
-    double[] latencies = samples.stream()
-        .mapToDouble(sample -> sample.latencyNanos / 1_000_000.0)
-        .sorted()
-        .toArray();
+    if (mode == Mode.OFF) {
+      System.out.println("HTTP latency statistics disabled: diagnostic off mode");
+      return;
+    }
+    double[] latencies = sortedLatenciesMs();
 
     if (latencies.length == 0) {
       System.out.println("No HTTP latency samples.");
@@ -96,15 +196,11 @@ public class SwipeMetrics {
   public void printResortThroughput(
       double ingestSeconds, int resortCount) {
 
-    long[] successes = new long[resortCount + 1];
-
-    for (Sample sample : samples) {
-      if (sample.statusCode == 201
-          && sample.resortID >= 1
-          && sample.resortID <= resortCount) {
-        successes[sample.resortID]++;
-      }
+    if (mode == Mode.OFF) {
+      System.out.println("Per-resort HTTP metrics disabled: diagnostic off mode");
+      return;
     }
+    long[] successes = successesPerResort(resortCount);
 
     System.out.println("\n--- Throughput per resort ---");
 

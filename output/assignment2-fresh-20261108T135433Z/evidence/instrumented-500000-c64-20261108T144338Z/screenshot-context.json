@@ -1,0 +1,39 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c64-20261108T144338Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-20261108T144353330749Z.png",
+    "screenshots/rabbitmq-20261108T144438860476Z.png",
+    "screenshots/rabbitmq-20261108T144524157640Z.png",
+    "screenshots/rabbitmq-20261108T144609311605Z.png",
+    "screenshots/rabbitmq-20261108T144654750139Z.png",
+    "screenshots/rabbitmq-20261108T144740234488Z.png",
+    "screenshots/rabbitmq-20261108T144825361876Z.png",
+    "screenshots/rabbitmq-20261108T144910816459Z.png",
+    "screenshots/rabbitmq-20261108T144931869234Z-final.png"
+  ],
+  "notes": [
+    "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+    "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+    "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+  ],
+  "albScreenshots": [
+    "screenshots/alb-response-time-whole-loadbalancer.png",
+    "screenshots/alb-request-count-whole-loadbalancer.png"
+  ],
+  "albCaptureSettings": {
+    "scope": "LoadBalancer aggregate",
+    "scopeVerified": true,
+    "wholeALBAggregate": true,
+    "requestCountStat": "Sum",
+    "targetResponseTimeStat": "Average",
+    "periodSeconds": 60,
+    "scopeIssue": "",
+    "captureRangeNote": "Corrected screenshots show 2026-11-08 14:43:53\u201314:49:26 UTC, one-minute buckets.",
+    "currentSourceVerifiedWholeALB": true
+  },
+  "albSupersededScreenshots": [
+    "screenshots/alb-overview-supplied.png",
+    "screenshots/alb-response-time-supplied.png",
+    "screenshots/alb-request-count-supplied.png"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "single-deregistration-in-progress.png": "User-provided screenshot: ingest1 Healthy; ingest2/3/4 Draining. Transitional state, not final proof that only one target remains registered.",
+  "single-c64-alb-cards-statistic-not-visible.png": {
+    "association": "Provisional: matched visible x-axis time to the fresh single-ingest run",
+    "clientThreads": 64,
+    "statisticVisible": false,
+    "periodVisible": false,
+    "timezoneVisible": false,
+    "dateVisible": false,
+    "note": "Retain as original graph evidence; obtain full CloudWatch capture with absolute UTC window and statistic/period visible. One supplied image was duplicated in the chat; saved once."
+  },
+  "single-c128-alb-cards-statistic-not-visible.png": {
+    "association": "Provisional: matched visible x-axis time to the fresh single-ingest run",
+    "clientThreads": 128,
+    "statisticVisible": false,
+    "periodVisible": false,
+    "timezoneVisible": false,
+    "dateVisible": false,
+    "note": "Retain as original graph evidence; obtain full CloudWatch capture with absolute UTC window and statistic/period visible. One supplied image was duplicated in the chat; saved once."
+  },
+  "single-c256-alb-cards-statistic-not-visible.png": {
+    "association": "Provisional: matched visible x-axis time to the fresh single-ingest run",
+    "clientThreads": 256,
+    "statisticVisible": false,
+    "periodVisible": false,
+    "timezoneVisible": false,
+    "dateVisible": false,
+    "note": "Retain as original graph evidence; obtain full CloudWatch capture with absolute UTC window and statistic/period visible. One supplied image was duplicated in the chat; saved once."
+  },
+  "single-c512-alb-cards-statistic-not-visible.png": {
+    "association": "Provisional: matched visible x-axis time to the fresh single-ingest run",
+    "clientThreads": 512,
+    "statisticVisible": false,
+    "periodVisible": false,
+    "timezoneVisible": false,
+    "dateVisible": false,
+    "note": "Retain as original graph evidence; obtain full CloudWatch capture with absolute UTC window and statistic/period visible. One supplied image was duplicated in the chat; saved once."
+  },
+  "two-targets-healthy.png": "User capture shows ingest1/2 registered on8080 and both Healthy.",
+  "four-targets-healthy.png": "User capture shows all four known ingest instance IDs registered on8080 and Healthy; preparation for the fresh four-ingest phase."
+}

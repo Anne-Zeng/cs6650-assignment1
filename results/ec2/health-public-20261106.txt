@@ -1,0 +1,9 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    15  100    15    0     0     36      0 --:--:-- --:--:-- --:--:--    36100    15  100    15    0     0     36      0 --:--:-- --:--:-- --:--:--    36
+HTTP/1.1 200 
+Content-Type: application/json;charset=UTF-8
+Content-Length: 15
+Date: Fri, 06 Nov 2026 09:45:50 GMT
+
+{"status":"UP"}

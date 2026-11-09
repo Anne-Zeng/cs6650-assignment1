@@ -1,0 +1,30 @@
+{
+  "metrics": [
+    [
+      "AWS/ApplicationELB",
+      "RequestCount",
+      "LoadBalancer",
+      "app/skitrak-alb/89d23a24c253e63c",
+      {
+        "id": "m1",
+        "stat": "Sum",
+        "yAxis": "left"
+      }
+    ],
+    [
+      "AWS/ApplicationELB",
+      "TargetResponseTime",
+      "LoadBalancer",
+      "app/skitrak-alb/89d23a24c253e63c",
+      {
+        "id": "m2",
+        "stat": "Average",
+        "yAxis": "right"
+      }
+    ]
+  ],
+  "view": "timeSeries",
+  "stacked": false,
+  "region": "us-west-2",
+  "period": 60
+}

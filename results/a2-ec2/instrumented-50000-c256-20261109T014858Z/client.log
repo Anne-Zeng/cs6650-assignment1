@@ -1,0 +1,18 @@
+Metrics mode: BUFFERED; seed=6650; Java=11.0.32.1
+Exception in thread "main" java.lang.IllegalStateException: Consumer did not become healthy and fully drained before baseline
+	at DrainVerifier.awaitIdle(DrainVerifier.java:60)
+	at LoadClient.main(LoadClient.java:50)
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:562)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:119)
+	at DrainVerifier.get(DrainVerifier.java:23)
+	at DrainVerifier.awaitIdle(DrainVerifier.java:50)
+	... 1 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:777)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection$ConnectEvent.handle(PlainHttpConnection.java:128)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.handleEvent(HttpClientImpl.java:962)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.lambda$run$3(HttpClientImpl.java:917)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:917)

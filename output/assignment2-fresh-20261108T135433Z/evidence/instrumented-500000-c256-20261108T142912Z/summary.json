@@ -1,0 +1,311 @@
+{
+  "run": "instrumented-500000-c256-20261108T142912Z",
+  "startUTC": "2026-11-08T14:29:26.256846+00:00",
+  "endUTC": "2026-11-08T14:32:07.986202+00:00",
+  "events": 500000,
+  "clientThreads": 256,
+  "clientExitCode": 0,
+  "client": {
+    "mainThroughput": 4839.147917,
+    "endToEndThroughput": 3183.52,
+    "drainSeconds": 20.386,
+    "attempts": 500000,
+    "retries": 0,
+    "programRuntimeSeconds": 160.362,
+    "webSocketUpdates": 904,
+    "successful": 500000,
+    "failed": 0,
+    "ingestRuntimeSeconds": 136.65,
+    "ingestThroughput": 3658.98,
+    "httpMeanMs": 52.011,
+    "httpMedianMs": 43.976,
+    "httpp95Ms": 96.411,
+    "httpp99Ms": 272.078,
+    "httpMinMs": 16.078,
+    "httpMaxMs": 879.19,
+    "webSocketReconnections": 0
+  },
+  "system": {
+    "consumer": {
+      "cpuPercent": {
+        "sampleMean": 36.93402047716678,
+        "sampleMax": 94.25837320574162,
+        "samples": 57
+      },
+      "iowaitPercent": {
+        "sampleMean": 33.66623670223137,
+        "sampleMax": 66.23376623376623,
+        "samples": 57
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 1216.2761101973683,
+        "sampleMax": 1221.28515625,
+        "samples": 57
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 1.0450849011484973,
+        "sampleMax": 2.011141149029017,
+        "samples": 57
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.060197948695713446,
+        "sampleMax": 0.11444424293395251,
+        "samples": 57
+      },
+      "writeIOPS": {
+        "sampleMean": 4159.1770018525385,
+        "sampleMax": 8021.331299378039,
+        "samples": 57
+      }
+    },
+    "ingest1": {
+      "cpuPercent": {
+        "sampleMean": 27.197355788523847,
+        "sampleMax": 50.72115384615385,
+        "samples": 81
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.046351555448266496,
+        "sampleMax": 1.7587939698492463,
+        "samples": 81
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 562.2414158950618,
+        "sampleMax": 567.21875,
+        "samples": 81
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 1.001021031604411,
+        "sampleMax": 1.9649689580348453,
+        "samples": 81
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 1.0920775048766203,
+        "sampleMax": 2.1574025854629073,
+        "samples": 81
+      },
+      "writeIOPS": {
+        "sampleMean": 4.729752339381678,
+        "sampleMax": 184.30871776379922,
+        "samples": 81
+      }
+    },
+    "ingest2": {
+      "cpuPercent": {
+        "sampleMean": 26.37733302385202,
+        "sampleMax": 51.43540669856459,
+        "samples": 81
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.03420258473970954,
+        "sampleMax": 0.7672634271099744,
+        "samples": 81
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 530.2492283950618,
+        "sampleMax": 540.97265625,
+        "samples": 81
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.9999688476362529,
+        "sampleMax": 1.9607287028010743,
+        "samples": 81
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 1.0901880345759778,
+        "sampleMax": 2.1581935456507253,
+        "samples": 81
+      },
+      "writeIOPS": {
+        "sampleMean": 3.7071059578451075,
+        "sampleMax": 95.45282323299361,
+        "samples": 81
+      }
+    },
+    "rabbitmq": {
+      "cpuPercent": {
+        "sampleMean": 62.380103077795624,
+        "sampleMax": 97.24310776942356,
+        "samples": 81
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.015655752370728217,
+        "sampleMax": 1.0230179028132993,
+        "samples": 81
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 692.5663097993827,
+        "sampleMax": 720.2421875,
+        "samples": 81
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 1.2858356287388928,
+        "sampleMax": 2.51544863148116,
+        "samples": 81
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 1.4869177263835696,
+        "sampleMax": 2.508978161518422,
+        "samples": 81
+      },
+      "writeIOPS": {
+        "sampleMean": 4.717858980032145,
+        "sampleMax": 128.86719406929862,
+        "samples": 81
+      }
+    }
+  },
+  "gaps": [
+    "consumer collection errors: {\"timeout\": 22}"
+  ],
+  "originalDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z",
+  "ingestCount": 2,
+  "provenance": {
+    "results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z/run.json": "c88f61c3529db1bd49eb25c6ebd00851554b7151ad2ef1672e779a30592b47ea",
+    "results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z/client.log": "89208a0a2e4781bab48b885fca9e457336008fb51ddd9ad78f69bb2df28658e6",
+    "results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z/monitor/consumer.jsonl": "3cc89716130ef513b5c5db0155789593d34ea9891275c199fbf2e95b1dc94dda",
+    "results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z/monitor/ingest1.jsonl": "177f53c1efcbd63a539a3797f2df9d008f33da092016ed45a8f8c7ba3345e330",
+    "results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z/monitor/ingest2.jsonl": "e0a5fef75154afed7ccab3c39677b08ddc29e45651792acb7dd78de8d9ba4dc7",
+    "results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z/monitor/rabbitmq.jsonl": "2bf96f9a79b1eafb874c10e9e8c10622585c15e590dbb91af35cef32e5ed2d69"
+  },
+  "notes": [
+    "Statistics use the client execution window, including warmup and drain.",
+    "Queue means/rates are arithmetic sample means; peaks are sampled observations.",
+    "Generated charts are recorded-metric plots, not AWS or RabbitMQ console screenshots.",
+    "Network rates use physical ens*/eth*/enp* interfaces only to avoid Docker bridge double counting.",
+    "Consumer lag is a cumulative-sum difference across baseline/final samples; not a per-run percentile.",
+    "Request distribution uses ingest application counters, not ALB access logs or CloudWatch per-target metrics."
+  ],
+  "queue": {
+    "ready": {
+      "sampleMean": 27919.25925925926,
+      "sampleMax": 68120,
+      "samples": 81
+    },
+    "unacked": {
+      "sampleMean": 849.4938271604939,
+      "sampleMax": 1280,
+      "samples": 81
+    },
+    "total": {
+      "sampleMean": 28768.753086419754,
+      "sampleMax": 69400,
+      "samples": 81
+    },
+    "publishRate": {
+      "sampleMean": 3099.8790123456793,
+      "sampleMax": 6094.6,
+      "samples": 81
+    },
+    "deliverRate": {
+      "sampleMean": 3079.2641975308643,
+      "sampleMax": 4582.2,
+      "samples": 81
+    },
+    "ackRate": {
+      "sampleMean": 3076.4246913580246,
+      "sampleMax": 4582.2,
+      "samples": 81
+    },
+    "deadReady": {
+      "sampleMean": 0,
+      "sampleMax": 0,
+      "samples": 81
+    }
+  },
+  "consumerConfiguration": {
+    "configuredThreads": 10,
+    "dynamicScaling": false,
+    "prefetch": 128,
+    "storeBatchSize": 64,
+    "storeBatchWaitMs": 10,
+    "ackBatchSize": 16
+  },
+  "consumer": {
+    "processedDelta": 500000,
+    "duplicateDelta": 0,
+    "failedAttemptDelta": 0,
+    "finalReady": 0,
+    "finalInFlight": 0,
+    "finalOutbox": 0,
+    "runMeanLagMs": 9306.910522532004
+  },
+  "ingestDistribution": {
+    "ingest1": {
+      "requestAttemptDelta": 250000,
+      "publishFailedDelta": 0,
+      "publishConfirmedDelta": 250000,
+      "failureReasonDeltas": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "initialAvailableChannels": 64
+    },
+    "ingest2": {
+      "requestAttemptDelta": 250000,
+      "publishFailedDelta": 0,
+      "publishConfirmedDelta": 250000,
+      "failureReasonDeltas": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "initialAvailableChannels": 64
+    }
+  },
+  "webSocketEvidence": [
+    "results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z/results/final-snapshots-1794148325926.json"
+  ],
+  "consoleScreenshots": [
+    "screenshots/rabbitmq-20261108T142926139298Z.png",
+    "screenshots/rabbitmq-20261108T143011729404Z.png",
+    "screenshots/rabbitmq-20261108T143057065814Z.png",
+    "screenshots/rabbitmq-20261108T143142490944Z.png",
+    "screenshots/rabbitmq-20261108T143214353302Z-final.png"
+  ],
+  "screenshotContext": {
+    "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/phase-2ingest-workers10/instrumented-500000-c256-20261108T142912Z",
+    "rabbitmqScreenshots": [
+      "screenshots/rabbitmq-20261108T142926139298Z.png",
+      "screenshots/rabbitmq-20261108T143011729404Z.png",
+      "screenshots/rabbitmq-20261108T143057065814Z.png",
+      "screenshots/rabbitmq-20261108T143142490944Z.png",
+      "screenshots/rabbitmq-20261108T143214353302Z-final.png"
+    ],
+    "notes": [
+      "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+      "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+      "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+    ],
+    "albScreenshots": [
+      "screenshots/alb-request-count-whole-loadbalancer.png",
+      "screenshots/alb-target-response-time-whole-loadbalancer.png"
+    ],
+    "albOverviewScreenshots": [
+      "screenshots/alb-overview.png"
+    ],
+    "albCaptureSettings": {
+      "scope": "Whole LoadBalancer; no AvailabilityZone or TargetGroup filter",
+      "wholeALBAggregate": true,
+      "scopeVerified": true,
+      "RequestCount": "Sum",
+      "TargetResponseTime": "Average",
+      "periodSeconds": 60,
+      "dateAndUtcRangeVisible": true,
+      "startUTC": "2026-11-08T14:29:26.256846+00:00",
+      "endUTC": "2026-11-08T14:32:07.986202+00:00",
+      "verification": "User applied the explicit whole-ALB Source JSON; supplied images show LoadBalancer dimension prefix, UTC time controls and per-row statistic/period. Original zone-scoped captures are retained separately."
+    },
+    "albScopedScreenshots": [
+      "screenshots/alb-request-count-az-us-west-2b.png",
+      "screenshots/alb-target-response-time-az-us-west-2b.png"
+    ]
+  }
+}

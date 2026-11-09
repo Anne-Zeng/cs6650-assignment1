@@ -1,0 +1,92 @@
+[
+  {
+    "main_throughput": 4052.403149,
+    "main_seconds": 115.487,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 0,
+    "mode": "shared",
+    "round": 1,
+    "whole_program_gc_pause_ms": 2335.7
+  },
+  {
+    "main_throughput": 4127.61688,
+    "main_seconds": 113.383,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 0,
+    "mode": "buffered",
+    "round": 1,
+    "whole_program_gc_pause_ms": 260.886
+  },
+  {
+    "main_throughput": 4173.358872,
+    "main_seconds": 112.14,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 0,
+    "mode": "off",
+    "round": 1,
+    "whole_program_gc_pause_ms": 194.753
+  },
+  {
+    "main_throughput": 4120.179778,
+    "main_seconds": 113.587,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 0,
+    "mode": "buffered",
+    "round": 2,
+    "whole_program_gc_pause_ms": 172.675
+  },
+  {
+    "main_throughput": 4176.192416,
+    "main_seconds": 112.064,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 0,
+    "mode": "off",
+    "round": 2,
+    "whole_program_gc_pause_ms": 185.183
+  },
+  {
+    "main_throughput": 4065.100182,
+    "main_seconds": 115.126,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 0,
+    "mode": "shared",
+    "round": 2,
+    "whole_program_gc_pause_ms": 3101.274
+  },
+  {
+    "main_throughput": 3822.275492,
+    "main_seconds": 122.44,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 3,
+    "mode": "off",
+    "round": 3,
+    "whole_program_gc_pause_ms": 183.744
+  },
+  {
+    "main_throughput": 4113.66164,
+    "main_seconds": 113.767,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 0,
+    "mode": "shared",
+    "round": 3,
+    "whole_program_gc_pause_ms": 2373.28
+  },
+  {
+    "main_throughput": 4072.832324,
+    "main_seconds": 114.908,
+    "successful": 500000,
+    "failed": 0,
+    "retries": 1,
+    "mode": "buffered",
+    "round": 3,
+    "whole_program_gc_pause_ms": 203.96
+  }
+]

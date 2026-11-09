@@ -1,0 +1,17 @@
+{
+  "ingest1": {
+    "samples": 75,
+    "errors": 0,
+    "sshExitCode": 255
+  },
+  "consumer": {
+    "samples": 64,
+    "errors": 8,
+    "sshExitCode": 255
+  },
+  "rabbitmq": {
+    "samples": 75,
+    "errors": 0,
+    "sshExitCode": 255
+  }
+}

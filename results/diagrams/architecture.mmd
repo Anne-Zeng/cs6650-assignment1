@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph Client["Java client on macOS"]
+        G["SwipeGenerator<br/>one thread"] --> Q["Thread-safe event queue"]
+        Q --> S["SwipeSender workers<br/>32 warmup; 128 main"]
+        S --> H["Shared Apache HTTP connection pool"]
+        W["LeaderboardConnection<br/>one per resort"]
+        W --> M["LeaderboardSubscriber / PushMetrics"]
+        S --> A["SwipeMetrics<br/>Part 2 only"]
+    end
+
+    subgraph Server["EC2: one Tomcat 9 WAR"]
+        I["SkierServlet"]
+        E["LeaderboardEndpoint"]
+        T["LeaderboardScheduler<br/>500 ms timer"] --> E
+        Health["HealthServlet"]
+    end
+
+    H -->|"HTTP POST"| I
+    I -->|"201 valid / 400 invalid"| H
+    W -->|"WebSocket subscription"| E
+    E -->|"Synthetic JSON pushes"| W

@@ -1,0 +1,158 @@
+{
+  "run": {
+    "events": 500000,
+    "threads": 512,
+    "base_url": "http://skitrak-alb-1400622109.us-west-2.elb.amazonaws.com",
+    "consumer_url": "http://127.0.0.1:18081",
+    "java": "/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/bin/java",
+    "startUTC": "20261108T092852Z",
+    "output": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-ec2/instrumented-500000-c512-20261108T092852Z",
+    "monitoredHosts": {
+      "ingest1": "44.247.123.174",
+      "ingest2": "34.213.52.138",
+      "consumer": "52.13.60.250",
+      "rabbitmq": "44.245.162.103"
+    },
+    "ingestCount": 2,
+    "clientStartUTC": "2026-11-08T09:28:55.509955+00:00",
+    "clientExitCode": 0,
+    "clientEndUTC": "2026-11-08T09:31:21.990206+00:00"
+  },
+  "consumer": {
+    "appErrors": {
+      "timeout": 16
+    },
+    "processedDelta": 500000,
+    "duplicatesDelta": 0,
+    "lagMs": 16940.217275005998,
+    "readyMax": 158268,
+    "finalReady": 0,
+    "finalInFlight": 0,
+    "finalOutbox": 0,
+    "iowaitMean": 35.73413642128594,
+    "cpuMean": 40.04115417084481
+  },
+  "ingest1": {
+    "appErrors": {},
+    "first": {
+      "serverId": "ingest-1",
+      "status": "UP",
+      "demoLifts": false,
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerChannelsAvailable": 64,
+      "producerConnectionsEstablished": 1,
+      "requests": 0,
+      "invalid": 0,
+      "publishesConfirmed": 0,
+      "publishesFailed": 0,
+      "unroutable": 0,
+      "publishFailureReasons": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "localSessions": 0,
+      "backplaneBindings": 0,
+      "snapshotFailures": 0,
+      "backplaneUpdates": 0
+    },
+    "last": {
+      "serverId": "ingest-1",
+      "status": "UP",
+      "demoLifts": false,
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerChannelsAvailable": 64,
+      "producerConnectionsEstablished": 1,
+      "requests": 250039,
+      "invalid": 0,
+      "publishesConfirmed": 250039,
+      "publishesFailed": 0,
+      "unroutable": 0,
+      "publishFailureReasons": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "localSessions": 0,
+      "backplaneBindings": 0,
+      "snapshotFailures": 0,
+      "backplaneUpdates": 452
+    },
+    "iowaitMean": 0.04347739037725203,
+    "cpuMean": 34.73810383648355
+  },
+  "ingest2": {
+    "appErrors": {},
+    "first": {
+      "serverId": "ingest-2",
+      "status": "UP",
+      "demoLifts": false,
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerChannelsAvailable": 64,
+      "producerConnectionsEstablished": 1,
+      "requests": 0,
+      "invalid": 0,
+      "publishesConfirmed": 0,
+      "publishesFailed": 0,
+      "unroutable": 0,
+      "publishFailureReasons": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "localSessions": 0,
+      "backplaneBindings": 0,
+      "snapshotFailures": 0,
+      "backplaneUpdates": 0
+    },
+    "last": {
+      "serverId": "ingest-2",
+      "status": "UP",
+      "demoLifts": false,
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerChannelsAvailable": 64,
+      "producerConnectionsEstablished": 1,
+      "requests": 250039,
+      "invalid": 0,
+      "publishesConfirmed": 249961,
+      "publishesFailed": 78,
+      "unroutable": 0,
+      "publishFailureReasons": {
+        "ACQUIRE_TIMEOUT": 78,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "localSessions": 0,
+      "backplaneBindings": 0,
+      "snapshotFailures": 0,
+      "backplaneUpdates": 446
+    },
+    "iowaitMean": 0.06675282423708313,
+    "cpuMean": 33.15272093884066
+  },
+  "rabbitmq": {
+    "appErrors": {},
+    "iowaitMean": 0.04285575760597964,
+    "cpuMean": 56.44331979097062
+  },
+  "HTTPstatusCounts": {
+    "201": 500000,
+    "503": 78
+  }
+}

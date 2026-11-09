@@ -1,0 +1,16 @@
+{
+  "runDirectory": "results/a2-ec2/instrumented-500000-c128-20261108T134214Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-during-load.png",
+    "screenshots/rabbitmq-near-load-end.png"
+  ],
+  "albScreenshots": [
+    "screenshots/alb-partial-window.png"
+  ],
+  "notes": [
+    "RabbitMQ Overview aggregates all queues, while monitor queue statistics cover ten raw resort queues.",
+    "Second screenshot still shows Unacked13 and nonzero rates; it is not a fully drained screenshot.",
+    "ALB screenshot shows a partial time window/data through about13:43UTC; client ends13:45:24UTC. Statistic and period are not visible; do not infer full-run count or a percentile.",
+    "Run measured13:42:17\u201313:45:24UTC,05:42:17\u201305:45:24Pacific Standard Time."
+  ]
+}

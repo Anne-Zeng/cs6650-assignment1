@@ -29,13 +29,18 @@ public class LoadClient {
     int eventsPerWarmupThread = args.length > 3 ? Integer.parseInt(args[3]) : 1_000;
     //第五个运行参数指定 resort 数量；不填写时使用 10。
     int resortCount = args.length > 4 ? Integer.parseInt(args[4]) : 10;
+    // 第六参数选择统计方式；第七参数固定事件序列，方便控制变量实验。
+    SwipeMetrics.Mode metricsMode = SwipeMetrics.parseMode(args.length > 5 ? args[5] : "buffered");
+    long seed = args.length > 6 ? Long.parseLong(args[6]) : 6650L;
+    System.out.printf("Metrics mode: %s; seed=%d; Java=%s%n", metricsMode,
+        seed, System.getProperty("java.version"));
     if (!baseUrl.startsWith("http://") || mainThreads < 1
         || resortCount < 1
         || eventsPerWarmupThread < 1
         || eventCount < (long) warmupThreads * eventsPerWarmupThread) {
       throw new IllegalArgumentException(
           "Usage: LoadClient [http-base-url] [events] [main-threads] "
-          + "[warmup-per-thread] [resort-count]; "
+          + "[warmup-per-thread] [resort-count] [shared|buffered|off] [seed]; "
           + "resort-count must be positive; events must cover 32 warmup workers");
     }
     String wsBaseUrl = "ws://" + baseUrl.substring("http://".length());
@@ -50,7 +55,7 @@ public class LoadClient {
 
     //然后把同一个 queue 交给生成器：创建线程和生成任务
     Thread generator = new Thread(
-        new SwipeGenerator(queue, eventCount, resortCount, 2026, 1),
+        new SwipeGenerator(queue, eventCount, resortCount, 2026, 1, seed),
         "swipe-generator"
     );
 
@@ -73,7 +78,7 @@ public class LoadClient {
 
     AtomicInteger successful = new AtomicInteger();
     AtomicInteger failed = new AtomicInteger();
-    SwipeMetrics metrics = new SwipeMetrics();
+    SwipeMetrics metrics = new SwipeMetrics(metricsMode);
     PushMetrics pushMetrics = new PushMetrics();
 
     List<LeaderboardConnection> subscribers = new ArrayList<>();
@@ -159,6 +164,13 @@ public class LoadClient {
       System.out.println("Failed: "
           + (failed.get() - warmupFailed));
       System.out.printf("Runtime: %.3f seconds%n", mainSeconds);
+      System.out.printf("Main throughput: %.6f swipes/sec%n",
+          (successful.get() - warmupSuccessful) / mainSeconds);
+      // 任务已结束：检查统计样本与真实 HTTP 尝试数一致，包括重试。
+      if (metricsMode != SwipeMetrics.Mode.OFF
+          && metrics.attemptCount() != client.getRequestAttempts()) {
+        throw new IllegalStateException("HTTP attempt sample count mismatch");
+      }
 
       System.out.println("\n--- Total ingest ---");
       System.out.println("Successful: " + successful.get());

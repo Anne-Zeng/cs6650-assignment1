@@ -1,0 +1,37 @@
+{
+  "run": "instrumented-500000-c256-20261108T213151Z",
+  "clientUTCWindow": [
+    "2026-11-08T21:31:54.544536+00:00",
+    "2026-11-08T21:34:32.070228+00:00"
+  ],
+  "events": 500000,
+  "clientThreads": 256,
+  "ingestCount": 4,
+  "clientExitCode": 0,
+  "recordedConfiguration": {
+    "prefetch": 128,
+    "configuredThreads": 10,
+    "ackBatchSize": 16,
+    "storeBatchSize": 64,
+    "storeBatchWaitMs": 10
+  },
+  "processedDelta": 500000,
+  "duplicateDelta": 0,
+  "finalReady": 0,
+  "finalInFlight": 0,
+  "finalPendingOutbox": 0,
+  "sourceSHA256": {
+    "results/a2-ec2/instrumented-500000-c256-20261108T213151Z/run.json": "c46f3450bfb8b1f7eca94677b855db5dad19868c2ecda0257ed4953c0f14fee2",
+    "results/a2-ec2/instrumented-500000-c256-20261108T213151Z/client.log": "f0fd9712f5002f2cfeee67f491a40a8a1b861c6767372995bccb30bf7b62454b",
+    "results/a2-ec2/instrumented-500000-c256-20261108T213151Z/monitor/consumer.jsonl": "e1fec0c380ed0e232773f1f32ff346880747ff138d11cc05a6959221b0922773",
+    "results/a2-ec2/instrumented-500000-c256-20261108T213151Z/monitor/rabbitmq.jsonl": "dc9840e30b0e1dcad83e06f3e2def6728c50e775935392b277be5145e60d77b9"
+  },
+  "screenshotStatus": "Matching original screenshots supplied and archived; this run is shared with the 256-client / ACK-batch-16 comparison.",
+  "screenshots": [
+    "output/tuning-parameters-assets/ack-16-client256-rabbitmq-during.png",
+    "output/tuning-parameters-assets/ack-16-client256-rabbitmq-drained.png",
+    "output/tuning-parameters-assets/ack-16-client256-alb-overview.png",
+    "output/tuning-parameters-assets/ack-16-client256-request-count.png",
+    "output/tuning-parameters-assets/ack-16-client256-target-response-time.png"
+  ]
+}

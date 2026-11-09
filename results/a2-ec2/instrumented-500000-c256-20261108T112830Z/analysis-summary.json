@@ -1,0 +1,28 @@
+{
+  "threads": 256,
+  "ingestCount": 4,
+  "exit": 0,
+  "directory": "results/a2-ec2/instrumented-500000-c256-20261108T112830Z",
+  "mainThroughput": 5806.073975,
+  "endToEnd": 3405.53,
+  "drainSeconds": 32.743,
+  "retries": 0.0,
+  "httpP99": 80.611,
+  "processedDelta": 500000,
+  "duplicatesDelta": 0,
+  "readyMax": 119338,
+  "lagMs": 13163.528842696014,
+  "finalReady": 0,
+  "finalInFlight": 0,
+  "finalOutbox": 0,
+  "metricsErrors": 22,
+  "httpStatusCounts": {
+    "201": 500000
+  },
+  "ingestRequestDeltas": {
+    "ingest3": 125000,
+    "ingest1": 124999,
+    "ingest2": 125001,
+    "ingest4": 125000
+  }
+}

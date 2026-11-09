@@ -1,0 +1,31 @@
+{
+  "consumer": {
+    "appErrors": {
+      "timeout": 17
+    },
+    "processedDelta": 500000,
+    "duplicateDelta": 0,
+    "lagMs": 18884.958194796007,
+    "readyMax": 169479,
+    "finalReady": 0,
+    "finalInFlight": 0,
+    "finalOutbox": 0,
+    "iowaitMean": 34.58184885286217
+  },
+  "ingest1": {
+    "appErrors": {},
+    "requestDelta": 250001,
+    "publishFailuresDelta": 0,
+    "iowaitMean": 0.038997121144533096
+  },
+  "ingest2": {
+    "appErrors": {},
+    "requestDelta": 249999,
+    "publishFailuresDelta": 0,
+    "iowaitMean": 0.0387983481084218
+  },
+  "rabbitmq": {
+    "appErrors": {},
+    "iowaitMean": 0.0804450983768872
+  }
+}

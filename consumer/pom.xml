@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent><groupId>cs6650.assignment2</groupId><artifactId>skitrak-parent</artifactId><version>2.0-SNAPSHOT</version><relativePath>../pom.xml</relativePath></parent>
+  <artifactId>skitrak-consumer</artifactId>
+  <dependencies>
+    <dependency><groupId>cs6650.assignment2</groupId><artifactId>skitrak-common</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>com.rabbitmq</groupId><artifactId>amqp-client</artifactId><version>5.24.0</version></dependency>
+    <dependency><groupId>org.xerial</groupId><artifactId>sqlite-jdbc</artifactId><version>3.50.3.0</version></dependency>
+    <dependency><groupId>junit</groupId><artifactId>junit</artifactId><scope>test</scope></dependency>
+  </dependencies>
+  <build>
+    <finalName>consumer</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-shade-plugin</artifactId><version>3.6.0</version>
+        <executions><execution><phase>package</phase><goals><goal>shade</goal></goals><configuration>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+          <filters><filter><artifact>*:*</artifact><excludes><exclude>META-INF/*.SF</exclude><exclude>META-INF/*.DSA</exclude><exclude>META-INF/*.RSA</exclude></excludes></filter></filters>
+          <transformers>
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"><mainClass>skitrak.consumer.ConsumerMain</mainClass></transformer>
+          </transformers>
+        </configuration></execution></executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

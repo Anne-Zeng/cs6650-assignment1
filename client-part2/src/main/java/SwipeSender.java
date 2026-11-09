@@ -17,6 +17,8 @@ public class SwipeSender implements Runnable {
   private final AtomicInteger failed;
   private final int maxEvents;
   private final SwipeMetrics metrics;
+  // 主线程在提交任务前创建；当前任务独占写入。
+  private final AttemptBuffer attemptBuffer;
 
   public SwipeSender(BlockingQueue<SwipeEvent> queue,
       HttpTransport client,
@@ -32,6 +34,8 @@ public class SwipeSender implements Runnable {
     this.failed = failed;
     this.maxEvents = maxEvents;
     this.metrics = metrics;
+    this.attemptBuffer = metrics.getMode() == SwipeMetrics.Mode.BUFFERED
+        ? metrics.createTaskBuffer() : null;
   }
 
   //queue.poll()：把“取出”和“移除”作为一次线程安全操作完成
@@ -62,13 +66,17 @@ public class SwipeSender implements Runnable {
   //每次尝试记录一行，包括重试。退避等待时间不算入单次请求延迟。 没有收到响应时，responseTimestamp 表示该尝试结束的时间
   private boolean sendWithRetries(SwipeEvent event)
       throws InterruptedException {
-//HTTP 失败由 SwipeSender 负责，首次尝试失败等待 100 ms，重试，最多重试6 次
+//HTTP 失败由 SwipeSender 负责，首次尝试失败等待 100 ms，重试，最多重试 5 次（包括首次共 6 次尝试）
     for (int attempt = 0; attempt <= 5; attempt++) {
       if (Thread.currentThread().isInterrupted()) {
         throw new InterruptedException("Sender interrupted");
       }
-      Instant sentAt = Instant.now();
-      long start = System.nanoTime();
+      // 对照模式保持原 Instant 记录方式；off 连测量时钟调用也省略。
+      boolean shared = metrics.getMode() == SwipeMetrics.Mode.SHARED;
+      boolean enabled = metrics.getMode() != SwipeMetrics.Mode.OFF;
+      Instant sentAt = shared ? Instant.now() : null;
+      long sentMillis = attemptBuffer != null ? System.currentTimeMillis() : 0;
+      long start = enabled ? System.nanoTime() : 0;
 
       // 0 表示没有收到 HTTP 响应，不是真实 HTTP 状态码。
       int statusCode = 0;
@@ -83,16 +91,16 @@ public class SwipeSender implements Runnable {
       } catch (java.io.IOException e) {
         // 记录此次网络失败，然后按原逻辑重试。
       } finally {
-        long latencyNanos = System.nanoTime() - start;
-        Instant receivedAt = Instant.now();
-
-        metrics.record(
-            sentAt,
-            receivedAt,
-            latencyNanos,
-            statusCode,
-            event.getResortID()
-        );
+        if (enabled) {
+          long latencyNanos = System.nanoTime() - start;
+          if (attemptBuffer != null) {
+            attemptBuffer.record(sentMillis, System.currentTimeMillis(),
+                latencyNanos, statusCode, event.getResortID());
+          } else {
+            metrics.record(sentAt, Instant.now(), latencyNanos,
+                statusCode, event.getResortID());
+          }
+        }
       }
       // EC2 返回 201->SwipeSender 增加成功计数，并记录测量数据->SwipeMetrics
       if (statusCode == 201) {

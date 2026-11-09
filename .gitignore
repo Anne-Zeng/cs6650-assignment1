@@ -23,3 +23,8 @@
 
 # Earlier lab work; Assignment 1 uses /server
 /lab2/
+
+# Assignment 2 local runtime state (keep generated evidence under results/).
+/data/
+/tmp/pdfs/
+/deployment/artifacts/

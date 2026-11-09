@@ -1,0 +1,14 @@
+{
+  "plannedRuns": 17,
+  "observedRuns": 17,
+  "eventsSent": 9000000,
+  "eventsProcessed": 9000000,
+  "finalFailures": 0,
+  "applicationRetries": 269,
+  "errors": [],
+  "pdfPages": 79,
+  "architecturePages": 2,
+  "allPagesRendered": true,
+  "pdfSHA256": "da646ae03013fdf63a077aa7df1c0e8a112752d08e33cc33e313a493e456d198",
+  "visualReview": "All pages inspected on contact sheets; selected table, CloudWatch and functional pages inspected at larger scale. Final width-only matrix correction checked separately."
+}

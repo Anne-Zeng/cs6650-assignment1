@@ -1,0 +1,36 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/phase-4ingest-workers10/instrumented-500000-c128-20261108T145046Z",
+  "rabbitmqScreenshots": [
+    "screenshots/rabbitmq-20261108T145101352639Z.png",
+    "screenshots/rabbitmq-20261108T145146485707Z.png",
+    "screenshots/rabbitmq-20261108T145231691648Z.png",
+    "screenshots/rabbitmq-20261108T145317285102Z.png",
+    "screenshots/rabbitmq-20261108T145402547815Z.png",
+    "screenshots/rabbitmq-20261108T145438041284Z-final.png"
+  ],
+  "notes": [
+    "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+    "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+    "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+  ],
+  "albScreenshots": [
+    "screenshots/alb-response-time-whole-loadbalancer.png",
+    "screenshots/alb-request-count-whole-loadbalancer.png"
+  ],
+  "albCaptureSettings": {
+    "scope": "LoadBalancer aggregate",
+    "scopeVerified": true,
+    "wholeALBAggregate": true,
+    "requestCountStat": "Sum",
+    "targetResponseTimeStat": "Average",
+    "periodSeconds": 60,
+    "scopeIssue": "",
+    "captureRangeNote": "Corrected screenshots: 2026-11-08 14:51:02\u201314:54:32 UTC; RequestCount Sum, TargetResponseTime Average, 60-second buckets. Original response-time screenshot includes a hover overlay; numeric analysis uses recorded metrics, not the overlay.",
+    "currentSourceVerifiedWholeALB": true
+  },
+  "albSupersededScreenshots": [
+    "screenshots/alb-overview-supplied.png",
+    "screenshots/alb-request-count-supplied.png",
+    "screenshots/alb-response-time-supplied.png"
+  ]
+}

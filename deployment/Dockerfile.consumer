@@ -1,0 +1,8 @@
+FROM eclipse-temurin:11-jre
+WORKDIR /app
+RUN mkdir -p /data/consumer && chown -R 10001:10001 /data /app
+COPY consumer/target/consumer.jar /app/consumer.jar
+USER 10001:10001
+ENV STORE_DIR=/data/consumer CONSUMER_PORT=8081
+EXPOSE 8081
+ENTRYPOINT ["java","-XX:MaxRAMPercentage=75.0","-jar","/app/consumer.jar"]

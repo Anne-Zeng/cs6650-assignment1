@@ -1,0 +1,94 @@
+name: skitrak-a2
+x-app-environment: &app-environment
+  RABBITMQ_HOST: rabbitmq
+  RABBITMQ_PORT: "5672"
+  RABBITMQ_USER: ${RABBITMQ_USER:-skitrak}
+  RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:?Set RABBITMQ_PASSWORD in deployment/.env}
+  RABBITMQ_VHOST: ${RABBITMQ_VHOST:-/}
+  QUEUE_TTL_MS: ${QUEUE_TTL_MS:-86400000}
+  QUEUE_MAX_LENGTH: ${QUEUE_MAX_LENGTH:-100000}
+  TOP_N: ${TOP_N:-20}
+x-server: &server
+  build:
+    context: ..
+    dockerfile: deployment/Dockerfile.server
+  restart: unless-stopped
+  depends_on:
+    rabbitmq:
+      condition: service_healthy
+    consumer:
+      condition: service_started
+  volumes:
+    - ${LIFT_CONFIG_DIR:-./config}:/config:ro
+  stop_grace_period: 30s
+services:
+  rabbitmq:
+    image: rabbitmq:4.1-management
+    hostname: rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-skitrak}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?Set RABBITMQ_PASSWORD}
+      RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_VHOST:-/}
+    ports:
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:15672:15672"
+    volumes:
+      - rabbit-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    stop_grace_period: 60s
+  consumer:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.consumer
+    restart: unless-stopped
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      <<: *app-environment
+      CONSUMER_THREADS: ${CONSUMER_THREADS:-10}
+      CONSUMER_MIN_THREADS: ${CONSUMER_MIN_THREADS:-5}
+      CONSUMER_DYNAMIC_SCALING: ${CONSUMER_DYNAMIC_SCALING:-true}
+      PREFETCH_COUNT: ${PREFETCH_COUNT:-64}
+      ACK_BATCH_SIZE: ${ACK_BATCH_SIZE:-1}
+      ACK_FLUSH_MS: ${ACK_FLUSH_MS:-25}
+      STORE_BATCH_SIZE: ${STORE_BATCH_SIZE:-32}
+      STORE_BATCH_WAIT_MS: ${STORE_BATCH_WAIT_MS:-10}
+      STORE_DIR: /data/consumer
+    ports:
+      - "127.0.0.1:8081:8081"
+    volumes:
+      - consumer-data:/data/consumer
+    stop_grace_period: 45s
+  ingest1:
+    <<: *server
+    environment:
+      <<: *app-environment
+      SERVER_ID: ingest1
+      CONSUMER_URL: http://consumer:8081
+      CHANNEL_POOL_SIZE: ${CHANNEL_POOL_SIZE:-32}
+      PUBLISH_CONFIRM_TIMEOUT_MS: ${PUBLISH_CONFIRM_TIMEOUT_MS:-3000}
+      LIFT_VERTICAL_FILE: ${LIFT_VERTICAL_FILE_IN_CONTAINER:-/config/lift_vertical.json}
+      ALLOW_DEMO_LIFTS: ${ALLOW_DEMO_LIFTS:-false}
+    ports:
+      - "127.0.0.1:8080:8080"
+  ingest2:
+    <<: *server
+    environment:
+      <<: *app-environment
+      SERVER_ID: ingest2
+      CONSUMER_URL: http://consumer:8081
+      CHANNEL_POOL_SIZE: ${CHANNEL_POOL_SIZE:-32}
+      PUBLISH_CONFIRM_TIMEOUT_MS: ${PUBLISH_CONFIRM_TIMEOUT_MS:-3000}
+      LIFT_VERTICAL_FILE: ${LIFT_VERTICAL_FILE_IN_CONTAINER:-/config/lift_vertical.json}
+      ALLOW_DEMO_LIFTS: ${ALLOW_DEMO_LIFTS:-false}
+    ports:
+      - "127.0.0.1:8082:8080"
+volumes:
+  rabbit-data:
+  consumer-data:

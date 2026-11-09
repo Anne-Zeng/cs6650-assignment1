@@ -1,5 +1,8 @@
 # CS6650 Assignment 1 — SkiTrak
 
+Assignment 2 implementation and startup instructions: [README_A2.md](README_A2.md).
+The original Assignment 1 modules and historical evidence below are retained.
+
 A Tomcat-based swipe-ingest server and multithreaded Java load clients.
 
 ## Project structure
@@ -386,3 +389,20 @@ See [HTTP transport migration](results/HTTP_TRANSPORT_MIGRATION.md) for the scop
 and validation record. The Apache/Java 11 remote baseline and full load-test results are recorded
 above, together with the scope of subsequent configuration and deployment
 checks.
+
+
+## Metrics buffering improvement (post-feedback)
+
+Client Part 2 now defaults to task-local primitive-array buffers. Each task owns
+its buffer; the main thread reads all buffers only after workers finish.
+Use `LoadClient BASE_URL EVENTS MAIN_THREADS WARMUP_PER_THREAD RESORTS MODE SEED`.
+MODE is `buffered` (default), `shared` (original recording baseline), or `off`
+(diagnostic only; no HTTP CSV/latency/per-resort statistics). The default seed
+is 6650. WebSockets and basic HTTP/event counters remain enabled in every mode.
+Buffered wall timestamps have millisecond resolution; HTTP durations still use
+nanoTime. CSV rows need not be chronological; plotting uses timestamps.
+
+See [experiment instructions](client-part2/METRICS_EXPERIMENT.md) for a repeatable
+three-mode comparison, health evidence capture and result interpretation.
+No improvement percentage from the updated implementation has been measured
+on EC2 yet. Earlier results above remain historical, not this version's benchmark.

@@ -1,0 +1,7 @@
+Stopping consumer with durable data retained
+Stopping broker; testing failed publish and reconnect
+{
+  "passed": true,
+  "evidence": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-fresh/20261108T135433Z/verification/ec2-recovery.json",
+  "restoreErrors": []
+}

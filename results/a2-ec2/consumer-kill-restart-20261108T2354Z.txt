@@ -1,0 +1,30 @@
+Consumer crash/auto-restart test, 2026-11-08, consumer EC2 i-05bdda1237a5952ff (172.31.36.151)
+Method: `sudo docker kill skitrak-consumer` while the pipeline was drained (no load). systemd unit restarts the container.
+
+Before (consumer shell):
+  NRestarts=0, ActiveState=active, ActiveEnterTimestamp=Sun 2026-11-08 23:05:49 UTC
+  docker ps: skitrak-consumer Up 47 minutes
+  /health: {"healthy":true}
+  processed 30692311 ready 0 inFlight 0 outbox 0
+
+Kill at 23:54:04 UTC (journal: Main process exited, code=exited, status=137).
+Per-second probe after the kill (systemctl is-active / GET /health):
+  23:54:09 activating health=000
+  23:54:10 active     health=000
+  23:54:11 active     health=200
+  23:54:12 to 23:54:34 active health=200 (every sample)
+
+journalctl:
+  23:54:04 skitrak-consumer.service: Main process exited, code=exited, status=137/n/a
+  23:54:04 skitrak-consumer.service: Failed with result 'exit-code'.
+  23:54:10 Scheduled restart job, restart counter is at 1.
+  23:54:10 Starting skitrak-consumer.service - SkiTrak consumer container...
+  23:54:11 Consumer listening on 8081, stores=/data/consumer, configuredThreads=10, prefetch=128
+
+After:
+  NRestarts=1, ActiveEnterTimestamp=Sun 2026-11-08 23:54:10 UTC
+  processed 30692311 ready 0 healthy True
+
+Result: automatic restart worked. Kill to healthy about 7 s (23:54:04 to 23:54:11). Processed count unchanged.
+Limit: the pipeline was idle, so this does not test recovery with in-flight messages. That is covered separately by
+results/a2-fresh/20261108T135433Z/verification/ec2-recovery.json (consumer stop with backlog, broker restart).

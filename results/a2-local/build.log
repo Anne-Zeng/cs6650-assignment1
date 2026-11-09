@@ -1,0 +1,253 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] skitrak-parent                                                     [pom]
+[INFO] skitrak-common                                                     [jar]
+[INFO] server-v2                                                          [war]
+[INFO] skitrak-consumer                                                   [jar]
+[INFO] client-v2                                                          [jar]
+[INFO] 
+[INFO] -----------------< cs6650.assignment2:skitrak-parent >------------------
+[INFO] Building skitrak-parent 2.0-SNAPSHOT                               [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] -----------------< cs6650.assignment2:skitrak-common >------------------
+[INFO] Building skitrak-common 2.0-SNAPSHOT                               [2/5]
+[INFO]   from common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ skitrak-common ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ skitrak-common ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ skitrak-common ---
+[INFO] skip non existing resourceDirectory /Users/anne/Desktop/CS6650distributedsystem/common/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ skitrak-common ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ skitrak-common ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running skitrak.common.ContractsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s -- in skitrak.common.ContractsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ skitrak-common ---
+[INFO] 
+[INFO] --------------------< cs6650.assignment2:server-v2 >--------------------
+[INFO] Building server-v2 2.0-SNAPSHOT                                    [3/5]
+[INFO]   from server-v2/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ server-v2 ---
+[INFO] skip non existing resourceDirectory /Users/anne/Desktop/CS6650distributedsystem/server-v2/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ server-v2 ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 10 source files with javac [debug release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ server-v2 ---
+[INFO] skip non existing resourceDirectory /Users/anne/Desktop/CS6650distributedsystem/server-v2/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ server-v2 ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 6 source files with javac [debug release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ server-v2 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running skitrak.server.SessionOutboxTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.320 s -- in skitrak.server.SessionOutboxTest
+[INFO] Running skitrak.server.SwipeValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s -- in skitrak.server.SwipeValidatorTest
+[INFO] Running skitrak.server.LeaderboardSubscriptionsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in skitrak.server.LeaderboardSubscriptionsTest
+[INFO] Running skitrak.server.SwipePublisherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s -- in skitrak.server.SwipePublisherTest
+[INFO] Running skitrak.server.LeaderboardHubTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s -- in skitrak.server.LeaderboardHubTest
+[INFO] Running skitrak.server.ChannelPoolTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s -- in skitrak.server.ChannelPoolTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- war:3.4.0:war (default-war) @ server-v2 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [server-v2] in [/Users/anne/Desktop/CS6650distributedsystem/server-v2/target/ROOT]
+[INFO] Processing war project
+[INFO] Building war: /Users/anne/Desktop/CS6650distributedsystem/server-v2/target/ROOT.war
+[INFO] 
+[INFO] ----------------< cs6650.assignment2:skitrak-consumer >-----------------
+[INFO] Building skitrak-consumer 2.0-SNAPSHOT                             [4/5]
+[INFO]   from consumer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ skitrak-consumer ---
+[INFO] skip non existing resourceDirectory /Users/anne/Desktop/CS6650distributedsystem/consumer/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ skitrak-consumer ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 6 source files with javac [debug release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ skitrak-consumer ---
+[INFO] skip non existing resourceDirectory /Users/anne/Desktop/CS6650distributedsystem/consumer/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ skitrak-consumer ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 4 source files with javac [debug release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ skitrak-consumer ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running skitrak.consumer.ConsumerLifecycleTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.525 s -- in skitrak.consumer.ConsumerLifecycleTest
+[INFO] Running skitrak.consumer.SerialLaneTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in skitrak.consumer.SerialLaneTest
+[INFO] Running skitrak.consumer.ConsumerStoreTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s -- in skitrak.consumer.ConsumerStoreTest
+[INFO] Running skitrak.consumer.LagHistogramTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in skitrak.consumer.LagHistogramTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ skitrak-consumer ---
+[INFO] Building jar: /Users/anne/Desktop/CS6650distributedsystem/consumer/target/consumer.jar
+[INFO] 
+[INFO] --- shade:3.6.0:shade (default) @ skitrak-consumer ---
+[INFO] Including cs6650.assignment2:skitrak-common:jar:2.0-SNAPSHOT in the shaded jar.
+[INFO] Including com.google.code.gson:gson:jar:2.10.1 in the shaded jar.
+[INFO] Including com.rabbitmq:amqp-client:jar:5.24.0 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.36 in the shaded jar.
+[INFO] Including org.xerial:sqlite-jdbc:jar:3.50.3.0 in the shaded jar.
+[WARNING] gson-2.10.1.jar, sqlite-jdbc-3.50.3.0.jar define 1 overlapping classes: 
+[WARNING]   - META-INF.versions.9.module-info
+[WARNING] amqp-client-5.24.0.jar, consumer.jar, gson-2.10.1.jar, skitrak-common-2.0-SNAPSHOT.jar, slf4j-api-1.7.36.jar, sqlite-jdbc-3.50.3.0.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] maven-shade-plugin has detected that some files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the file is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /Users/anne/Desktop/CS6650distributedsystem/consumer/target/consumer.jar with /Users/anne/Desktop/CS6650distributedsystem/consumer/target/skitrak-consumer-2.0-SNAPSHOT-shaded.jar
+[INFO] 
+[INFO] --------------------< cs6650.assignment2:client-v2 >--------------------
+[INFO] Building client-v2 2.0-SNAPSHOT                                    [5/5]
+[INFO]   from client-v2/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ client-v2 ---
+[INFO] skip non existing resourceDirectory /Users/anne/Desktop/CS6650distributedsystem/client-v2/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ client-v2 ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 14 source files with javac [debug release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ client-v2 ---
+[INFO] skip non existing resourceDirectory /Users/anne/Desktop/CS6650distributedsystem/client-v2/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ client-v2 ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 5 source files with javac [debug release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ client-v2 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running Assignment2ClientTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 s -- in Assignment2ClientTest
+[INFO] Running HttpTransportTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.667 s -- in HttpTransportTest
+[INFO] Running DrainVerifierTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.740 s -- in DrainVerifierTest
+[INFO] Running AttemptBufferTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in AttemptBufferTest
+[INFO] Running SwipeMetricsTest
+HTTP attempts recorded: 2050
+CSV saved to: /var/folders/rh/jbv6p_0n1m5gs194tzgzlf9w0000gn/T/swipe-metrics-12523665413756759835.csv
+HTTP attempts recorded: 2050
+CSV saved to: /var/folders/rh/jbv6p_0n1m5gs194tzgzlf9w0000gn/T/swipe-metrics-7227628786099522483.csv
+HTTP attempts recorded: 2
+CSV saved to: /var/folders/rh/jbv6p_0n1m5gs194tzgzlf9w0000gn/T/swipe-retry-4403555129871681694/attempts.csv
+HTTP attempts recorded: 2
+CSV saved to: /var/folders/rh/jbv6p_0n1m5gs194tzgzlf9w0000gn/T/swipe-retry-11302484954244672929/attempts.csv
+HTTP CSV disabled: diagnostic off mode
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.816 s -- in SwipeMetricsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ client-v2 ---
+[INFO] Building jar: /Users/anne/Desktop/CS6650distributedsystem/client-v2/target/client-v2.jar
+[INFO] 
+[INFO] --- shade:3.6.0:shade (default) @ client-v2 ---
+[INFO] Including org.apache.httpcomponents.client5:httpclient5:jar:5.6.4 in the shaded jar.
+[INFO] Including org.apache.httpcomponents.core5:httpcore5:jar:5.4.3 in the shaded jar.
+[INFO] Including org.apache.httpcomponents.core5:httpcore5-h2:jar:5.4.3 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.36 in the shaded jar.
+[INFO] Including com.google.code.gson:gson:jar:2.10.1 in the shaded jar.
+[WARNING] client-v2.jar, gson-2.10.1.jar, httpclient5-5.6.4.jar, httpcore5-5.4.3.jar, httpcore5-h2-5.4.3.jar, slf4j-api-1.7.36.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] httpclient5-5.6.4.jar, httpcore5-5.4.3.jar, httpcore5-h2-5.4.3.jar define 3 overlapping resources: 
+[WARNING]   - META-INF/DEPENDENCIES
+[WARNING]   - META-INF/LICENSE
+[WARNING]   - META-INF/NOTICE
+[WARNING] maven-shade-plugin has detected that some files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the file is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /Users/anne/Desktop/CS6650distributedsystem/client-v2/target/client-v2.jar with /Users/anne/Desktop/CS6650distributedsystem/client-v2/target/client-v2-2.0-SNAPSHOT-shaded.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for skitrak-parent 2.0-SNAPSHOT:
+[INFO] 
+[INFO] skitrak-parent ..................................... SUCCESS [  0.001 s]
+[INFO] skitrak-common ..................................... SUCCESS [  2.386 s]
+[INFO] server-v2 .......................................... SUCCESS [  3.656 s]
+[INFO] skitrak-consumer ................................... SUCCESS [  3.302 s]
+[INFO] client-v2 .......................................... SUCCESS [  9.875 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.283 s
+[INFO] Finished at: 2026-11-07T10:24:55-08:00
+[INFO] ------------------------------------------------------------------------

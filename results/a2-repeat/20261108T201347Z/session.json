@@ -1,0 +1,44 @@
+{
+  "session": "20261108T201347Z",
+  "purpose": "User-requested repeat of four-ingest 500K/128 fixed-worker sweep",
+  "originalSession": "20261108T135433Z",
+  "workers": [
+    5,
+    10,
+    15,
+    20
+  ],
+  "eventsPerRun": 500000,
+  "clientThreads": 128,
+  "ingests": 4,
+  "seed": 6650,
+  "cooldownSeconds": 70,
+  "persistentState": "Retained; EC2 instances restarted between original and repeat; cache/database/host credits may differ",
+  "plannedRuns": [
+    {
+      "workers": 5,
+      "events": 500000,
+      "threads": 128,
+      "ingests": 4
+    },
+    {
+      "workers": 10,
+      "events": 500000,
+      "threads": 128,
+      "ingests": 4
+    },
+    {
+      "workers": 15,
+      "events": 500000,
+      "threads": 128,
+      "ingests": 4
+    },
+    {
+      "workers": 20,
+      "events": 500000,
+      "threads": 128,
+      "ingests": 4
+    }
+  ],
+  "clientJarSHA256": "7dd2d01b4d8f0d1081d26808ccd33027c802363b3e6e81b9cdc0f4f4b85dbd02"
+}

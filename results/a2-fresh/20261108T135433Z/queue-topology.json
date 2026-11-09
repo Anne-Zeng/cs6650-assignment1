@@ -1,0 +1,214 @@
+{
+  "queues": [
+    {
+      "name": "resort.1",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.1",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.10",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.10",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.2",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.2",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.3",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.3",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.4",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.4",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.5",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.5",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.6",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.6",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.7",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.7",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.8",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.8",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    },
+    {
+      "name": "resort.9",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "skitrak.dlx",
+        "x-dead-letter-routing-key": "resort.9",
+        "x-max-length": 100000,
+        "x-message-ttl": 86400000,
+        "x-overflow": "reject-publish",
+        "x-queue-type": "classic",
+        "x-single-active-consumer": true
+      }
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "leaderboard.topic",
+      "type": "topic",
+      "durable": true
+    },
+    {
+      "name": "skitrak.dlx",
+      "type": "direct",
+      "durable": true
+    },
+    {
+      "name": "skitrak.exchange",
+      "type": "topic",
+      "durable": true
+    }
+  ],
+  "rawBindings": [
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.1",
+      "routing_key": "resort.1"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.10",
+      "routing_key": "resort.10"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.2",
+      "routing_key": "resort.2"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.3",
+      "routing_key": "resort.3"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.4",
+      "routing_key": "resort.4"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.5",
+      "routing_key": "resort.5"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.6",
+      "routing_key": "resort.6"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.7",
+      "routing_key": "resort.7"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.8",
+      "routing_key": "resort.8"
+    },
+    {
+      "source": "skitrak.exchange",
+      "destination": "resort.9",
+      "routing_key": "resort.9"
+    }
+  ],
+  "capturedUTC": "2026-11-08T14:41:20.790711+00:00"
+}

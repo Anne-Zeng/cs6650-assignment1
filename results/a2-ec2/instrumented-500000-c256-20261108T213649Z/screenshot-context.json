@@ -1,0 +1,19 @@
+{
+  "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-ec2/instrumented-500000-c256-20261108T213649Z",
+  "suppliedAckScreenshots": [
+    "screenshots/ack-1-client256-rabbitmq-during.png",
+    "screenshots/ack-1-client256-rabbitmq-drained.png",
+    "screenshots/ack-1-client256-alb-overview.png",
+    "screenshots/ack-1-client256-request-count.png",
+    "screenshots/ack-1-client256-target-response-time.png"
+  ],
+  "recordedAckBatchSize": 1,
+  "recordedPrefetch": 128,
+  "clientThreads": 256,
+  "clientUTCWindow": "21:36:53-21:39:36",
+  "ackScreenshotScopeNotes": [
+    "RabbitMQ chart axes are Pacific UTC-08:00; ALB range controls are UTC.",
+    "Earlier activity remains visible in ten-minute charts; use the stated current-run region.",
+    "RequestCount Sum and TargetResponseTime Average use 60-second buckets."
+  ]
+}

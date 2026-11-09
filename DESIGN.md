@@ -37,7 +37,7 @@ flowchart LR
 ## Major classes and relationships
 
 - `LoadClient` coordinates event generation, subscriptions, warmup,
-  main-phase workers, resource cleanup, and final metrics.
+  main-phase workers, resource cleanup, and final metrics reporting.
 - `SwipeGenerator` creates immutable `SwipeEvent` objects and places
   them in an `ArrayBlockingQueue`.
 - `SwipeSender` removes events from the queue and sends them through
@@ -64,8 +64,7 @@ Pre-generation simplifies coordination and avoids producer starvation,
 at the cost of memory proportional to the number of events. Generation
 time is reported separately from ingest time.
 
-Warmup uses a fixed pool of 32 workers. Each worker processes 1000
-logical events, giving 32000 warmup events. After all warmup workers
+Warmup uses a fixed pool of 32 workers. Each worker processes 1000 events, giving 32000 warmup events. After all warmup workers
 terminate, a new pool of 128 workers processes the remaining 468000.
 Both phases reuse the same HTTP connection pool.
 
@@ -161,3 +160,17 @@ Part 1 connection-time summary. After server redeployment, health,
 selected POST boundary cases, and synthetic WebSocket pushes were
 verified separately. The full performance runs have not been repeated
 against that final WAR.
+
+## Post-feedback implementation update
+
+The optimized Part 2 recorder uses one AttemptBuffer per sender task, with
+1024-record blocks of primitive arrays. Workers do not append to a shared
+statistics queue. After all workers finish, SwipeMetrics reads these buffers
+for CSV export, sorting and per-resort counts. Millisecond wall timestamps are
+converted to Instant only for export; elapsed latency remains nanosecond-based.
+The original shared recorder is retained as an explicit comparison mode.
+An off mode disables HTTP sample bookkeeping only for diagnostic experiments.
+The shared event-distribution queue and WebSocket path are unchanged. New
+remote benchmarks remain pending; the preceding numerical results describe
+the earlier implementation. This added section needs consolidation when
+preparing the final two-page design PDF.

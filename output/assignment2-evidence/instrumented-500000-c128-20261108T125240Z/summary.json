@@ -1,0 +1,326 @@
+{
+  "run": "instrumented-500000-c128-20261108T125240Z",
+  "startUTC": "2026-11-08T12:52:43.406181+00:00",
+  "endUTC": "2026-11-08T12:55:47.023066+00:00",
+  "events": 500000,
+  "clientThreads": 128,
+  "clientExitCode": 0,
+  "client": {
+    "mainThroughput": 3249.335549,
+    "endToEndThroughput": 2785.5,
+    "drainSeconds": 0.781,
+    "attempts": 500000.0,
+    "retries": 0.0,
+    "programRuntimeSeconds": 181.223,
+    "webSocketUpdates": 920.0,
+    "successful": 500000.0,
+    "failed": 0.0,
+    "ingestRuntimeSeconds": 178.655,
+    "ingestThroughput": 2798.69,
+    "httpMeanMs": 39.053,
+    "httpMedianMs": 37.39,
+    "httpp95Ms": 51.26,
+    "httpp99Ms": 92.008,
+    "httpMinMs": 14.584,
+    "httpMaxMs": 522.027,
+    "webSocketReconnections": 0
+  },
+  "system": {
+    "consumer": {
+      "cpuPercent": {
+        "sampleMean": 45.81597652211758,
+        "sampleMax": 83.21513002364067,
+        "samples": 91
+      },
+      "iowaitPercent": {
+        "sampleMean": 16.73840299421791,
+        "sampleMax": 23.383084577114428,
+        "samples": 91
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 1070.7308980082419,
+        "sampleMax": 1079.11328125,
+        "samples": 91
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 1.074300424233115,
+        "sampleMax": 1.3947123249939122,
+        "samples": 91
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.07658181669705769,
+        "sampleMax": 0.09971096906176724,
+        "samples": 91
+      },
+      "writeIOPS": {
+        "sampleMean": 4685.449843875174,
+        "sampleMax": 7169.868258863455,
+        "samples": 91
+      }
+    },
+    "ingest1": {
+      "cpuPercent": {
+        "sampleMean": 15.910859032732485,
+        "sampleMax": 29.912663755458514,
+        "samples": 91
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.03224490317279303,
+        "sampleMax": 0.9615384615384616,
+        "samples": 91
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 491.1109203296703,
+        "sampleMax": 493.28515625,
+        "samples": 91
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.4451903763306763,
+        "sampleMax": 0.5708869618692818,
+        "samples": 91
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.48900556785669536,
+        "sampleMax": 0.6290711669959235,
+        "samples": 91
+      },
+      "writeIOPS": {
+        "sampleMean": 3.260463858489016,
+        "sampleMax": 160.83484371379012,
+        "samples": 91
+      }
+    },
+    "ingest2": {
+      "cpuPercent": {
+        "sampleMean": 14.619543608360235,
+        "sampleMax": 24.43438914027149,
+        "samples": 91
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.02456222244843454,
+        "sampleMax": 0.9876543209876543,
+        "samples": 91
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 483.64835164835165,
+        "sampleMax": 488.20703125,
+        "samples": 91
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.449815950554042,
+        "sampleMax": 0.5732717126767173,
+        "samples": 91
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.4921702026869558,
+        "sampleMax": 0.6310226778069763,
+        "samples": 91
+      },
+      "writeIOPS": {
+        "sampleMean": 2.2559332983899028,
+        "sampleMax": 77.41984470471616,
+        "samples": 91
+      }
+    },
+    "ingest3": {
+      "cpuPercent": {
+        "sampleMean": 17.261032126393182,
+        "sampleMax": 41.45728643216081,
+        "samples": 91
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.01926081280667794,
+        "sampleMax": 0.49627791563275436,
+        "samples": 91
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 482.9856198489011,
+        "sampleMax": 492.56640625,
+        "samples": 91
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.445145335246553,
+        "sampleMax": 0.5740269909569721,
+        "samples": 91
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.4890974913138454,
+        "sampleMax": 0.6327561849910313,
+        "samples": 91
+      },
+      "writeIOPS": {
+        "sampleMean": 1.888169978362985,
+        "sampleMax": 53.445176155469674,
+        "samples": 91
+      }
+    },
+    "ingest4": {
+      "cpuPercent": {
+        "sampleMean": 14.085123204956384,
+        "sampleMax": 25.27964205816555,
+        "samples": 91
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.02146492032707466,
+        "sampleMax": 0.7317073170731707,
+        "samples": 91
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 488.2615899725275,
+        "sampleMax": 492.30859375,
+        "samples": 91
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.44649846451367264,
+        "sampleMax": 0.5756414798530698,
+        "samples": 91
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.4900708875841541,
+        "sampleMax": 0.6340662972174603,
+        "samples": 91
+      },
+      "writeIOPS": {
+        "sampleMean": 1.9375995078910613,
+        "sampleMax": 62.43625830219984,
+        "samples": 91
+      }
+    },
+    "rabbitmq": {
+      "cpuPercent": {
+        "sampleMean": 65.58263961547954,
+        "sampleMax": 97.41176470588235,
+        "samples": 91
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.00542667209333876,
+        "sampleMax": 0.49382716049382713,
+        "samples": 91
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 643.5409512362637,
+        "sampleMax": 658.4453125,
+        "samples": 91
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 1.1807763176453632,
+        "sampleMax": 1.5242343672926728,
+        "samples": 91
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 1.3515030482543857,
+        "sampleMax": 1.7528710705507964,
+        "samples": 91
+      },
+      "writeIOPS": {
+        "sampleMean": 3.024476528039755,
+        "sampleMax": 86.41252241845399,
+        "samples": 91
+      }
+    }
+  },
+  "gaps": [],
+  "originalDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-ec2/instrumented-500000-c128-20261108T125240Z",
+  "ingestCount": 4,
+  "provenance": {
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/run.json": "9de9c80a63167ec14d0469d63296aadd1af9b2101b09b115b35aeec9bb8712e7",
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/client.log": "78ad53b4943bdfd0f2a6c49e9ca7aea727c6e05757c44799269472a767deed7e",
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/monitor/consumer.jsonl": "28197a1a0396b71d8d503d0bf2ae28e643179c8b2915843d8d3662385352887a",
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/monitor/ingest1.jsonl": "b2c1d0d21f7809b55d59dff7b6d2b0c40ae7374cf6cfbeba8660a1dd9ffc0c11",
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/monitor/ingest2.jsonl": "e4506b84b6bb979e890b0e5dc534d8bd3c898773f042a460ea372a88cf64040a",
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/monitor/ingest3.jsonl": "984eda7b2d32c2622e8d7cdafd81460dc3fd84d1bf23095f6afaf387e2b1254e",
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/monitor/ingest4.jsonl": "bafdfa07155e253be0d04434378cd4f20a4d516ba8b88984fe169786029a0a52",
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/monitor/rabbitmq.jsonl": "57b30562f7e7963f4161063e064344d85603a44fc9894e091ffee3704dcdf56a"
+  },
+  "notes": [
+    "Statistics use the client execution window, including warmup and drain.",
+    "Queue means/rates are arithmetic sample means; peaks are sampled observations.",
+    "Generated charts are recorded-metric plots, not AWS or RabbitMQ console screenshots.",
+    "Network rates use physical ens*/eth*/enp* interfaces only to avoid Docker bridge double counting.",
+    "Consumer lag is a cumulative-sum difference across baseline/final samples; not a per-run percentile.",
+    "Request distribution uses ingest application counters, not ALB access logs or CloudWatch per-target metrics."
+  ],
+  "queue": {
+    "ready": {
+      "sampleMean": 0,
+      "sampleMax": 0,
+      "samples": 91
+    },
+    "unacked": {
+      "sampleMean": 89.1978021978022,
+      "sampleMax": 253,
+      "samples": 91
+    },
+    "total": {
+      "sampleMean": 89.1978021978022,
+      "sampleMax": 253,
+      "samples": 91
+    },
+    "publishRate": {
+      "sampleMean": 2720.1956043956043,
+      "sampleMax": 3531.6,
+      "samples": 91
+    },
+    "deliverRate": {
+      "sampleMean": 2672.4967032967033,
+      "sampleMax": 3520.2,
+      "samples": 91
+    },
+    "ackRate": {
+      "sampleMean": 2673.6197802197803,
+      "sampleMax": 3450.6,
+      "samples": 91
+    },
+    "deadReady": {
+      "sampleMean": 0,
+      "sampleMax": 0,
+      "samples": 91
+    }
+  },
+  "consumerConfiguration": {
+    "configuredThreads": 20,
+    "dynamicScaling": false,
+    "prefetch": 128,
+    "storeBatchSize": 64,
+    "storeBatchWaitMs": 10,
+    "ackBatchSize": 16
+  },
+  "consumer": {
+    "processedDelta": 500000,
+    "duplicateDelta": 0,
+    "failedAttemptDelta": 0,
+    "finalReady": 0,
+    "finalInFlight": 0,
+    "finalOutbox": 0,
+    "runMeanLagMs": 25.614320458000005
+  },
+  "ingestDistribution": {
+    "ingest3": {
+      "requestAttemptDelta": 125003,
+      "publishFailedDelta": 0,
+      "initialAvailableChannels": 64
+    },
+    "ingest1": {
+      "requestAttemptDelta": 124998,
+      "publishFailedDelta": 0,
+      "initialAvailableChannels": 64
+    },
+    "ingest2": {
+      "requestAttemptDelta": 125000,
+      "publishFailedDelta": 0,
+      "initialAvailableChannels": 64
+    },
+    "ingest4": {
+      "requestAttemptDelta": 124999,
+      "publishFailedDelta": 0,
+      "initialAvailableChannels": 64
+    }
+  },
+  "webSocketEvidence": [
+    "results/a2-ec2/instrumented-500000-c128-20261108T125240Z/results/final-snapshots-1794142545273.json"
+  ],
+  "consoleScreenshots": [
+    "rabbitmq-overview-first.png",
+    "rabbitmq-overview-after-exit.png"
+  ]
+}

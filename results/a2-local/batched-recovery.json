@@ -1,0 +1,188 @@
+{
+  "passed": true,
+  "localOnly": true,
+  "composeProject": "skitrak-a2",
+  "dayID": 359,
+  "resortID": 3,
+  "stages": [
+    {
+      "stage": "initial",
+      "uniqueEvents": 3,
+      "version": 3,
+      "top": [
+        {
+          "rank": 1,
+          "skierID": "11",
+          "vertical": 536
+        },
+        {
+          "rank": 2,
+          "skierID": "22",
+          "vertical": 167
+        }
+      ]
+    },
+    {
+      "stage": "consumer-restarted-with-backlog-and-duplicates",
+      "uniqueEvents": 23,
+      "version": 23,
+      "top": [
+        {
+          "rank": 1,
+          "skierID": "104",
+          "vertical": 1153
+        },
+        {
+          "rank": 2,
+          "skierID": "100",
+          "vertical": 1125
+        },
+        {
+          "rank": 3,
+          "skierID": "102",
+          "vertical": 990
+        },
+        {
+          "rank": 4,
+          "skierID": "103",
+          "vertical": 838
+        },
+        {
+          "rank": 5,
+          "skierID": "101",
+          "vertical": 605
+        },
+        {
+          "rank": 6,
+          "skierID": "11",
+          "vertical": 536
+        },
+        {
+          "rank": 7,
+          "skierID": "22",
+          "vertical": 167
+        }
+      ]
+    },
+    {
+      "stage": "broker-restarted-replay-and-new-event",
+      "uniqueEvents": 25,
+      "version": 25,
+      "top": [
+        {
+          "rank": 1,
+          "skierID": "104",
+          "vertical": 1153
+        },
+        {
+          "rank": 2,
+          "skierID": "100",
+          "vertical": 1125
+        },
+        {
+          "rank": 3,
+          "skierID": "102",
+          "vertical": 990
+        },
+        {
+          "rank": 4,
+          "skierID": "103",
+          "vertical": 838
+        },
+        {
+          "rank": 5,
+          "skierID": "101",
+          "vertical": 605
+        },
+        {
+          "rank": 6,
+          "skierID": "11",
+          "vertical": 536
+        },
+        {
+          "rank": 7,
+          "skierID": "77",
+          "vertical": 536
+        },
+        {
+          "rank": 8,
+          "skierID": "22",
+          "vertical": 167
+        }
+      ]
+    }
+  ],
+  "bindingTransitions": [
+    {
+      "serverId": "ingest1",
+      "localSessions": 0,
+      "backplaneBindings": 0
+    },
+    {
+      "serverId": "ingest2",
+      "localSessions": 0,
+      "backplaneBindings": 0
+    },
+    {
+      "serverId": "ingest1",
+      "localSessions": 1,
+      "backplaneBindings": 1
+    },
+    {
+      "serverId": "ingest2",
+      "localSessions": 1,
+      "backplaneBindings": 1
+    },
+    {
+      "serverId": "ingest1",
+      "localSessions": 2,
+      "backplaneBindings": 1
+    },
+    {
+      "serverId": "ingest1",
+      "localSessions": 1,
+      "backplaneBindings": 1
+    },
+    {
+      "serverId": "ingest1",
+      "localSessions": 0,
+      "backplaneBindings": 0
+    },
+    {
+      "serverId": "ingest1",
+      "localSessions": 1,
+      "backplaneBindings": 1
+    },
+    {
+      "serverId": "ingest1",
+      "localSessions": 1,
+      "backplaneBindings": 1
+    },
+    {
+      "serverId": "ingest2",
+      "localSessions": 1,
+      "backplaneBindings": 1
+    }
+  ],
+  "note": "Local functional fault evidence only. Persistent volumes were preserved.",
+  "brokerDownPublishStatus": 503,
+  "recoveredNodes": [
+    {
+      "serverId": "ingest1",
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerConnectionsEstablished": 2,
+      "localSessions": 1,
+      "backplaneBindings": 1
+    },
+    {
+      "serverId": "ingest2",
+      "producerReady": true,
+      "backplaneReady": true,
+      "producerConnectionsEstablished": 2,
+      "localSessions": 1,
+      "backplaneBindings": 1
+    }
+  ],
+  "timestampUTC": "2026-11-08T07:05:45Z"
+}

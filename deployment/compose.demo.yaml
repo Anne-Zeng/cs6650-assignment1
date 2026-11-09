@@ -1,0 +1,10 @@
+# Explicit LOCAL TEST override; never use this fixture for submitted benchmark results.
+services:
+  ingest1:
+    environment:
+      LIFT_VERTICAL_FILE: ""
+      ALLOW_DEMO_LIFTS: "true"
+  ingest2:
+    environment:
+      LIFT_VERTICAL_FILE: ""
+      ALLOW_DEMO_LIFTS: "true"

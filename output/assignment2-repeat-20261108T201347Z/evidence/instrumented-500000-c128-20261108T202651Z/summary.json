@@ -1,0 +1,398 @@
+{
+  "run": "instrumented-500000-c128-20261108T202651Z",
+  "startUTC": "2026-11-08T20:27:06.061959+00:00",
+  "endUTC": "2026-11-08T20:30:29.855984+00:00",
+  "events": 500000,
+  "clientThreads": 128,
+  "clientExitCode": 0,
+  "client": {
+    "mainThroughput": 2826.244256,
+    "endToEndThroughput": 2487.89,
+    "drainSeconds": 0.776,
+    "attempts": 500000,
+    "retries": 0,
+    "programRuntimeSeconds": 202.543,
+    "webSocketUpdates": 906,
+    "successful": 500000,
+    "failed": 0,
+    "ingestRuntimeSeconds": 200.158,
+    "ingestThroughput": 2498.03,
+    "httpMeanMs": 44.564,
+    "httpMedianMs": 42.426,
+    "httpp95Ms": 64.177,
+    "httpp99Ms": 86.215,
+    "httpMinMs": 14.562,
+    "httpMaxMs": 517.564,
+    "webSocketReconnections": 0
+  },
+  "system": {
+    "consumer": {
+      "cpuPercent": {
+        "sampleMean": 37.24887504439853,
+        "sampleMax": 99.48630136986301,
+        "samples": 102
+      },
+      "iowaitPercent": {
+        "sampleMean": 19.455703543291666,
+        "sampleMax": 25.510204081632654,
+        "samples": 102
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 1253.8197380514705,
+        "sampleMax": 1388.953125,
+        "samples": 102
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.9648785813515102,
+        "sampleMax": 1.1986003226064772,
+        "samples": 102
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.07938401303470577,
+        "sampleMax": 0.0986579430501797,
+        "samples": 102
+      },
+      "writeIOPS": {
+        "sampleMean": 4364.976753509867,
+        "sampleMax": 6358.5418633609015,
+        "samples": 102
+      }
+    },
+    "ingest1": {
+      "cpuPercent": {
+        "sampleMean": 12.77847264349079,
+        "sampleMax": 32.773109243697476,
+        "samples": 102
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.04710626276714221,
+        "sampleMax": 1.5037593984962405,
+        "samples": 102
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 491.9136795343137,
+        "sampleMax": 494.54296875,
+        "samples": 102
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.4032933560012454,
+        "sampleMax": 0.5001167652373276,
+        "samples": 102
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.4373349418044779,
+        "sampleMax": 0.5444025269878939,
+        "samples": 102
+      },
+      "writeIOPS": {
+        "sampleMean": 4.001481657380879,
+        "sampleMax": 152.86646110689742,
+        "samples": 102
+      }
+    },
+    "ingest2": {
+      "cpuPercent": {
+        "sampleMean": 12.877821333380057,
+        "sampleMax": 57.142857142857146,
+        "samples": 102
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.02743974181965622,
+        "sampleMax": 1.5228426395939085,
+        "samples": 102
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 483.07697610294116,
+        "sampleMax": 489.3125,
+        "samples": 102
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.40196183256240975,
+        "sampleMax": 0.5014489405359186,
+        "samples": 102
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.4364135043115519,
+        "sampleMax": 0.5478383788824092,
+        "samples": 102
+      },
+      "writeIOPS": {
+        "sampleMean": 1.816806041796395,
+        "sampleMax": 57.940896004782566,
+        "samples": 102
+      }
+    },
+    "ingest3": {
+      "cpuPercent": {
+        "sampleMean": 11.81059077533354,
+        "sampleMax": 28.175519630484988,
+        "samples": 102
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.03632176371664501,
+        "sampleMax": 1.2626262626262625,
+        "samples": 102
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 485.20166973039215,
+        "sampleMax": 487.34765625,
+        "samples": 102
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.4023944091582273,
+        "sampleMax": 0.5017796836766353,
+        "samples": 102
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.4366319519699668,
+        "sampleMax": 0.5456335667933715,
+        "samples": 102
+      },
+      "writeIOPS": {
+        "sampleMean": 2.737240778448068,
+        "sampleMax": 115.37124138333431,
+        "samples": 102
+      }
+    },
+    "ingest4": {
+      "cpuPercent": {
+        "sampleMean": 11.110094460861474,
+        "sampleMax": 29.054054054054053,
+        "samples": 102
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.034222474894021845,
+        "sampleMax": 1.0101010101010102,
+        "samples": 102
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 488.8079427083333,
+        "sampleMax": 493.17578125,
+        "samples": 102
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 0.40304944967246964,
+        "sampleMax": 0.5004650970034796,
+        "samples": 102
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 0.43762153958992595,
+        "sampleMax": 0.5448576562612203,
+        "samples": 102
+      },
+      "writeIOPS": {
+        "sampleMean": 3.398634696121836,
+        "sampleMax": 116.39403471432766,
+        "samples": 102
+      }
+    },
+    "rabbitmq": {
+      "cpuPercent": {
+        "sampleMean": 61.42468564746294,
+        "sampleMax": 91.87192118226601,
+        "samples": 102
+      },
+      "iowaitPercent": {
+        "sampleMean": 0.01983956745071966,
+        "sampleMax": 1.256281407035176,
+        "samples": 102
+      },
+      "memoryUsedMiB": {
+        "sampleMean": 642.7355621936274,
+        "sampleMax": 654.52734375,
+        "samples": 102
+      },
+      "rxMiBPerSecond": {
+        "sampleMean": 1.0635105241464098,
+        "sampleMax": 1.3123976953474776,
+        "samples": 102
+      },
+      "txMiBPerSecond": {
+        "sampleMean": 1.2176928352108283,
+        "sampleMax": 1.5062655552195932,
+        "samples": 102
+      },
+      "writeIOPS": {
+        "sampleMean": 4.167377013063329,
+        "sampleMax": 167.33150372362692,
+        "samples": 102
+      }
+    }
+  },
+  "gaps": [],
+  "originalDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z",
+  "ingestCount": 4,
+  "provenance": {
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/run.json": "180f578a117ff14c9ebd37d2b05393b5c24fa92f973c59a058f5b7e6cd91de5a",
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/client.log": "4b3b1c89826682a5009b2618d8dd14c93d3a3f5c0bb590f9f802b55c1a6ef4c4",
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/monitor/consumer.jsonl": "88e8135e4d8c0e50ec4cec312081f1c665b700d81bb5b3e107a29eacff084de6",
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/monitor/ingest1.jsonl": "c8d7d6c570b44db09622bcb4ca6f1211f28a9b12ba3c4ea8f8d1f2f566dc7eff",
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/monitor/ingest2.jsonl": "ab84b20bc7a205b3eb38c39cb5fb956e921da0a8ba07bcc5b7e2f94e233f995c",
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/monitor/ingest3.jsonl": "4b146d8ac248af80d396b733de32c9fbd503fcd2288240c4a761014713bcc9d4",
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/monitor/ingest4.jsonl": "bfe792606b72fb04ad193d131c77bbff7bfefa5dcf8374fec2484da6e323262c",
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/monitor/rabbitmq.jsonl": "76d291e02efd845858761061753331be9103271e1bce9e86e294ce4211ee9556"
+  },
+  "notes": [
+    "Statistics use the client execution window, including warmup and drain.",
+    "Queue means/rates are arithmetic sample means; peaks are sampled observations.",
+    "Generated charts are recorded-metric plots, not AWS or RabbitMQ console screenshots.",
+    "Network rates use physical ens*/eth*/enp* interfaces only to avoid Docker bridge double counting.",
+    "Consumer lag is a cumulative-sum difference across baseline/final samples; not a per-run percentile.",
+    "Request distribution uses ingest application counters, not ALB access logs or CloudWatch per-target metrics."
+  ],
+  "queue": {
+    "ready": {
+      "sampleMean": 23.607843137254903,
+      "sampleMax": 1204,
+      "samples": 102
+    },
+    "unacked": {
+      "sampleMean": 77.76470588235294,
+      "sampleMax": 964,
+      "samples": 102
+    },
+    "total": {
+      "sampleMean": 101.37254901960785,
+      "sampleMax": 2168,
+      "samples": 102
+    },
+    "publishRate": {
+      "sampleMean": 2434.7705882352943,
+      "sampleMax": 2988.8,
+      "samples": 102
+    },
+    "deliverRate": {
+      "sampleMean": 2420.527450980392,
+      "sampleMax": 2948.0,
+      "samples": 102
+    },
+    "ackRate": {
+      "sampleMean": 2417.7392156862743,
+      "sampleMax": 2964.6,
+      "samples": 102
+    },
+    "deadReady": {
+      "sampleMean": 0,
+      "sampleMax": 0,
+      "samples": 102
+    }
+  },
+  "consumerConfiguration": {
+    "configuredThreads": 15,
+    "dynamicScaling": false,
+    "prefetch": 128,
+    "storeBatchSize": 64,
+    "storeBatchWaitMs": 10,
+    "ackBatchSize": 16
+  },
+  "consumer": {
+    "processedDelta": 500000,
+    "duplicateDelta": 0,
+    "failedAttemptDelta": 0,
+    "finalReady": 0,
+    "finalInFlight": 0,
+    "finalOutbox": 0,
+    "runMeanLagMs": 31.22450201
+  },
+  "ingestDistribution": {
+    "ingest3": {
+      "requestAttemptDelta": 124999,
+      "publishFailedDelta": 0,
+      "publishConfirmedDelta": 124999,
+      "failureReasonDeltas": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "initialAvailableChannels": 64
+    },
+    "ingest1": {
+      "requestAttemptDelta": 125000,
+      "publishFailedDelta": 0,
+      "publishConfirmedDelta": 125000,
+      "failureReasonDeltas": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "initialAvailableChannels": 64
+    },
+    "ingest2": {
+      "requestAttemptDelta": 125000,
+      "publishFailedDelta": 0,
+      "publishConfirmedDelta": 125000,
+      "failureReasonDeltas": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "initialAvailableChannels": 64
+    },
+    "ingest4": {
+      "requestAttemptDelta": 125001,
+      "publishFailedDelta": 0,
+      "publishConfirmedDelta": 125001,
+      "failureReasonDeltas": {
+        "ACQUIRE_TIMEOUT": 0,
+        "CONFIRM_TIMEOUT": 0,
+        "BROKER_NACK": 0,
+        "UNROUTABLE": 0,
+        "INTERRUPTED": 0,
+        "PUBLISH_ERROR": 0
+      },
+      "initialAvailableChannels": 64
+    }
+  },
+  "webSocketEvidence": [
+    "results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z/results/final-snapshots-1794169828136.json"
+  ],
+  "consoleScreenshots": [
+    "screenshots/rabbitmq-20261108T202705634152Z.png",
+    "screenshots/rabbitmq-20261108T202750982003Z.png",
+    "screenshots/rabbitmq-20261108T202836363351Z.png",
+    "screenshots/rabbitmq-20261108T202921876014Z.png",
+    "screenshots/rabbitmq-20261108T203007336922Z.png",
+    "screenshots/rabbitmq-20261108T203043671039Z-final.png"
+  ],
+  "screenshotContext": {
+    "runDirectory": "/Users/anne/Desktop/CS6650distributedsystem/results/a2-repeat/20261108T201347Z/phase-4ingest-workers15/instrumented-500000-c128-20261108T202651Z",
+    "rabbitmqScreenshots": [
+      "screenshots/rabbitmq-20261108T202705634152Z.png",
+      "screenshots/rabbitmq-20261108T202750982003Z.png",
+      "screenshots/rabbitmq-20261108T202836363351Z.png",
+      "screenshots/rabbitmq-20261108T202921876014Z.png",
+      "screenshots/rabbitmq-20261108T203007336922Z.png",
+      "screenshots/rabbitmq-20261108T203043671039Z-final.png"
+    ],
+    "notes": [
+      "Actual RabbitMQ Management UI in UTC, captured through a private tunnel.",
+      "Overview aggregates all queues; raw queue metrics cover only resort.1 through resort.10.",
+      "Chart range may include earlier runs; use clientStartUTC/clientEndUTC to identify this run."
+    ],
+    "albScreenshots": [
+      "screenshots/alb-overview-supplied.png",
+      "screenshots/alb-metrics-supplied.png"
+    ],
+    "albCaptureSettings": {
+      "scope": "LoadBalancer aggregate",
+      "scopeVerified": true,
+      "wholeALBAggregate": true,
+      "requestCountStat": "Sum",
+      "targetResponseTimeStat": "Average",
+      "periodSeconds": 60,
+      "selectedUTCWindow": "20:27:06-20:30:29",
+      "date": "2026-11-08",
+      "timeZone": "UTC",
+      "captureRangeNote": "Supplied screenshots truncate subsecond run boundaries to whole seconds."
+    }
+  }
+}

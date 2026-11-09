@@ -1,0 +1,107 @@
+{
+  "consumer": {
+    "appTimeouts": 18,
+    "processedDelta": 500000,
+    "duplicatesDelta": 0,
+    "lagMs": 17225.240613652,
+    "readyMax": 158577,
+    "finalReady": 0,
+    "finalInFlight": 0,
+    "finalOutbox": 0,
+    "iowait": {
+      "mean": 34.42,
+      "max": 61.73
+    },
+    "writeIOPS": {
+      "mean": 4389.51,
+      "max": 9030.04
+    },
+    "diskUtil": {
+      "mean": 62.02,
+      "max": 93.93
+    }
+  },
+  "ingest1": {
+    "appTimeouts": 0,
+    "failureReasons": {
+      "ACQUIRE_TIMEOUT": 5,
+      "CONFIRM_TIMEOUT": 0,
+      "BROKER_NACK": 0,
+      "UNROUTABLE": 0,
+      "INTERRUPTED": 0,
+      "PUBLISH_ERROR": 0
+    },
+    "channelsAvailable": 64,
+    "iowait": {
+      "mean": 0.05,
+      "max": 1.25
+    },
+    "writeIOPS": {
+      "mean": 4.28,
+      "max": 126.39
+    },
+    "diskUtil": {
+      "mean": 0.14,
+      "max": 2.5
+    },
+    "failureReasonDeltas": {
+      "ACQUIRE_TIMEOUT": 5,
+      "CONFIRM_TIMEOUT": 0,
+      "BROKER_NACK": 0,
+      "UNROUTABLE": 0,
+      "INTERRUPTED": 0,
+      "PUBLISH_ERROR": 0
+    }
+  },
+  "ingest2": {
+    "appTimeouts": 0,
+    "failureReasons": {
+      "ACQUIRE_TIMEOUT": 78,
+      "CONFIRM_TIMEOUT": 0,
+      "BROKER_NACK": 0,
+      "UNROUTABLE": 0,
+      "INTERRUPTED": 0,
+      "PUBLISH_ERROR": 0
+    },
+    "channelsAvailable": 64,
+    "iowait": {
+      "mean": 0.04,
+      "max": 0.74
+    },
+    "writeIOPS": {
+      "mean": 2.63,
+      "max": 58.44
+    },
+    "diskUtil": {
+      "mean": 0.12,
+      "max": 2.5
+    },
+    "failureReasonDeltas": {
+      "ACQUIRE_TIMEOUT": 0,
+      "CONFIRM_TIMEOUT": 0,
+      "BROKER_NACK": 0,
+      "UNROUTABLE": 0,
+      "INTERRUPTED": 0,
+      "PUBLISH_ERROR": 0
+    }
+  },
+  "rabbitmq": {
+    "appTimeouts": 0,
+    "iowait": {
+      "mean": 0.08,
+      "max": 1.23
+    },
+    "writeIOPS": {
+      "mean": 7.38,
+      "max": 91.91
+    },
+    "diskUtil": {
+      "mean": 0.34,
+      "max": 4.0
+    }
+  },
+  "httpStatusCounts": {
+    "201": 500000,
+    "503": 5
+  }
+}
