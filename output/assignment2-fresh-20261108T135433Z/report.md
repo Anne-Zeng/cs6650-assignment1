@@ -19,7 +19,7 @@ Corrected two- and four-ingest CloudWatch captures are included. Per-run Consume
 | Requirement | Status | Where in this report |
 |---|---|---|
 | Client 64 / 128 / 256 / 512 threads | Met: every level at 1, 2 and 4 ingests (12 runs), plus a 1M run at 512 | Benchmark results |
-| Consumer thread sweep | **Partly met.** 5 / 10 / 15 / 20 workers (the sweep recorded in `REQUIREMENTS_A2.md`) at 4 ingests and 128 client threads. The wording 10 / 20 / 40 / 80 was not run, so 40 and 80 workers are untested. Only ten ordered resort lanes exist, so more than ten workers cannot add aggregation parallelism | Benchmark results (last four rows), Consumer sweep note |
+| Consumer thread sweep | Met, in two parts. This session ran 5 / 10 / 15 / 20 workers (the sweep recorded in `REQUIREMENTS_A2.md`) at 4 ingests and 128 client threads. A supplementary test of 10 / 20 / 40 / 80 workers (forward then reverse, 8 runs, 2026-11-09 04:06 to 04:51 UTC) is in `TUNING_PARAMETERS.md` section 2: no measurable throughput change above ten workers, and active workers never exceeded 10 because only ten ordered resort lanes exist | Benchmark results (last four rows), Consumer sweep note, `TUNING_PARAMETERS.md` section 2 |
 | Single ingest, 500K swipes: throughput, latency, queue metrics | Met | Benchmark results, per-run evidence |
 | Two ingests, same load: throughput and distribution | Met | Benchmark results, scaling comparison, `distribution.png` per run |
 | Four ingests, 500K then 1M stress; find bottlenecks | Met | Scaling comparison, 1M run, performance improvement analysis |
@@ -39,6 +39,20 @@ Four existing ingest EC2 instances are registered in stages: one, two, then four
 Existing durable data is retained, not deleted or reset. Database size/cache state can change over sequential runs, so this is a measured deployment comparison rather than a perfectly isolated capacity experiment. Health routing probes identify responding servers; console target screenshots separately establish registered-target state.
 
 For each run, monitoring starts before the client and continues through final drain. RabbitMQ UI screenshots are captured from the actual Management console in an ephemeral UTC browser; generated queue/resource graphs are separately labeled. No absent samples are replaced with zero.
+
+## Backplane tradeoffs and the first-subscriber bind/snapshot race
+
+A topic exchange routes `lb.{resortID}` only to WebSocket nodes with local subscribers for that resort. A fanout exchange would be simpler because every node receives every snapshot and filters locally, but it sends uninterested updates across the network and requires deserialization/filtering on every node. Topic routing trades that traffic reduction for binding/unbinding coordination, broker binding state and bootstrap/recovery logic. When every node subscribes to every resort, its filtering advantage largely disappears. One shared competing-consumer queue would not be sufficient: a snapshot could reach a node that does not own the interested sockets. Neither topic routing nor cookie stickiness transfers an existing WebSocket between nodes.
+
+**First-subscriber race.** If the node fetches snapshot version 10 before binding and version 11 is committed and published between that fetch and binding, it can miss version 11 and show stale standings until a later update or resynchronization. The implementation instead completes `queueBind` before starting the HTTP snapshot request. Subscription changes, live deliveries and snapshot completions enter one lifecycle executor. The per-resort/day version check prevents an older snapshot response from overwriting a newer live update: if live version 12 arrives before HTTP version 11, version 11 is discarded; equal versions are also ignored. Generation and request tokens invalidate responses from disconnected connections or abandoned subscriptions. A failed bind marks the backplane unavailable, and reconnection restores active bindings before fetching snapshots again. Periodic resynchronization (default five seconds) repairs transient notification loss. This supports convergence to current standings; it does not guarantee replay of every intermediate version or instantaneous freshness during a disconnect.
+
+Implementation: `server-v2/src/main/java/skitrak/server/LeaderboardHub.java` (`join`, `bindResort`, `fetchSnapshot`, `connect`) and `LeaderboardSubscriptions.java` (`accept`, `deliver`).
+
+## Self-operated RabbitMQ versus a managed queue
+
+RabbitMQ gives this assignment explicit control over exchanges, bindings, per-resort queues, prefetch, manual acknowledgements and publisher confirms. The deployment also owns broker operation, resource provisioning, connection lifecycle, exclusive channel leases and failure recovery. Our producer keeps one long-lived connection per ingest with a bounded channel pool; a channel remains exclusively leased through confirmation. Automatic RabbitMQ client recovery is deliberately disabled in `RabbitConfig`, and `ChannelPool` owns generation replacement so stale leases cannot reenter a recovered pool. RabbitMQ clients can support automatic recovery; implementing recovery ourselves is a project choice, not an inherent inability of the library.
+
+A managed queue such as SQS shifts broker infrastructure operation to the provider, while the AWS SDK for Java 2.x supplies thread-safe service clients with internal HTTP connection pools ([AWS documentation](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/singleton-service-clients.html)). It would remove our AMQP channel-pool implementation, while application ordering, deduplication, subscriber delivery and retry semantics still require design. It also changes the messaging API and topology rather than directly replacing the topic exchange unchanged. We retain RabbitMQ to implement and measure the connection/channel/reconnection behavior required here. This illustrates the same responsibility-versus-control decision as operating an application on EC2 versus delegating more runtime operation to Lambda; those services do not have identical execution models.
 
 ## Recorded infrastructure
 
@@ -101,10 +115,18 @@ If main HTTP throughput rises while end-to-end throughput changes little and que
 Fixed-worker comparisons must consider both lag and queue depth alongside throughput. Ten ordered resort queues cap useful aggregation parallelism at ten; configuring 15/20 workers does not create15/20 independent resort lanes. Sampled bounds and mean lag do not prove per-event limits.
 Consumer throughput plateaued at approximately ten workers, consistent with the ten ordered resort queues. Under higher input rates, downstream processing could not keep pace with ingestion, causing backlog and increased lag. Storage-related waiting contributed to the pressure, but the measurements do not isolate a single cause.
 
-**Consumer sweep note.** The four sweep rows above (5/10/15/20 workers, 4 ingests, 128 threads) are one original observation each. A repeat after an EC2 stop/start is kept separately in [output/assignment2-repeat-20261108T201347Z/comparison.md](../assignment2-repeat-20261108T201347Z/comparison.md). The repeat does not reproduce the original ordering: 5 workers gave +12.0% end-to-end throughput, 10 workers -11.8%, 15 workers -5.9% and 20 workers -3.3%, and the 5-worker repeat had a Ready peak of 8,848 and mean lag of 1,269 ms against 138 and 42 ms originally. Device reads fell from about 1,073 MiB (first run) to 4 MiB (last), which is consistent with cache warming. The sweep therefore does not show a reliable benefit of more than five workers on throughput; what it does show is that 15 and 20 workers add nothing over 10, which matches the ten ordered resort lanes. 40 and 80 workers were not run.
+**Consumer sweep note.** The four sweep rows above (5/10/15/20 workers, 4 ingests, 128 threads) are one original observation each. A repeat after an EC2 stop/start is kept separately in [output/assignment2-repeat-20261108T201347Z/comparison.md](../assignment2-repeat-20261108T201347Z/comparison.md). The repeat does not reproduce the original ordering: 5 workers gave +12.0% end-to-end throughput, 10 workers -11.8%, 15 workers -5.9% and 20 workers -3.3%, and the 5-worker repeat had a Ready peak of 8,848 and mean lag of 1,269 ms against 138 and 42 ms originally. Device reads fell from about 1,073 MiB (first run) to 4 MiB (last), which is consistent with cache warming. The sweep therefore does not show a reliable benefit of more than five workers on throughput; what it does show is that 15 and 20 workers add nothing over 10, which matches the ten ordered resort lanes. 40 and 80 workers were run later and are reported in the supplementary section below.
 
 
 ## Performance improvement analysis
+
+### Earliest observed bottleneck and how it changed
+
+The earliest monitored EC2 evidence in this project points to the **Consumer durable-write path**, before ingest scaling became the main experiment. With one SQLite FULL transaction per swipe, the 100K/64-client old-image observation (`instrumented-100000-c64-20261108T044946Z`) recorded a Ready peak of 15,516, roughly 57% Consumer I/O wait, 13.2 seconds of drain and about 1,148/s end-to-end throughput. The subsequent batched-write observation (`instrumented-100000-c64-20261108T052219Z`), still at 3,000 provisioned IOPS, recorded Ready peak 19, 0.74 seconds of drain and about 1,253/s. These observations support excessive durable-commit overhead/storage waiting as the first measured constraint. The earlier non-instrumented 500K run alone cannot identify the exact resource bottleneck.
+
+At 128 clients, larger batching/prefetch/ACK settings still left backlog at 3,000 IOPS; raising the Consumer volume to 6,000 IOPS with the same application settings was followed by Ready peak 0 and 0.76 seconds of drain. This strengthens the storage-capacity explanation for that stage, subject to sequential-run/cache variation. Later 256/512-client scaling runs again admitted work faster than it completed, with substantial backlog. Consumer I/O waiting and broker CPU pressure identify candidates for that later ceiling, but do not prove EBS IOPS is the exclusive cause. The lab policy denial explains why further volume tuning was unavailable; it is not itself performance evidence or a passing queue/lag result.
+
+
 
 **Within this session (all runs use the final configuration).** The comparisons are descriptive observations: database size and cache state change between sequential runs.
 
@@ -129,6 +151,113 @@ Consumer throughput plateaued at approximately ten workers, consistent with the 
 | Prefetch 64 to 512, channel pool 32 to 64 | | No measurable end-to-end change (see the tuning report for the pool and its tail-latency effects) |
 
 This session ran after those changes (it started about seven hours after the 6,000-IOPS step), so its numbers show the system near the new ceiling rather than the gains themselves. No Assignment 1 versus Assignment 2 throughput comparison is claimed, because Assignment 1 was not re-run in this session.
+
+## Supplementary consumer sweep: 10 / 20 / 40 / 80 workers
+
+The assignment text lists consumer thread counts of 10, 20, 40 and 80. This session's sweep used 5 / 10 / 15 / 20, so the listed values were run afterwards on 2026-11-09, forward then in reverse (10, 20, 40, 80, 80, 40, 20, 10). The same data, with the original evidence paths, are in `TUNING_PARAMETERS.md` section 2.
+
+**Setup.** 4 ingests behind the ALB, 500K events, 128 client threads, seed 6650, Top-N 20; prefetch 128, database batch 64, ACK batch 16, ingest channel pool 64, `CONSUMER_DYNAMIC_SCALING=false`; pipeline drained at the start of each run; the Consumer was restarted at each worker setting with `monitoring/set_consumer_threads.py` and the monitored `configuredThreads` matched. This follows an EC2 restart.
+
+| Run | Workers | Evidence directory (`results/a2-ec2/`) | Client window (UTC) | End-to-end /s | Main HTTP /s | HTTP P99 ms | Ready peak | Mean lag ms | Consumer CPU mean / max % | Consumer I/O wait % | Max active workers |
+|---:|---:|---|---|---:|---:|---:|---:|---:|---|---:|---:|
+| 1 | 10 | `instrumented-500000-c128-20261109T040639Z` | 04:06:42 to 04:10:00 | 2,604 | 3,208 | 77.3 | 31,061 | 5,924.8 | 32.8 / 99.8 | 55.1 | 10 |
+| 2 | 20 | `instrumented-500000-c128-20261109T041528Z` | 04:15:31 to 04:18:35 | 2,768 | 3,208 | 80.1 | 608 | 34.1 | 39.7 / 100.0 | 20.9 | 7 |
+| 3 | 40 | `instrumented-500000-c128-20261109T042706Z` | 04:27:09 to 04:30:18 | 2,701 | 3,150 | 83.5 | 1,199 | 35.0 | 38.9 / 99.9 | 19.1 | 6 |
+| 4 | 80 | `instrumented-500000-c128-20261109T043211Z` | 04:32:14 to 04:35:25 | 2,682 | 3,144 | 85.8 | 648 | 35.2 | 39.6 / 100.0 | 18.1 | 8 |
+| 5 | 80 | `instrumented-500000-c128-20261109T043641Z` | 04:36:44 to 04:39:57 | 2,649 | 3,063 | 99.5 | 1,552 | 37.9 | 38.9 / 100.0 | 17.5 | 10 |
+| 6 | 40 | `instrumented-500000-c128-20261109T044106Z` | 04:41:10 to 04:44:21 | 2,651 | 3,073 | 94.2 | 0 | 37.2 | 39.2 / 99.8 | 17.7 | 8 |
+| 7 | 20 | `instrumented-500000-c128-20261109T044456Z` | 04:45:00 to 04:48:12 | 2,641 | 3,111 | 93.7 | 1,035 | 34.4 | 38.7 / 100.0 | 18.0 | 6 |
+| 8 | 10 | `instrumented-500000-c128-20261109T044828Z` | 04:48:31 to 04:51:42 | 2,654 | 3,127 | 83.6 | 0 | 39.4 | 38.5 / 99.1 | 18.8 | 8 |
+
+All eight runs processed 500,000 events with 0 duplicates, 0 failed requests, 0 application retries and final Ready, in-flight and outbox 0.
+
+**Finding.** Excluding run 1, end-to-end throughput was 2,641 to 2,768/s for 10, 20, 40 and 80 workers; two runs of the same setting differ by up to 4.8%, as much as the settings differ from each other, so more workers gave no measurable benefit or cost. Sampled active workers never exceeded 10 even with 80 configured, which matches the ten ordered resort lanes. The second run of each setting was 0 to 5% lower, in the same direction for every setting, which points to drift over the session. Run 1 is a cold-cache observation (I/O wait 55% against 17 to 21% in the others, Ready peak 31,061, mean lag 5,925 ms) and is not a 10-worker result: the same setting in run 8 had Ready 0 and 39 ms lag. Limits: two runs per setting, one load level, and a cold first run.
+
+**ALB view (runs 1 to 8).** The CloudWatch captures use each run's client window with 1-minute buckets (first and last points are partial minutes, lines between points are interpolation, and the y-axis range differs per chart). As read from the chart axes, the peak one-minute request count was 180K to 194K and the peak one-minute average TargetResponseTime 8.3 to 10.5 ms in every run, with no pattern by worker count. That is expected: the worker count acts after the ingest tier, so ingest-side metrics should not move. For run 8 the Metrics chart covers runs 7 and 8 together (04:45:00 to 04:51:42 UTC), so it is not specific to run 8.
+
+### Screenshots
+
+#### Run 1: 10 workers, 04:06:42 to 04:10:00 UTC
+
+![Run 1, 10 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run1-w10-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). Queued messages rise to about 32K during the run and drain by about 20:10 (cold-cache run; Ready peak 31,061 by the Consumer monitor).
+
+![Run 1, 10 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run1-w10-alb-overview.png)
+
+![Run 1, 10 workers: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run1-w10-cloudwatch-metrics.png)
+
+#### Run 2: 20 workers, 04:15:31 to 04:18:35 UTC
+
+![Run 2, 20 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run2-w20-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). A short rise to about 1.5K at the start, then a few hundred (Ready peak 608).
+
+![Run 2, 20 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run2-w20-alb-overview.png)
+
+![Run 2, 20 workers: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run2-w20-cloudwatch-metrics.png)
+
+#### Run 3: 40 workers, 04:27:09 to 04:30:18 UTC
+
+![Run 3, 40 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run3-w40-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). A spike of about 2.5K at 20:27 at the start, then a few hundred (Ready peak 1,199).
+
+![Run 3, 40 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run3-w40-alb-overview.png)
+
+![Run 3, 40 workers: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run3-w40-cloudwatch-metrics.png)
+
+#### Run 4: 80 workers, 04:32:14 to 04:35:25 UTC
+
+![Run 4, 80 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run4-w80-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). The chart also holds run 3: its 2.5K spike is on the left and this run's spike of about 1.1K at 20:32 on the right.
+
+![Run 4, 80 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run4-w80-alb-overview.png)
+
+![Run 4, 80 workers: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run4-w80-cloudwatch-metrics.png)
+
+#### Run 5: 80 workers, 04:36:44 to 04:39:57 UTC
+
+![Run 5, 80 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run5-w80-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). Run 4's spike of about 1.1K is on the left; this run's spike of about 2.8K is at 20:37.
+
+![Run 5, 80 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run5-w80-alb-overview.png)
+
+![Run 5, 80 workers: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run5-w80-cloudwatch-metrics.png)
+
+#### Run 6: 40 workers, 04:41:10 to 04:44:21 UTC
+
+![Run 6, 40 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run6-w40-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). Run 5's 2.8K spike is on the left; this run's spike of about 1.0K is at 20:41.
+
+![Run 6, 40 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run6-w40-alb-overview.png)
+
+![Run 6, 40 workers: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run6-w40-cloudwatch-metrics.png)
+
+#### Run 7: 20 workers, 04:45:00 to 04:48:12 UTC
+
+![Run 7, 20 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run7-w20-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). Run 6's spike (about 1.0K) is on the left; this run's spike of about 2.2K is at 20:45, and run 8 is starting at the right edge.
+
+![Run 7, 20 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run7-w20-alb-overview.png)
+
+![Run 7, 20 workers: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run7-w20-cloudwatch-metrics.png)
+
+#### Run 8: 10 workers, 04:48:31 to 04:51:42 UTC
+
+![Run 8, 10 workers: RabbitMQ Management overview, queued messages and message rates](../tuning-parameters-assets/sweep-run8-w10-rabbitmq.png)
+
+RabbitMQ Overview, last ten minutes (axis in the browser's local time, UTC-8, so 20:06 is 04:06 UTC); totals are Ready plus Unacked and Unacked alone can reach 1,280 (ten queues times prefetch 128). Run 7's 2.2K spike is on the left; this run's spike of about 1.0K is at 20:48.
+
+![Run 8, 10 workers: ALB load balancer metrics](../tuning-parameters-assets/sweep-run8-w10-alb-overview.png)
+
+![Runs 7 and 8 window: RequestCount and TargetResponseTime](../tuning-parameters-assets/sweep-run8-w10-cloudwatch-metrics-runs7-8-window.png)
+
+This RequestCount and TargetResponseTime chart covers 04:45:00 to 04:51:42 UTC, that is runs 7 and 8 together, not run 8 alone; the dip near 04:48 is the interval between the two runs.
 
 ## Per-run evidence
 

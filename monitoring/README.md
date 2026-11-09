@@ -36,7 +36,7 @@ just because its queue becomes empty.
 
 ## Queue, app and host monitoring
 
-For the currently configured three-host EC2 deployment, `ec2_monitor.py` runs
+For the six-host EC2 deployment (four ingests, the consumer and RabbitMQ), `ec2_monitor.py` runs
 read-only probes over SSH without installing an agent or opening management ports:
 
 ```bash
@@ -44,8 +44,10 @@ python3 monitoring/ec2_monitor.py --duration 1800 --interval 2 \
   --output results/a2-ec2/MY_RUN-monitor
 ```
 
-The public host addresses are declared in `ec2_monitor.py`; update them after EC2
-public-IP changes and add ingest hosts when scaling. It verifies existing SSH host
+The public host addresses are declared in `HOSTS` in `ec2_monitor.py`; update them after every EC2
+public-IP change (a lab restart changes them) and remove or add ingest hosts to match the instances
+that are actually reachable, because `run_instrumented.py` refuses to start load unless every host
+in `HOSTS` returns samples. It verifies existing SSH host
 keys (the broker uses its previously trusted IP as a host-key alias), uses the
 project key, and requires existing passwordless sudo on the course instances.
 RabbitMQ credentials are read only on the broker; they are never printed or saved
@@ -114,7 +116,7 @@ CloudFormation template requires the official ELB delivery bucket policy.
 
 ## Required load matrix
 
-Instructor clarification uses consumer configurations **5/10/15/20**, Top-N20,
+Instructor clarification uses consumer configurations **5/10/15/20** (the handout's 10/20/40/80 was run later as a supplementary test), Top-N20,
 and client configurations64/128/256/512. Ten queues mean at most ten ordered
 aggregation lanes, so performance is expected to flatten beyond ten useful lanes.
 Record configured threads, active workers and dynamic-scaling state separately.
@@ -161,3 +163,19 @@ final totals and both servers' real WebSocket snapshots. The selected resort/day
 must be unused. Services are restarted in `finally`; persistent volumes are never
 deleted. Evidence is written to `results/a2-local/recovery-verification.json`.
 Do not run it concurrently with the benchmark client or another fault test.
+
+## Scripts used for the cloud experiments
+
+| Script | Purpose |
+|---|---|
+| `run_instrumented.py --events N --threads T` | Starts `ec2_monitor.py`, waits for a baseline from every host, runs the Java load client through the ALB, and writes `results/a2-ec2/instrumented-N-cT-STAMP/` (client log, monitor CSV/JSONL, `run.json` with the client start and end UTC). Needs a consumer tunnel on `127.0.0.1:18081` |
+| `set_consumer_threads.py N` | Sets a fixed worker count (5, 10, 15, 20, 40 or 80) with dynamic scaling off; requires a drained pipeline, backs up `/etc/skitrak/consumer.env`, restarts the consumer and rolls back on failure |
+| `set_consumer_tuning.py ACK_BATCH_SIZE\|PREFETCH_COUNT VALUE` | Changes one consumer variable with the same drained check, backup and rollback |
+| `../deployment/set-ingest-pool.sh SIZE` | Changes `CHANNEL_POOL_SIZE` on ingest1 and ingest2 (extend the loop for four ingests) and verifies `/health` reports the new pool size |
+| `run_fresh_phase.py`, `finish_fresh_suite.py`, `repeat_consumer_sweep.py`, `repeat_channel_pool.py` | Automated phases used for the fresh 17-run session and for the repeats |
+| `build_fresh_report.py`, `build_evidence_pack.py`, `build_repeat_comparison.py`, `build_pool_comparison.py` | Build report, evidence pages and comparisons from the recorded runs. The fresh `report.md` was edited by hand afterwards, so rerunning `build_fresh_report.py` overwrites those edits |
+
+Tunnels: `ssh -N -L 127.0.0.1:18081:127.0.0.1:8081` to the consumer for metrics and
+`-L 127.0.0.1:15673:127.0.0.1:15672` to RabbitMQ for the management console, both with
+`StrictHostKeyChecking=yes` and the stored host-key alias. Console time axes use the
+browser's local time (UTC-8 on 2026-11-08), so convert before matching to run windows.

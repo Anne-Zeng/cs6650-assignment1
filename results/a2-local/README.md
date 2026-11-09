@@ -78,5 +78,7 @@ Subsequent EC2 experiments are stored separately in `../a2-ec2/`:1/2/4ingest
 500Kruns, four-ingest1Mstress, client and clarified consumer thread sweeps,
 ALBdistribution/cookie verification, real pipeline verification, and live ingest
 failover. Local functional tests do not substitute for those cloud experiments.
-High-load runs did not all meet queue-depth/lag targets. Final queue-console and
-ALB screenshots, analysis, and submission packaging still need consolidation.
+High-load runs did not all meet queue-depth/lag targets. The cloud results, queue-console
+and ALB screenshots and analysis are consolidated in
+`../../output/assignment2-fresh-20261108T135433Z/report.md` and `../../TUNING_PARAMETERS.md`;
+the requirement status is in `../../REQUIREMENTS_A2.md`.

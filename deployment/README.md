@@ -125,12 +125,22 @@ Ten ordered resort queues limit useful aggregation concurrency to ten lanes.
 15/20 configured threads are still experimental settings, not a promise of
 higher parallelism. Record configured and active worker counts separately.
 
-## Required evidence still to collect
+## Evidence
 
-See `monitoring/README.md`. Unit tests and local demo integration cannot replace
-real 500K/1M EC2 runs, RabbitMQ console screenshots, ALB request-distribution
-metrics, CPU/memory/network samples, failure tests, and real leaderboard evidence.
-No performance claims are inferred from Assignment 1 results.
+The 500K/1M EC2 runs, console screenshots, ALB metrics, failure tests and leaderboard
+evidence were collected; see `output/assignment2-fresh-20261108T135433Z/report.md`,
+`TUNING_PARAMETERS.md` and `REQUIREMENTS_A2.md`, and `monitoring/README.md` for the
+procedures. Unit tests and local demo integration do not replace them. No performance
+claims are inferred from Assignment 1 results.
+
+## Final measured configuration
+
+Ingest: `CHANNEL_POOL_SIZE=64`. Consumer: `STORE_BATCH_SIZE=64` (10 ms flush),
+`PREFETCH_COUNT=128`, `ACK_BATCH_SIZE=16`, `CONSUMER_THREADS=10`; sweeps set
+`CONSUMER_DYNAMIC_SCALING=false`, otherwise scaling is on. The consumer volume was raised to
+6,000 IOPS. Change values on EC2 with `monitoring/set_consumer_threads.py`,
+`monitoring/set_consumer_tuning.py` and `deployment/set-ingest-pool.sh`, not by editing the
+env files by hand.
 
 ## Updating the consumer after the write-batching optimization
 
@@ -140,6 +150,9 @@ EC2, then run `sudo bash ~/update-consumer.sh ~/consumer-batch-image.tar`.
 Stop load generation first. The update requires a healthy drained pipeline, retains
 the previous image under a rollback tag, stops the consumer, creates a consistent
 backup of its data directory, loads the image and restarts the service. It verifies
-restored processed counts plus `storeBatchSize=32` and `storeBatchWaitMs=10`.
+restored processed counts plus `storeBatchSize=32` and `storeBatchWaitMs=10`. That check is
+hard-coded for the first batching image; the final deployment runs `STORE_BATCH_SIZE=64`
+(set in `/etc/skitrak/consumer.env`), so change the expected value in `update-consumer.sh`
+before reusing it.
 On failure it restores the previous image without deleting the database. Existing
 credentials and storage paths are retained. No schema migration is required.

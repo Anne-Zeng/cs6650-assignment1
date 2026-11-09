@@ -1,108 +1,142 @@
-# SkiTrak Assignment 2
+# SkiTrak — Assignment 2
 
-Assignment 2 is implemented independently of the existing Assignment 1 modules.
-`server/`, `client-part1/`, `client-part2/`, and their historical results remain intact.
-The root Maven reactor builds only the new Assignment 2 modules.
+SkiTrak accepts skier swipes through Tomcat ingest servers, processes them asynchronously through RabbitMQ, and delivers real Top-N leaderboards over WebSockets. This repository contains the implementation, deployment tools, correctness checks, EC2 measurements, and tuning evidence for Assignment 2.
 
-## 教师澄清已落实
+## Pipeline and design
 
-- 保持 10 个雪场和 10 个业务队列；每个雪场串行聚合。
-- 默认 `TOP_N=20`。
-- 消费线程实验使用 **5 / 10 / 15 / 20**；超过 10 个有效聚合线程时，预期收益趋平。
-- 客户端线程仍测试 64 / 128 / 256 / 512。
-- 官方 `lift_vertical.json` 已按本次聊天提供的 40 个数值保存到公共资源和部署目录；例如 lift 1=167ft、21=267ft、40=269ft。Pretty print 只改变显示缩进。
-- 实例类型由学生选择并记录，不能把不同实例或旧版 A1 的成绩混作同一组实验。
+```text
+Client → ALB → Ingest servers → RabbitMQ resort queues → Consumer → SQLite
+                     ↑                                    |
+                     └── Topic backplane ← changed Top-N ─┘
+                     |
+                WebSocket subscribers
+```
 
-## 本地启动：现在不需要 EC2 或单独安装 Tomcat
+- **Ingestion:** validates requests and resolves vertical distance using the official 40-lift table. Each logical swipe retains its `Idempotency-Key` across retries. A successful HTTP 201 follows a confirmed persistent publish with no mandatory return.
+- **Ordered aggregation:** ten queues (`resort.1` through `resort.10`) feed ten serial resort lanes scheduled by a shared Consumer worker pool. One resort never runs concurrently on two workers.
+- **Durable state:** per-resort SQLite databases use WAL and `synchronous=FULL`. Transactions persist deduplication records, skier totals, changed snapshots, and an outbox. Raw messages are acknowledged after the required leaderboard publication is confirmed.
+- **Connection locality:** `leaderboard.topic` routes full snapshots using `lb.{resortID}`. Each WebSocket server owns an exclusive queue and binds only resorts with local subscribers. The first subscription binds before fetching an authoritative snapshot; version checks reject stale bootstrap responses and duplicate updates.
+- **Recovery:** the producer reuses a long-lived connection and an exclusive, bounded channel pool. Application-owned recovery replaces failed pool generations. WebSocket nodes restore subscriptions and resynchronize snapshots after backplane failures.
 
-需要 Java 11、Maven 和运行中的 Docker Desktop。Tomcat 9、RabbitMQ 和 consumer
-由 Docker Compose 启动。首次构建需要从 Maven Central / Docker Hub 下载依赖。
+Topic routing reduces irrelevant traffic compared with fanout, at the cost of subscription lifecycle coordination and snapshot recovery. Self-operated RabbitMQ also makes connection/channel management and broker operation part of the implementation. The architecture document explains these tradeoffs, including the first-subscriber bind/snapshot race and the comparison with a managed queue.
+
+## Repository layout
+
+| Directory | Purpose |
+|---|---|
+| `common/` | Message models, official lift lookup, configuration, and queue topology |
+| `server-v2/` | Tomcat ROOT WAR, swipe validation, confirmed publishing, channel pool, and WebSocket backplane |
+| `consumer/` | Ordered resort lanes, durable aggregation/deduplication/outbox, Top-N calculation, and snapshot/metrics APIs |
+| `client-v2/` | Concurrent load generation, stable retry IDs, HTTP metrics, WebSocket verification, and pipeline-drain checks |
+| `deployment/` | Docker Compose, EC2 role installation, systemd services, and ALB configuration |
+| `monitoring/` | Correctness/recovery checks, EC2 monitoring, benchmark orchestration, console capture, and evidence generation |
+| `results/` | Original validation and benchmark records |
+| `output/` | Reports, PDFs, plots, and archived screenshots |
+| `transcripts/` | Assignment AI-use transcripts |
+
+The root Maven reactor builds the Assignment 2 modules. Assignment 1 source and historical measurements remain in their existing directories.
+
+## Build and run locally
+
+Requirements: Java 11, Maven, and a running Docker engine. Docker supplies Tomcat 9, RabbitMQ, and the Consumer; separate EC2 instances are not needed for local verification.
+
+Run from the repository root:
 
 ```bash
-# macOS 上已有 Corretto 11 时：
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
-export PATH="$JAVA_HOME/bin:$PATH"
 ./deployment/build.sh
 
-# 只有 .env 不存在时才复制，避免覆盖已有密码：
+# Preserve an existing environment file.
 test -f deployment/.env || cp deployment/.env.example deployment/.env
-# 编辑 deployment/.env，设置本地 RabbitMQ 密码。不要提交该文件。
+# Set your local RabbitMQ credentials in deployment/.env before starting.
 ./deployment/local-up.sh
 ```
 
-本次协作已生成一个被 Git 忽略、权限为 600 的本地 `.env`，包含随机测试密码。
-正常配置使用官方 lift 表，不需要 demo override。
+On macOS with Corretto 11 installed, select it before building if necessary:
 
-| 地址 | 用途 |
+```bash
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+export PATH="$JAVA_HOME/bin:$PATH"
+```
+
+The normal stack uses the official lift table. Synthetic demo values are reserved for explicitly labeled fixture tests.
+
+| Endpoint | Purpose |
 |---|---|
-| `http://localhost:8080/health` | ingest 1 就绪状态 |
-| `http://localhost:8082/health` | ingest 2 就绪状态 |
-| `http://localhost:8081/health` | consumer 就绪状态 |
-| `http://localhost:8081/metrics` | 已处理唯一事件、队列、线程、lag、outbox 指标 |
-| `http://localhost:15672` | RabbitMQ 管理界面，凭据见本地 `.env` |
-| `ws://localhost:8080/leaderboard/1?dayID=1` | 雪场 1 当日榜单 |
+| `http://localhost:8080/health` | Ingest 1 readiness |
+| `http://localhost:8082/health` | Ingest 2 readiness |
+| `http://localhost:8081/health` | Consumer readiness |
+| `http://localhost:8081/metrics` | Processing, queue, worker, lag, and outbox metrics |
+| `http://localhost:15672` | RabbitMQ Management; credentials come from the local environment file |
+| `ws://localhost:8080/leaderboard/1?dayID=1` | Resort 1 leaderboard subscription |
 
-接口在 ROOT WAR 下，因此 ALB 的 `/health` 是实际路径，不需要 `/ski-servlet` 前缀。
+The WAR is deployed at the root context, so the health path is `/health`.
+
+### Verify business correctness
 
 ```bash
 python3 monitoring/verify_pipeline.py \
-  --ingest-url http://localhost:8080 --ingest-url http://localhost:8082 \
+  --ingest-url http://localhost:8080 \
+  --ingest-url http://localhost:8082 \
   --consumer-url http://localhost:8081 \
-  --lift-file deployment/config/lift_vertical.json --day 363
+  --lift-file deployment/config/lift_vertical.json \
+  --day 363
 ```
 
-该验证使用尚未写入数据的 day。再次运行请选择另一个空 day，避免混入历史数据。
-它发送 100 个唯一刷卡和 20 次跨节点重复请求，独立计算 Top-20，并校验两台服务器上的真实 WebSocket 内容。
+Choose an unused day for each independent verification. The verifier sends 100 unique swipes and 20 duplicate requests across nodes, independently calculates expected standings, and checks authoritative snapshots and real WebSocket results.
 
-小规模客户端运行示例（参数中第 4 项为每个 warmup 线程的事件数）：
+### Run the load client
 
 ```bash
-cd client-v2
-java -jar target/client-v2.jar http://localhost:8080 5000 64 10 10 buffered 6650 http://localhost:8081 120
+java -jar client-v2/target/client-v2.jar \
+  http://localhost:8080 500000 128 1000 10 buffered 6650 \
+  http://localhost:8081 600
 ```
 
-HTTP 发送完成后客户端继续等待：唯一事件处理完成、队列及在途消息排空、outbox 完成、最终榜单已通过 WebSocket 观察到。
+Arguments: ingest URL, total events, main client threads, warmup events per thread, resort count, metrics mode, seed, Consumer URL, and drain timeout in seconds. Total events include warmup.
 
-## 模块与主要逻辑
+Run one benchmark at a time. The client distinguishes HTTP ingestion throughput from end-to-end throughput, waits for durable processing and drain, and verifies final HTTP/WebSocket leaderboard content. A local run is functional evidence; the submitted scaling measurements come from EC2.
 
-| 模块 | 职责 |
+## EC2 deployment and experiments
+
+The measured deployment uses four `t3.micro` ingest instances, a separate `t3.medium` RabbitMQ instance, and a separate `t3.medium` Consumer with persistent EBS. The Consumer volume was increased from 3,000 to 6,000 provisioned IOPS during earlier tuning. An internet-facing ALB spans two Availability Zones and forwards to ingest port 8080. Broker and Consumer communication uses private addresses; management access uses SSH tunnels.
+
+ALB settings include a 120-second idle timeout, target cookie stickiness with a 300-second duration, and `/health` checks. Existing upgraded WebSocket connections stay on their accepting server; recovery requires reconnection and snapshot bootstrap.
+
+Deployment commands and security-group requirements are documented in `deployment/README.md`. Monitoring prerequisites and experiment commands are documented in `monitoring/README.md`. After an EC2 stop/start, update the public addresses in `monitoring/ec2_monitor.py`; retain verified SSH host-key aliases. Configure the intended ALB targets and confirm actual routing before a benchmark.
+
+| Experiment | Evidence collected |
 |---|---|
-| `common/` | 消息 DTO、官方 lift 表、参数解析、RabbitMQ 拓扑 |
-| `server-v2/` | Tomcat ROOT WAR，校验、可靠发布、Channel 池、topic backplane、本机 WebSocket 会话 |
-| `consumer/` | 独立进程，有序处理、SQLite 持久化去重/累计值/版本/outbox、Top-N、快照 HTTP API |
-| `client-v2/` | 复用 A1 压测逻辑，增加稳定幂等键、真实榜单验证、流水线完成等待 |
-| `deployment/` | Docker Compose、独立 EC2 角色安装、systemd、ALB CloudFormation |
-| `monitoring/` | 业务正确性、监控采集、队列绘图、ALB 验证、线程与实例数实验脚本 |
+| 1 / 2 / 4 ingests, 500K events, 64 / 128 / 256 / 512 client threads | Runtime, throughput, HTTP latency/failures/retries, queue depth/rates, host resources, and request-counter distribution |
+| 4 ingests, 1M events, 512 client threads | Stress behavior, drain time, backlog, lag, and resource pressure |
+| Consumer 5 / 10 / 15 / 20 workers | Instructor-clarified sweep, plus a retained repeat |
+| Consumer 10 / 20 / 40 / 80 workers | Supplementary forward/reverse sweep of the original handout values |
+| Prefetch 64 / 128 / 256 / 512; ACK batch 1 / 16; channel pool 32 / 64 | Tuning comparisons, original logs, sampled metrics, and available console screenshots |
+| Functional and recovery checks | Official vertical values, duplicate replay, cross-node leaderboard delivery, restart behavior, ALB distribution/stickiness, and WebSocket failover |
 
-### 可靠性边界
+The primary fresh session (`20261108T135433Z`) contains 17 runs totaling 9,000,000 processed events, zero final failed requests, zero additional duplicates, and 269 application retries. Supplementary tuning and repeat sessions are identified separately rather than merged into that total. Dates and chart windows are UTC.
 
-1. 客户端每个逻辑 swipe 生成一次 UUID，HTTP 重试和跨 ingest 重试保持 `Idempotency-Key` 不变。
-2. ingest 查官方 vertical，借出预建 Channel，持久化发布；处理 mandatory return 和 publisher confirm 后才返回 201。
-3. 每个雪场一个 FIFO serial lane；不同雪场在共享线程池中公平轮转。重试发生在原 lane 内，后续消息不能越过失败消息。
-4. SQLite WAL + FULL synchronous 的单事务写入 inbox 去重、累计值、版本和 outbox。重启后恢复状态；数据库文件必须保留在持久 EBS/volume 上。
-5. consumer 发布变更后的完整榜单到 `leaderboard.topic`，routing key 为 `lb.{resortID}`；确认广播发布后 ack 原始消息。无订阅者是正常通知结果。
-6. 每台 WebSocket 服务器有自己的临时队列，只绑定本地有订阅者的雪场；首次订阅先绑定再取权威快照。版本比较、重连恢复及周期快照修复瞬时通知缺失。
-7. 队列容量溢出拒绝新发布，产生背压；TTL、死信、失败事件不计作成功聚合。保持 TTL 大于测试及恢复窗口。
+## Findings and evidence limits
 
-数据库不等于高可用集群。本实现允许同一 consumer 在保留数据目录的情况下重启，不支持两台独立 consumer 各自持有不同数据库来随意竞争相同雪场。磁盘永久丢失、超出 TTL、未修复的毒消息都应在报告中明确说明。
+- **Ingestion and completion scale differently.** In the primary session, four ingests at 512 client threads increased main HTTP throughput by 25.8% over one ingest, while end-to-end throughput fell by 5.16%. Additional admitted work accumulated downstream.
+- **The earliest measured constraint was the Consumer durable-write path.** Batching SQLite commits and subsequently increasing EBS IOPS were followed by substantial backlog/drain improvements. Later storage waiting and broker CPU pressure support downstream constraints, without proving one exclusive bottleneck in every run.
+- **Ten resort lanes limit aggregation parallelism.** Configuring more than ten workers did not establish a reliable throughput advantage. Sequential runs retain changing database/cache state, so differences are descriptive observations.
+- **Pool tuning has mixed results.** The latest two-ingest/512-client pool 32 → 64 pair recorded 2,559 → 3,098/s end-to-end, but retries increased from 0 to 58 and both settings had substantial backlog. It does not establish that pool 64 consistently eliminates retries or improves tail latency.
+- **Overload targets were not met universally.** Several lower-load observations met sampled Ready depth below 1,000 and average lag below 100 ms. Higher-load runs and some 128-client worker observations did not. The primary 1M stress run recorded Ready peak 377,327 and mean lag about 49.4 seconds.
+- **Monitoring gaps remain disclosed.** The primary 1M ingest counters cover only 3,716 requests, so they cannot establish full-run request distribution. The latest pool repeat contains Consumer monitoring timeouts. Sampled peaks and average lag do not prove per-event bounds.
+- **Console scope matters.** ALB charts must use the correct UTC window and metric dimensions. Available original captures are linked with their runs; the latest pool repeat's ALB captures are collected separately. Generated plots are labeled separately from actual console screenshots.
+- **Recovery has boundaries.** The recorded live WebSocket failover demonstrates Python-harness-managed reconnection, not proof of automatic reconnection by the Java load client. Same-volume Consumer restart is supported; independent multi-host Consumer HA, permanent disk loss, and replay of every transient leaderboard version are not claimed.
 
-## 云端部署与最终作业证据
+Retained tuning configuration: prefetch 128, ten fixed Consumer workers for controlled comparisons, ACK batch 16, channel pool 64, and database batches of at most 64 with a 10 ms partial-batch flush trigger. SQLite FULL durability remains enabled. Dynamic scaling is disabled during fixed-worker comparisons.
 
-代码和本地集成完成后才需要 EC2。云端使用独立的 RabbitMQ EC2、consumer EC2，及 1/2/4 台 ingest EC2；ALB 使用至少两个可用区子网。
-完整步骤见 [部署说明](deployment/README.md)，指标与测试命令见 [监控说明](monitoring/README.md)。
+## Documentation and submission evidence
 
-最终必须实际完成以下实验，不能由本地功能测试代替：
+The links below point to the `improve-metrics-buffering` branch and group the supporting material in reading order.
 
-- 1 台 ingest：500K；2 台：500K；4 台：500K，再 1M stress test。
-- 客户端线程 64/128/256/512；consumer 配置 5/10/15/20；记录 Top-N、prefetch、ack batch、Channel 池和实例类型。
-- HTTP 和端到端吞吐/延迟、失败/重试、RabbitMQ 深度与速率、consumer lag、CPU/内存/网络。
-- RabbitMQ 控制台图、ALB 分布及 cookie stickiness、节点故障/重连、真实榜单内容证据。
-- 按输入数据对账累计值和最终 Top-N；观察空队列不能单独证明不丢数据。
-
-`AI_USAGE.md` 是基于本次协作事实的反思草稿，需要本人审阅补充后提交。
-两页架构 PDF 和本地验证记录与云端性能证据分别保存，避免把未完成的实验写成通过。
-
-- [需求与验证对应表](REQUIREMENTS_A2.md)
-- [本地验证结果](results/a2-local/README.md)
-- [两页架构 PDF](output/pdf/assignment2-architecture.pdf)
-- [架构 Markdown 源文件](ARCHITECTURE_A2.md)
+- [Requirements and verification matrix](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/REQUIREMENTS_A2.md)
+- [Local verification results](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/results/a2-local/README.md)
+- [Two-page architecture PDF](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/output/pdf/assignment2-architecture.pdf)
+- [Architecture Markdown source](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/ARCHITECTURE_A2.md)
+- [Tuning parameters and supplementary experiments](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/TUNING_PARAMETERS.md)
+- [Fresh EC2 test report](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/output/assignment2-fresh-20261108T135433Z/report.md)
+- [Assignment 2 AI-use transcript](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/transcripts/assignment2_ai_usage.md)
+- [AI usage summary](https://github.com/Anne-Zeng/cs6650-assignment1/blob/improve-metrics-buffering/AI_USAGE.md)

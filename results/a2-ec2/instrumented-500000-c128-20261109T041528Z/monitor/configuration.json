@@ -1,0 +1,14 @@
+{
+  "startUTC": "2026-11-09T04:15:28.895902+00:00",
+  "durationSeconds": 1800,
+  "intervalSeconds": 2.0,
+  "hosts": {
+    "ingest1": "52.33.179.53",
+    "ingest2": "35.166.232.248",
+    "ingest3": "54.184.255.211",
+    "ingest4": "34.217.36.129",
+    "consumer": "52.88.220.13",
+    "rabbitmq": "44.243.227.111"
+  },
+  "note": "Host counters are measured on each EC2. Filter samples to the actual client run boundaries; idle monitoring tail is not load evidence."
+}

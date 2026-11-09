@@ -90,6 +90,20 @@ Controlled sweeps disable scaling to hold the worker count fixed. Lane ownership
 not fixed to a thread: any pool thread takes the next message of a free resort lane,
 and one resort never has two threads at once.
 
+## Backplane tradeoffs and the first-subscriber bind/snapshot race
+
+A topic exchange routes `lb.{resortID}` only to WebSocket nodes with local subscribers for that resort. A fanout exchange would be simpler because every node receives every snapshot and filters locally, but it sends uninterested updates across the network and requires deserialization/filtering on every node. Topic routing trades that traffic reduction for binding/unbinding coordination, broker binding state and bootstrap/recovery logic. When every node subscribes to every resort, its filtering advantage largely disappears. One shared competing-consumer queue would not be sufficient: a snapshot could reach a node that does not own the interested sockets. Neither topic routing nor cookie stickiness transfers an existing WebSocket between nodes.
+
+**First-subscriber race.** If the node fetches snapshot version 10 before binding and version 11 is committed and published between that fetch and binding, it can miss version 11 and show stale standings until a later update or resynchronization. The implementation instead completes `queueBind` before starting the HTTP snapshot request. Subscription changes, live deliveries and snapshot completions enter one lifecycle executor. The per-resort/day version check prevents an older snapshot response from overwriting a newer live update: if live version 12 arrives before HTTP version 11, version 11 is discarded; equal versions are also ignored. Generation and request tokens invalidate responses from disconnected connections or abandoned subscriptions. A failed bind marks the backplane unavailable, and reconnection restores active bindings before fetching snapshots again. Periodic resynchronization (default five seconds) repairs transient notification loss. This supports convergence to current standings; it does not guarantee replay of every intermediate version or instantaneous freshness during a disconnect.
+
+Implementation: `server-v2/src/main/java/skitrak/server/LeaderboardHub.java` (`join`, `bindResort`, `fetchSnapshot`, `connect`) and `LeaderboardSubscriptions.java` (`accept`, `deliver`).
+
+## Self-operated RabbitMQ versus a managed queue
+
+RabbitMQ gives this assignment explicit control over exchanges, bindings, per-resort queues, prefetch, manual acknowledgements and publisher confirms. The deployment also owns broker operation, resource provisioning, connection lifecycle, exclusive channel leases and failure recovery. Our producer keeps one long-lived connection per ingest with a bounded channel pool; a channel remains exclusively leased through confirmation. Automatic RabbitMQ client recovery is deliberately disabled in `RabbitConfig`, and `ChannelPool` owns generation replacement so stale leases cannot reenter a recovered pool. RabbitMQ clients can support automatic recovery; implementing recovery ourselves is a project choice, not an inherent inability of the library.
+
+A managed queue such as SQS shifts broker infrastructure operation to the provider, while the AWS SDK for Java 2.x supplies thread-safe service clients with internal HTTP connection pools ([AWS documentation](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/singleton-service-clients.html)). It would remove our AMQP channel-pool implementation, while application ordering, deduplication, subscriber delivery and retry semantics still require design. It also changes the messaging API and topology rather than directly replacing the topic exchange unchanged. We retain RabbitMQ to implement and measure the connection/channel/reconnection behavior required here. This illustrates the same responsibility-versus-control decision as operating an application on EC2 versus delegating more runtime operation to Lambda; those services do not have identical execution models.
+
 ## Failure handling, ALB and verification
 
 Each producer reuses one connection and a pre-created bounded Channel pool. A

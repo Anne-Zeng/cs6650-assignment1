@@ -54,3 +54,10 @@ If main HTTP throughput rises while end-to-end throughput changes little and que
 Fixed-worker comparisons must consider both lag and queue depth alongside throughput. Ten ordered resort queues cap useful aggregation parallelism at ten; configuring 15/20 workers does not create15/20 independent resort lanes. Sampled bounds and mean lag do not prove per-event limits.
 
 
+
+### Earliest observed bottleneck and how it changed
+
+The earliest monitored EC2 evidence in this project points to the **Consumer durable-write path**, before ingest scaling became the main experiment. With one SQLite FULL transaction per swipe, the 100K/64-client old-image observation (`instrumented-100000-c64-20261108T044946Z`) recorded a Ready peak of 15,516, roughly 57% Consumer I/O wait, 13.2 seconds of drain and about 1,148/s end-to-end throughput. The subsequent batched-write observation (`instrumented-100000-c64-20261108T052219Z`), still at 3,000 provisioned IOPS, recorded Ready peak 19, 0.74 seconds of drain and about 1,253/s. These observations support excessive durable-commit overhead/storage waiting as the first measured constraint. The earlier non-instrumented 500K run alone cannot identify the exact resource bottleneck.
+
+At 128 clients, larger batching/prefetch/ACK settings still left backlog at 3,000 IOPS; raising the Consumer volume to 6,000 IOPS with the same application settings was followed by Ready peak 0 and 0.76 seconds of drain. This strengthens the storage-capacity explanation for that stage, subject to sequential-run/cache variation. Later 256/512-client scaling runs again admitted work faster than it completed, with substantial backlog. Consumer I/O waiting and broker CPU pressure identify candidates for that later ceiling, but do not prove EBS IOPS is the exclusive cause. The lab policy denial explains why further volume tuning was unavailable; it is not itself performance evidence or a passing queue/lag result.
+
